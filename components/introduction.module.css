@@ -1,10 +1,10 @@
 .introSection {
     background-color: #ffffff;
-    padding: 11.5vw 3.3vw 10.4vw;
+    padding: 0 3.3vw;
     width: 100%;
     position: relative;
     overflow: visible;
-    min-height: 120vw;
+    min-height: 98vw;
 }
 
 .introContent {
