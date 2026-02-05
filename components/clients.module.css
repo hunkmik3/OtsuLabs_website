@@ -9,6 +9,10 @@
     align-items: flex-start;
     gap: 350px;
     margin-bottom: 250px;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .badge {
@@ -61,6 +65,10 @@
     grid-template-columns: repeat(6, 1fr);
     gap: 32px 24px;
     align-items: center;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .logoItem {
