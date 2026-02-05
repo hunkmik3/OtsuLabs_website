@@ -1,0 +1,154 @@
+.clientsSection {
+    background-color: #ffffff;
+    padding: 200px 48px 60px;
+    width: 100%;
+}
+
+.clientsHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 350px;
+    margin-bottom: 250px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    font-family: var(--font-geist-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #000000;
+    border: none;
+    border-radius: 50px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 8px;
+}
+
+.description {
+    font-family: var(--font-geist-sans);
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    width: 880px;
+    max-width: 100%;
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+}
+
+.logoRow {
+    width: 100%;
+}
+
+.logoRowImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.logoGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 32px 24px;
+    align-items: center;
+}
+
+.logoItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.logoItem:hover {
+    opacity: 1;
+}
+
+.logoPlaceholder {
+    background-color: #eaeaea;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 100px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-geist-mono);
+    font-size: 0.55rem;
+    color: #777;
+}
+
+@media (max-width: 1200px) {
+    .clientsSection {
+        padding: 60px 40px;
+    }
+
+    .clientsHeader {
+        gap: 60px;
+    }
+
+    .description {
+        font-size: 48px;
+    }
+
+    .logoGrid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .clientsSection {
+        padding: 50px 32px;
+    }
+
+    .clientsHeader {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .description {
+        font-size: 40px;
+    }
+
+    .logoGrid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .clientsSection {
+        padding: 40px 24px;
+    }
+
+    .description {
+        font-size: 32px;
+    }
+
+    .logoGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .description {
+        font-size: 26px;
+    }
+
+    .logoGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

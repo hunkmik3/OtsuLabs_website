@@ -1,0 +1,183 @@
+.section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 100px 48px;
+    position: relative;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.title {
+    font-family: var(--font-geist-sans);
+    font-size: 285px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 105%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.arrowIcon {
+    width: 60px;
+    height: 60px;
+    transform: translateY(130%);
+}
+
+.metadataBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: var(--font-geist-mono);
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    transform: translateY(-20px);
+}
+
+.yearBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    color: #ffffff;
+    width: 101px;
+    height: 48px;
+    padding: 7px 21px;
+    border-radius: 50px;
+    font-size: 16px;
+    /* Adjusted slightly to fit comfortably in 34px height */
+    gap: 10px;
+    margin-left: 15px;
+}
+
+.clientInfo {
+    font-family: var(--font-geist-mono);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    vertical-align: bottom;
+    margin-right: 115px;
+}
+
+/* Slide Styles */
+.worksList {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.card {
+    position: sticky;
+    top: 40px;
+    /* Adjust based on sticky header height if needed */
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.mediaContainer {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.mediaImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.viewButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-family: var(--font-geist-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.viewButton:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.cardFooter {
+    padding: 24px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #f5f5f5;
+    /* Light grey background for text area */
+}
+
+.textInfo h3 {
+    font-family: var(--font-geist-sans);
+    font-size: 52px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 105%;
+    letter-spacing: -0.04em;
+    margin: 0 0 8px 0;
+    color: #000000;
+}
+
+.textInfo p {
+    font-family: var(--font-geist-sans);
+    font-size: 52px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 105%;
+    letter-spacing: -0.04em;
+    color: #666666;
+    margin: 0;
+}
+
+.counter {
+    font-family: var(--font-geist-sans);
+    font-size: 52px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 105%;
+    letter-spacing: -0.04em;
+    text-align: right;
+    color: #000000;
+}
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 80px;
+    }
+
+    .mediaContainer {
+        height: 500px;
+    }
+}

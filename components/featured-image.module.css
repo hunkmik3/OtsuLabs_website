@@ -1,0 +1,69 @@
+.section {
+    width: 100%;
+    padding: 20px 48px 100px 48px;
+    background-color: #ffffff;
+}
+
+.imageContainer {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    background-color: #ccc;
+}
+
+.placeholderImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.textOverlay {
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+.row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.row:nth-child(2) {
+    justify-content: flex-end;
+}
+
+.pill {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 16px 36px;
+    border-radius: 100px;
+    font-family: var(--font-geist-sans);
+    font-size: 60px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+    vertical-align: middle;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .pill {
+        font-size: 24px;
+        padding: 10px 20px;
+    }
+
+    .textOverlay {
+        bottom: 40px;
+        left: 20px;
+        right: 20px;
+    }
+}

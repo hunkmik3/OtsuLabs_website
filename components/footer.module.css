@@ -1,0 +1,147 @@
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    height: 1100px;
+    padding: 100px 48px 0px;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-geist-sans);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.topContent {
+    position: relative;
+    z-index: 10;
+}
+
+.headingBlock {
+    margin-bottom: 80px;
+}
+
+.title {
+    font-family: var(--font-geist-sans), Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 78px;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.email {
+    font-family: var(--font-geist-sans), Helvetica, sans-serif;
+    font-size: 78px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+    text-align: justify;
+    vertical-align: middle;
+    color: #666666;
+    margin: 0;
+    display: block;
+    text-decoration: none;
+}
+
+.linksContainer {
+    display: flex;
+    gap: 120px;
+    font-family: var(--font-geist-mono);
+    font-size: 18.2px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.link:hover {
+    opacity: 1;
+}
+
+.separatorLine {
+    width: 100%;
+    height: 1px;
+    background-color: #ff0000;
+    margin: 60px 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    z-index: 0;
+}
+
+.bottomContent {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    font-family: var(--font-geist-mono);
+    font-size: 15.6px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 10;
+}
+
+.legal {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #888;
+}
+
+.locations {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #ccc;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 40px;
+
+}
+
+.locationItem {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+@media (max-width: 1024px) {
+
+    .title,
+    .email {
+        font-size: 52px;
+    }
+
+    .locations {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.characterImage {
+    position: absolute;
+    right: 0;
+    bottom: 90px;
+    height: 90%;
+    width: auto;
+    object-fit: contain;
+    object-position: right bottom;
+    z-index: 5;
+    pointer-events: none;
+}

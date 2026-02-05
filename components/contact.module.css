@@ -1,0 +1,159 @@
+.section {
+    padding: 100px 48px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.badge {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 7px 21px;
+    border-radius: 50px;
+    width: 154px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    /* Scaled gap 10 * 1.4 */
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 15.3px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    left: 39px;
+    top: 100px;
+}
+
+.content {
+    margin-left: max(300px, 25%);
+    /* Offset to right */
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 940px;
+}
+
+.heading {
+    font-family: var(--font-geist-sans);
+    font-size: 83px;
+    font-weight: 400;
+    /* Regular based on screenshot */
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: #000000;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.input,
+.fileUpload {
+    width: 100%;
+    height: 78px;
+    border-radius: 65px;
+    background-color: #ffffff;
+    border: none;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    padding: 0 26px;
+    font-family: var(--font-geist-mono);
+    font-size: 21px;
+    color: #000;
+    outline: none;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.input:focus {
+    border-color: #000;
+    background-color: #fff;
+}
+
+.input::placeholder {
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.fileUpload {
+    cursor: pointer;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    gap: 12px;
+}
+
+.paperclip {
+    font-size: 20px;
+}
+
+.submitButton {
+    width: calc(100% + 96px);
+    margin-left: -48px;
+    margin-top: 100px;
+    height: 138px;
+    background-color: #C2C2C2;
+    /* Light gray for the button */
+    border-radius: 100px;
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Marquee styling would go here */
+}
+
+.marqueeText {
+    font-family: var(--font-geist-sans);
+    font-size: 70px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #000;
+    transition: filter 0.3s ease;
+    mix-blend-mode: multiply;
+}
+
+.submitButton:hover .marqueeText {
+    filter: blur(8px);
+}
+
+.videoIcon {
+    width: 108px;
+    height: 90px;
+    opacity: 0.9;
+    object-fit: cover;
+    /* Assuming cover to fill 68x83 */
+}
+
+@media (max-width: 1024px) {
+    .content {
+        margin-left: 0;
+        margin-top: 60px;
+    }
+
+    .badge {
+        position: static;
+    }
+
+    .heading {
+        font-size: 40px;
+    }
+}

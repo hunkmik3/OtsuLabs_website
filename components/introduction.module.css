@@ -1,0 +1,130 @@
+.introSection {
+    background-color: #ffffff;
+    padding: 165px 48px 150px;
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    min-height: 1600px;
+}
+
+.introContent {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+.introTextWrapper {
+    width: 1012px;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    margin-top: 470px;
+    margin-left: 5px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+    height: 50px;
+    padding: 8px 15px;
+    font-family: var(--font-geist-mono);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 100%;
+    color: #ffffff;
+    background-color: #000000;
+    border: none;
+    border-radius: 50px;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.introText {
+    font-family: var(--font-geist-sans);
+    font-size: 88px;
+    font-weight: 400;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
+
+.introImageWrapper {
+    position: absolute;
+    right: -200px;
+    top: -200px;
+    width: 1620px;
+    height: auto;
+    z-index: 3;
+}
+
+.introImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 1400px) {
+    .introImageWrapper {
+        width: 900px;
+        height: auto;
+        right: -150px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .introSection {
+        padding: 120px 40px 80px;
+        min-height: 600px;
+    }
+
+    .introText {
+        font-size: 48px;
+    }
+
+    .introImageWrapper {
+        width: 700px;
+        right: -100px;
+        top: -50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .introSection {
+        padding: 100px 32px 60px;
+        min-height: auto;
+        overflow: hidden;
+    }
+
+    .introText {
+        font-size: 40px;
+    }
+
+    .introImageWrapper {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: 100%;
+        height: auto;
+        margin-top: 40px;
+    }
+
+    .introContent {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .introSection {
+        padding: 80px 24px 50px;
+    }
+
+    .introText {
+        font-size: 32px;
+    }
+}
