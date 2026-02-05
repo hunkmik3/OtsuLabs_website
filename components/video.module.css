@@ -69,10 +69,8 @@
 .bottomBar {
     position: absolute;
     bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: 100%;
-    max-width: 1920px;
     padding: 0 40px;
     display: flex;
     justify-content: space-between;
@@ -83,7 +81,6 @@
     font-weight: 400;
     text-transform: uppercase;
     z-index: 10;
-    box-sizing: border-box;
 }
 
 .bottomCenter {

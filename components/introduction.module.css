@@ -12,9 +12,6 @@
     align-items: flex-start;
     position: relative;
     z-index: 1;
-    max-width: 1920px;
-    margin: 0 auto;
-    width: 100%;
 }
 
 .introTextWrapper {
@@ -70,27 +67,6 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-}
-
-@media (max-width: 1800px) {
-    .introSection {
-        padding: 140px 48px 120px;
-    }
-
-    .introTextWrapper {
-        width: 800px;
-        margin-top: 300px;
-    }
-
-    .introText {
-        font-size: 70px;
-    }
-
-    .introImageWrapper {
-        width: 1200px;
-        right: -180px;
-        top: -150px;
-    }
 }
 
 @media (max-width: 1400px) {
