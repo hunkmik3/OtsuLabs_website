@@ -8,7 +8,7 @@ export default function IntroductionSection() {
                 <div className={styles.introTextWrapper}>
                     <span className={styles.badge}>INTRODUCTION</span>
                     <p className={styles.introText}>
-                        We are a lab for world class storytelling. Thousands of seconds of animation shipped. 100M+ views <br />and climbing.
+                        We are a lab for world class <br />storytelling. Thousands of <br />seconds of animation <br />shipped. 100M+ views <br />and climbing.
                     </p>
                 </div>
 

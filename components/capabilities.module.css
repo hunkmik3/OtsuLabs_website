@@ -1,11 +1,10 @@
 .section {
     width: 100%;
     background-color: #ffffff;
-    padding: 100px 48px;
+    padding: 6.9vw 3.3vw;
     display: flex;
     flex-direction: column;
-    gap: 150px;
-    /* Large vertical gap as seen between text and tags */
+    gap: 10.4vw;
 }
 
 .topContainer {
@@ -17,22 +16,20 @@
 .badge {
     background-color: #000000;
     color: #ffffff;
-    padding: 16px 32px;
-    border-radius: 50px;
+    padding: 1.1vw 2.2vw;
+    border-radius: 3.5vw;
     font-family: var(--font-geist-mono);
-    font-size: 18px;
+    font-size: 1.25vw;
     text-transform: uppercase;
     font-weight: 500;
 }
 
 .description {
     width: 70%;
-    /* Increased slightly to handle larger text */
     font-family: var(--font-geist-sans);
-    font-size: 78px;
+    font-size: 3.4vw;
     font-weight: 400;
     font-style: normal;
-    /* Large display size */
     line-height: 95%;
     letter-spacing: -0.04em;
     color: #000000;
@@ -42,23 +39,27 @@
 .tagsContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 30px;
+    gap: 0.7vw 2.1vw;
     width: 100%;
 }
 
 .tag {
     font-family: var(--font-geist-sans);
-    font-size: 52px;
+    font-size: 2.48vw;
     font-weight: 400;
     font-style: normal;
     line-height: 120%;
-    /* Increased slightly to prevent overlap with larger text */
     letter-spacing: -0.05em;
     color: #000000;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 0.8vw;
     vertical-align: middle;
+}
+
+.tag img {
+    width: 2.48vw !important;
+    height: 2.48vw !important;
 }
 
 @media (max-width: 1024px) {
