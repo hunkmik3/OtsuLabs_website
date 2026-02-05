@@ -68,6 +68,20 @@
     vertical-align: middle;
 }
 
+@media (max-width: 1800px) {
+    .description {
+        font-size: 60px;
+    }
+
+    .tag {
+        font-size: 40px;
+    }
+
+    .section {
+        gap: 100px;
+    }
+}
+
 @media (max-width: 1024px) {
     .description {
         width: 100%;
