@@ -103,7 +103,6 @@
     margin-top: 100px;
     height: 138px;
     background-color: #C2C2C2;
-    /* Light gray for the button */
     border-radius: 100px;
     border: none;
     overflow: hidden;
@@ -112,7 +111,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Marquee styling would go here */
 }
 
 .marqueeText {
@@ -127,12 +125,17 @@
     align-items: center;
     gap: 20px;
     color: #000;
-    transition: filter 0.3s ease;
     mix-blend-mode: multiply;
+    animation: marquee 15s linear infinite;
 }
 
-.submitButton:hover .marqueeText {
-    filter: blur(8px);
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .videoIcon {
@@ -140,7 +143,6 @@
     height: 90px;
     opacity: 0.9;
     object-fit: cover;
-    /* Assuming cover to fill 68x83 */
 }
 
 @media (max-width: 1024px) {

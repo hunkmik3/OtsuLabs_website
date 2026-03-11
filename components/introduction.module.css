@@ -61,6 +61,7 @@
     width: 87.5vw;
     height: auto;
     z-index: 3;
+    will-change: transform;
 }
 
 .introImage {

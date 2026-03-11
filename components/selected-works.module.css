@@ -1,10 +1,14 @@
 .section {
     width: 100%;
     background-color: #ffffff;
-    padding: 100px 48px;
+    padding: 100px 48px 24px;
     position: relative;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
+    --sticky-top: 0px;
+    --stack-gap: clamp(56px, 8vh, 120px);
+    --card-radius: 20px;
+    --card-peek: 15px;
 }
 
 .headerContainer {
@@ -79,32 +83,62 @@
 
 /* Slide Styles */
 .worksList {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    display: block;
+    position: relative;
+    padding-bottom: clamp(72px, 12vh, 140px);
 }
 
 .card {
+    position: -webkit-sticky;
     position: sticky;
-    top: 40px;
-    /* Adjust based on sticky header height if needed */
     width: 100%;
-    border-radius: 20px;
+    border-radius: var(--card-radius);
     overflow: hidden;
     background-color: #f5f5f5;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+}
+
+.card + .card {
+    margin-top: var(--stack-gap);
+}
+
+.card:nth-child(1) {
+    z-index: 1;
+    top: var(--sticky-top);
+}
+
+.card:nth-child(2) {
+    z-index: 2;
+    top: calc(var(--sticky-top) + var(--card-peek));
+}
+
+.card:nth-child(3) {
+    z-index: 3;
+    top: calc(var(--sticky-top) + var(--card-peek) * 2);
 }
 
 .mediaContainer {
     width: 100%;
-    height: auto;
+    height: calc(100vh - var(--sticky-top) - 200px);
     position: relative;
     overflow: hidden;
 }
 
 .mediaImage {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+}
+
+.mediaVideo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .viewButton {
@@ -132,17 +166,17 @@
 }
 
 .cardFooter {
-    padding: 24px 30px;
+    padding: clamp(18px, 1.9vw, 30px);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     background-color: #f5f5f5;
-    /* Light grey background for text area */
+    gap: 16px;
 }
 
 .textInfo h3 {
     font-family: var(--font-geist-sans);
-    font-size: 52px;
+    font-size: clamp(30px, 3.6vw, 58px);
     font-weight: 400;
     font-style: normal;
     line-height: 105%;
@@ -153,7 +187,7 @@
 
 .textInfo p {
     font-family: var(--font-geist-sans);
-    font-size: 52px;
+    font-size: clamp(26px, 3.2vw, 54px);
     font-weight: 400;
     font-style: normal;
     line-height: 105%;
@@ -164,21 +198,63 @@
 
 .counter {
     font-family: var(--font-geist-sans);
-    font-size: 52px;
+    font-size: clamp(30px, 3.6vw, 58px);
     font-weight: 400;
     font-style: normal;
     line-height: 105%;
     letter-spacing: -0.04em;
     text-align: right;
     color: #000000;
+    white-space: nowrap;
 }
 
 @media (max-width: 1024px) {
-    .title {
-        font-size: 80px;
+    .section {
+        padding: 72px 18px 16px;
+        --sticky-top: 0px;
+        --stack-gap: 34px;
+        --card-peek: 12px;
     }
 
-    .mediaContainer {
-        height: 500px;
+    .title {
+        font-size: clamp(56px, 16vw, 100px);
+    }
+
+    .metadataBar {
+        margin-top: 6px;
+        margin-bottom: 18px;
+        transform: none;
+        font-size: 12px;
+        gap: 10px;
+    }
+
+    .yearBadge {
+        width: auto;
+        height: auto;
+        padding: 7px 14px;
+        margin-left: 0;
+        font-size: 12px;
+    }
+
+    .clientInfo {
+        margin-right: 0;
+        font-size: 10px;
+        text-align: right;
+    }
+
+    .cardFooter {
+        align-items: flex-end;
+    }
+
+    .textInfo h3 {
+        font-size: clamp(24px, 6.8vw, 34px);
+    }
+
+    .textInfo p {
+        font-size: clamp(22px, 6vw, 30px);
+    }
+
+    .counter {
+        font-size: clamp(28px, 8.6vw, 44px);
     }
 }

@@ -6,15 +6,28 @@ const works = [
         id: 1,
         title: "Nova Thera: Initation",
         description: "A short project description goes here",
-        image: "/images/home/selected_works_1.png",
+        type: "image" as const,
+        src: "/images/home/selected_works_1.png",
     },
-    // Add more placeholder items for the stickiness later if needed
+    {
+        id: 2,
+        title: "Project Placeholder 2",
+        description: "A short project description goes here",
+        type: "video" as const,
+        src: "/images/home/showreels.mp4",
+    },
+    {
+        id: 3,
+        title: "Project Placeholder 3",
+        description: "A short project description goes here",
+        type: "image" as const,
+        src: "/images/home/Hero Section.png",
+    },
 ];
 
 export default function SelectedWorksSection() {
     return (
         <section className={styles.section}>
-            {/* Header */}
             <div>
                 <h2 className={styles.title}>
                     Selected works
@@ -32,30 +45,33 @@ export default function SelectedWorksSection() {
                 </h2>
             </div>
 
-            {/* Metadata Bar */}
             <div className={styles.metadataBar}>
                 <span className={styles.yearBadge}>22-25</span>
                 <span className={styles.clientInfo}>CLIENT: PIXELMON OFFICIAL ANIME | OTSU LABS COLLECTION</span>
             </div>
 
-            {/* Works List (Sticky Cards) */}
             <div className={styles.worksList}>
                 {works.map((work, index) => (
-                    <div key={work.id} className={styles.card}>
+                    <article key={work.id} className={styles.card}>
                         <div className={styles.mediaContainer}>
-                            {/* Using a placeholder div if image doesn't exist, or try to load a generic placeholder */}
-                            <div style={{ width: '100%', height: '100%', backgroundColor: '#333' }}>
-                                {/* Replace with actual Image when available. Using VideoSection placeholder logic for now or a solid color with View Project btn */}
-                                {/* For visual accuracy with the prompt, I'll attempt to use an existing image or just the button */}
-                                <Image
-                                    src={work.image}
-                                    alt={work.title}
-                                    width={1400}
-                                    height={800}
-                                    style={{ width: '100%', height: 'auto', display: 'block' }}
-                                    className={styles.mediaImage}
+                            {work.type === "video" ? (
+                                <video
+                                    src={work.src}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className={styles.mediaVideo}
                                 />
-                            </div>
+                            ) : (
+                                <Image
+                                    src={work.src}
+                                    alt={work.title}
+                                    fill
+                                    className={styles.mediaImage}
+                                    sizes="(max-width: 1024px) 100vw, 92vw"
+                                />
+                            )}
                             <button className={styles.viewButton}>VIEW PROJECT</button>
                         </div>
                         <div className={styles.cardFooter}>
@@ -63,9 +79,11 @@ export default function SelectedWorksSection() {
                                 <h3>{work.title}</h3>
                                 <p>{work.description}</p>
                             </div>
-                            <div className={styles.counter}>{index + 1}/3</div>
+                            <div className={styles.counter}>
+                                {index + 1}/{works.length}
+                            </div>
                         </div>
-                    </div>
+                    </article>
                 ))}
             </div>
         </section>
