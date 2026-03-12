@@ -56,10 +56,10 @@ export default async function ProjectPage({ params }: PageProps) {
 
     const isPixelmon = project.slug === 'pixelmon';
     const showcasePrimaryImage = isPixelmon
-        ? '/images/projects/images/highligh1.png'
+        ? '/images/projects/images_global/highligh1.png'
         : project.explorationSlides[0]?.image || project.characterSheetImages[0]?.src;
     const showcaseSecondaryImage = isPixelmon
-        ? '/images/projects/images/highlight2.png'
+        ? '/images/projects/images_global/highlight2.png'
         : project.explorationSlides[1]?.image || project.characterSheetImages[1]?.src;
     const showcaseCaption = project.characterSheetText
         .split('\n')
@@ -69,10 +69,10 @@ export default async function ProjectPage({ params }: PageProps) {
         .replace(/\s+/g, ' ');
     const postProductionScenes = isPixelmon
         ? [
-              { label: 'Scene 1', image: '/images/projects/images/highlight2.png', duration: '00:00:20' },
-              { label: 'Scene 2', image: '/images/projects/images/highligh1.png', duration: '00:00:18' },
-              { label: 'Scene 3', image: '/images/projects/images/dragon3.png', duration: '00:00:23' },
-              { label: 'Scene 4', image: '/images/projects/images/dragon 4 .png', duration: '00:00:21' },
+              { label: 'Scene 1', image: '/images/projects/Nova%20Thera/animationkey1.png', duration: '00:00:20' },
+              { label: 'Scene 2', image: '/images/projects/Nova%20Thera/animationkey2.png', duration: '00:00:18' },
+              { label: 'Scene 3', image: '/images/projects/Nova%20Thera/animationkey3.png', duration: '00:00:23' },
+              { label: 'Scene 4', image: '/images/projects/Nova%20Thera/animationkey4.png', duration: '00:00:21' },
           ]
         : project.explorationSlides.slice(0, 4).map((slide, index) => ({
               label: `Scene ${index + 1}`,
@@ -80,10 +80,10 @@ export default async function ProjectPage({ params }: PageProps) {
               duration: `00:00:${String(16 + index * 2).padStart(2, '0')}`,
           }));
     const postProductionPairLeftImage = isPixelmon
-        ? '/images/home/feature_image.png'
+        ? '/images/projects/Nova%20Thera/keyhighlight1.png'
         : project.scopeImages.top[0] || project.explorationSlides[0]?.image || project.characterSheetImages[0]?.src;
     const postProductionPairRightImage = isPixelmon
-        ? '/images/home/hero_banner.png'
+        ? '/images/projects/Nova%20Thera/keyhighlight2.png'
         : project.scopeImages.top[1] || project.explorationSlides[1]?.image || project.characterSheetImages[1]?.src;
     const creditsLeft = isPixelmon ? pixelmonCreditsLeft : project.scopeOfWork.map((role) => ({ role, names: ['Otsu Team'] }));
     const creditsRight = isPixelmon ? pixelmonCreditsRight : [];

@@ -312,7 +312,7 @@ export default function WorkShowcase() {
 
                         <span className={styles.badge}>SCOPE</span>
                         <p className={styles.scopeText}>
-                            [{active.scope}]: {active.aboutDescription}
+                            [{active.scope}]
                         </p>
                     </div>
                 </div>
