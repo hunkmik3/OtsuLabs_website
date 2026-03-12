@@ -7,7 +7,7 @@ import { projects } from '@/lib/projects';
 
 export default function WorkShowcase() {
     const WHEEL_INTENT_THRESHOLD = 72;
-    const WHEEL_RESET_GAP_MS = 140;
+    const WHEEL_RESET_GAP_MS = 220;
     const SNAP_POST_COOLDOWN_MS = 260;
 
     const [activeIndex, setActiveIndex] = useState(0);
@@ -54,26 +54,47 @@ export default function WorkShowcase() {
             }
         };
 
+        const getTriggerY = () => {
+            const header = document.querySelector('header');
+            const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+            return headerBottom + 24;
+        };
+
+        const getCurrentCardIndexAtTrigger = (triggerY: number) => {
+            let nextIndex = 0;
+            const touchTolerance = 6;
+
+            for (let i = 0; i < projectRefs.current.length; i += 1) {
+                const cardRef = projectRefs.current[i];
+                if (!cardRef) continue;
+                if (cardRef.getBoundingClientRect().top <= triggerY + touchTolerance) {
+                    nextIndex = i;
+                } else {
+                    break;
+                }
+            }
+
+            return Math.min(nextIndex, projects.length - 1);
+        };
+
+        const normalizeWheelDelta = (event: WheelEvent) => {
+            if (event.deltaMode === WheelEvent.DOM_DELTA_LINE) {
+                return event.deltaY * 16;
+            }
+            if (event.deltaMode === WheelEvent.DOM_DELTA_PAGE) {
+                return event.deltaY * window.innerHeight;
+            }
+            return event.deltaY;
+        };
+
         const handleScroll = () => {
             if (!sectionRef.current) return;
 
             const rect = sectionRef.current.getBoundingClientRect();
 
             // Switch info when a card top "touches" the trigger line below the fixed header.
-            const header = document.querySelector('header');
-            const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
-            const triggerY = headerBottom + 24;
-
-            let nextIndex = 0;
-            for (let i = 0; i < projectRefs.current.length; i += 1) {
-                const cardRef = projectRefs.current[i];
-                if (!cardRef) continue;
-                if (cardRef.getBoundingClientRect().top <= triggerY) {
-                    nextIndex = i;
-                } else {
-                    break;
-                }
-            }
+            const triggerY = getTriggerY();
+            const nextIndex = getCurrentCardIndexAtTrigger(triggerY);
 
             // Release left column only when the last card reaches the same trigger line.
             const lastCardRef = projectRefs.current[projectRefs.current.length - 1];
@@ -113,7 +134,6 @@ export default function WorkShowcase() {
                 finalTouchLockedRef.current = false;
             }
 
-            nextIndex = Math.min(nextIndex, projects.length - 1);
             if (nextIndex === activeIndexRef.current) return;
 
             if (transitionTimerRef.current) {
@@ -144,15 +164,16 @@ export default function WorkShowcase() {
 
             // Apply a slight slow-scroll effect while inside the showcase zone.
             const sectionRect = sectionRef.current.getBoundingClientRect();
-            const header = document.querySelector('header');
-            const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+            const triggerY = getTriggerY();
+            const headerBottom = triggerY - 24;
             const isInShowcaseRange =
                 sectionRect.top <= headerBottom + 24 &&
                 sectionRect.bottom >= window.innerHeight * 0.18;
 
             if (!isInShowcaseRange) return;
 
-            const direction = event.deltaY > 0 ? 1 : event.deltaY < 0 ? -1 : 0;
+            const deltaY = normalizeWheelDelta(event);
+            const direction = deltaY > 0 ? 1 : deltaY < 0 ? -1 : 0;
             if (direction === 0) return;
             const now = Date.now();
 
@@ -169,7 +190,7 @@ export default function WorkShowcase() {
             }
             lastWheelDirectionRef.current = direction;
 
-            const currentIndex = activeIndexRef.current;
+            const currentIndex = getCurrentCardIndexAtTrigger(triggerY);
             const targetIndex = Math.min(
                 projects.length - 1,
                 Math.max(0, currentIndex + direction)
@@ -182,18 +203,24 @@ export default function WorkShowcase() {
             if (now < snapCooldownUntilRef.current) return;
             if (snapLockRef.current) return;
 
-            // Trackpad gestures emit many small deltas; require enough intent before snapping.
-            wheelIntentRef.current += Math.abs(event.deltaY);
-            if (wheelIntentRef.current < WHEEL_INTENT_THRESHOLD) return;
+            // Trackpad gestures emit many tiny deltas; wheel mice on Windows often use line deltas.
+            // Normalize then use a lighter threshold for non-pixel delta modes.
+            const intentThreshold =
+                event.deltaMode === WheelEvent.DOM_DELTA_PIXEL ? WHEEL_INTENT_THRESHOLD : 24;
+
+            wheelIntentRef.current += Math.abs(deltaY);
+            if (wheelIntentRef.current < intentThreshold) return;
             wheelIntentRef.current = 0;
 
             snapLockRef.current = true;
 
             const targetCard = projectRefs.current[targetIndex];
             if (targetCard) {
-                const targetTop = window.scrollY + targetCard.getBoundingClientRect().top - (headerBottom + 24);
+                const targetTop = Math.round(
+                    window.scrollY + targetCard.getBoundingClientRect().top - (headerBottom + 24)
+                );
                 snapTargetYRef.current = Math.max(0, targetTop);
-                window.scrollTo({ top: targetTop, behavior: 'smooth' });
+                window.scrollTo({ top: snapTargetYRef.current, behavior: 'smooth' });
             }
 
             if (snapSettleRafRef.current !== null) {
