@@ -16,6 +16,7 @@ const projects = [
 
 export default function OtsuHasPackedSection() {
     const [showAll, setShowAll] = useState(false);
+    const [imageLoadFailed, setImageLoadFailed] = useState<Record<string, boolean>>({});
     const seeMoreRef = useRef<HTMLButtonElement>(null);
 
     const handleToggle = () => {
@@ -45,11 +46,14 @@ export default function OtsuHasPackedSection() {
                         className={`${styles.strip} ${index >= 4 ? styles.stripExtra : ''} ${index >= 4 && showAll ? styles.stripExtraVisible : ''}`}
                     >
                         <Image
-                            src={project.image}
+                            src={imageLoadFailed[project.name] ? "/images/about/image/mention_image.png" : project.image}
                             alt={project.name}
                             width={1920}
                             height={400}
                             className={styles.stripImage}
+                            onError={() => {
+                                setImageLoadFailed((prev) => ({ ...prev, [project.name]: true }));
+                            }}
                         />
                         <div className={styles.stripContent}>
                             <span className={styles.label}>{project.name}</span>
