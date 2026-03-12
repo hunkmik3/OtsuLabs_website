@@ -1,6 +1,6 @@
 .section {
     background-color: #ffffff;
-    padding: 6.9vw 2.78vw 0;
+    padding: var(--section-pad-y) var(--content-pad-x) 0;
     width: 100%;
 }
 
@@ -91,7 +91,7 @@
 
 @media (max-width: 1024px) {
     .section {
-        padding: 60px 32px 0;
+        padding: clamp(56px, 6vw, 72px) var(--content-pad-x-tight) 0;
     }
 
     .badge {
@@ -131,7 +131,7 @@
 
 @media (max-width: 768px) {
     .section {
-        padding: 50px 24px 0;
+        padding: 50px var(--content-pad-x-tight) 0;
     }
 
     .heading {

@@ -1,10 +1,10 @@
 .section {
     width: 100%;
     background-color: #ffffff;
-    padding: 6.9vw 3.3vw;
+    padding: var(--section-pad-y) var(--content-pad-x);
     display: flex;
     flex-direction: column;
-    gap: 10.4vw;
+    gap: clamp(56px, 7.6vw, 140px);
 }
 
 .topContainer {
@@ -16,10 +16,10 @@
 .badge {
     background-color: #000000;
     color: #ffffff;
-    padding: 1.1vw 2.2vw;
-    border-radius: 3.5vw;
+    padding: clamp(8px, 0.75vw, 13px) clamp(16px, 1.55vw, 28px);
+    border-radius: var(--radius-pill);
     font-family: var(--font-geist-mono);
-    font-size: 1.25vw;
+    font-size: clamp(11px, 0.82vw, 14px);
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -27,7 +27,7 @@
 .description {
     width: 70%;
     font-family: var(--font-geist-sans);
-    font-size: 3.4vw;
+    font-size: clamp(32px, 3.4vw, 66px);
     font-weight: 400;
     font-style: normal;
     line-height: 95%;
@@ -39,13 +39,13 @@
 .tagsContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7vw 2.1vw;
+    gap: clamp(8px, 0.8vw, 14px) clamp(16px, 1.9vw, 32px);
     width: 100%;
 }
 
 .tag {
     font-family: var(--font-geist-sans);
-    font-size: 2.48vw;
+    font-size: clamp(28px, 2.45vw, 48px);
     font-weight: 400;
     font-style: normal;
     line-height: 120%;
@@ -53,19 +53,21 @@
     color: #000000;
     display: inline-flex;
     align-items: center;
-    gap: 0.8vw;
+    gap: clamp(8px, 0.8vw, 14px);
     vertical-align: middle;
 }
 
-.tag img {
-    width: 2.48vw !important;
-    height: 2.48vw !important;
+.tagIcon {
+    width: clamp(28px, 2.45vw, 48px);
+    height: clamp(28px, 2.45vw, 48px);
+    display: inline-block;
+    vertical-align: middle;
 }
 
 @media (max-width: 1024px) {
     .description {
         width: 100%;
-        font-size: 40px;
+        font-size: clamp(28px, 5.2vw, 40px);
         margin-top: 40px;
     }
 

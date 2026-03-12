@@ -1,28 +1,28 @@
 .clientsSection {
     background-color: #ffffff;
-    padding: 200px 48px 60px;
+    padding: clamp(96px, 10.4vw, 200px) var(--content-pad-x) clamp(48px, 5vw, 96px);
     width: 100%;
 }
 
 .clientsHeader {
     display: flex;
     align-items: flex-start;
-    gap: 350px;
-    margin-bottom: 250px;
+    gap: clamp(56px, 18vw, 350px);
+    margin-bottom: clamp(72px, 13vw, 250px);
 }
 
 .badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 20px;
+    padding: clamp(8px, 0.65vw, 12px) clamp(14px, 1.1vw, 20px);
     font-family: var(--font-geist-mono);
-    font-size: 0.65rem;
+    font-size: var(--fs-mono-sm);
     font-weight: 500;
     color: #ffffff;
     background-color: #000000;
     border: none;
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     letter-spacing: 0.05em;
     white-space: nowrap;
     flex-shrink: 0;
@@ -31,19 +31,19 @@
 
 .description {
     font-family: var(--font-geist-sans);
-    font-size: 60px;
+    font-size: clamp(32px, 3.2vw, 60px);
     font-weight: 400;
     line-height: 95%;
     letter-spacing: -0.04em;
     color: #000000;
-    width: 880px;
+    width: min(100%, clamp(520px, 46vw, 880px));
     max-width: 100%;
 }
 
 .logoContainer {
     display: flex;
     flex-direction: column;
-    gap: 75px;
+    gap: clamp(30px, 4vw, 75px);
 }
 
 .logoRow {
@@ -91,16 +91,8 @@
 }
 
 @media (max-width: 1200px) {
-    .clientsSection {
-        padding: 60px 40px;
-    }
-
     .clientsHeader {
         gap: 60px;
-    }
-
-    .description {
-        font-size: 48px;
     }
 
     .logoGrid {
@@ -109,17 +101,9 @@
 }
 
 @media (max-width: 1024px) {
-    .clientsSection {
-        padding: 50px 32px;
-    }
-
     .clientsHeader {
         flex-direction: column;
         gap: 24px;
-    }
-
-    .description {
-        font-size: 40px;
     }
 
     .logoGrid {
@@ -129,14 +113,6 @@
 }
 
 @media (max-width: 768px) {
-    .clientsSection {
-        padding: 40px 24px;
-    }
-
-    .description {
-        font-size: 32px;
-    }
-
     .logoGrid {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px 16px;

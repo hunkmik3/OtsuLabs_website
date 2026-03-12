@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: clamp(18px, 2.1vw, 40px);
 }
 
 .video {
@@ -23,16 +23,16 @@
 
 .muteButton {
     position: absolute;
-    top: 40px;
+    top: clamp(16px, 2.1vw, 40px);
     left: 50%;
     transform: translateX(-50%);
-    padding: 8px 16px;
+    padding: clamp(6px, 0.45vw, 9px) clamp(12px, 0.85vw, 16px);
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     color: #ffffff;
     font-family: var(--font-geist-mono);
-    font-size: 12px;
+    font-size: var(--fs-mono-sm);
     font-weight: 500;
     cursor: pointer;
     backdrop-filter: blur(5px);
@@ -45,13 +45,13 @@
 }
 
 .playButton {
-    padding: 15px 40px;
+    padding: clamp(11px, 0.85vw, 15px) clamp(24px, 2.1vw, 40px);
     background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
+    border-radius: var(--radius-pill);
     color: #ffffff;
     font-family: var(--font-geist-mono);
-    font-size: 14px;
+    font-size: clamp(12px, 0.84vw, 14px);
     font-weight: 500;
     cursor: pointer;
     backdrop-filter: blur(10px);
@@ -68,16 +68,16 @@
 
 .bottomBar {
     position: absolute;
-    bottom: 40px;
+    bottom: clamp(18px, 2.1vw, 40px);
     left: 0;
     width: 100%;
-    padding: 0 40px;
+    padding: 0 var(--content-pad-x);
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #ffffff;
     font-family: var(--font-geist-mono);
-    font-size: 12px;
+    font-size: var(--fs-mono-sm);
     font-weight: 400;
     text-transform: uppercase;
     z-index: 10;
@@ -87,4 +87,10 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .bottomBar {
+        font-size: 10px;
+    }
 }

@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 100vh;
     background-color: #ffffff;
-    padding-top: 120px;
+    padding-top: clamp(92px, 7vw, 128px);
     position: relative;
 }
 
@@ -16,12 +16,18 @@
     height: 100vh;
 }
 
+.leftColumnReleased {
+    position: absolute;
+    top: var(--left-column-release-top, 0px);
+    bottom: auto;
+}
+
 .infoPanel {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 clamp(24px, 3vw, 48px) calc(clamp(60px, 6vw, 100px) + 7vh);
+    justify-content: flex-start;
+    padding: clamp(108px, 8vw, 150px) var(--content-pad-x) clamp(48px, 4vw, 72px);
 }
 
 .projectTitle {
@@ -53,8 +59,8 @@
     font-weight: 400;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 50px;
+    padding: clamp(5px, 0.35vw, 7px) clamp(12px, 0.95vw, 18px);
+    border-radius: var(--radius-pill);
     width: fit-content;
     margin-top: 8px;
 }
@@ -94,11 +100,17 @@
     display: flex;
     flex-direction: column;
     gap: clamp(24px, 2.5vw, 40px);
-    padding: 0 clamp(24px, 3vw, 48px) clamp(60px, 6vw, 100px) 0;
+    padding: 0 var(--content-pad-x) clamp(180px, 15vh, 280px) 0;
 }
 
 .projectCard {
     width: 100%;
+}
+
+.projectCardLast {
+    position: sticky;
+    top: clamp(96px, 7.2vw, 132px);
+    z-index: 2;
 }
 
 .cardLink {
@@ -115,16 +127,16 @@
 .imageWrapper {
     position: relative;
     width: 100%;
-    border-radius: 20px;
+    border-radius: var(--radius-md);
     overflow: hidden;
 }
 
 .projectImage {
-    width: 115%;
-    margin-left: -7.5%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     display: block;
     object-fit: cover;
+    object-position: center;
     aspect-ratio: 5 / 3;
 }
 
@@ -150,7 +162,7 @@
 @media (max-width: 1024px) {
     .section {
         flex-direction: column;
-        padding-top: 100px;
+        padding-top: clamp(82px, 8vw, 100px);
     }
 
     .leftColumn {
@@ -161,19 +173,25 @@
     .infoPanel {
         position: static;
         height: auto;
-        padding: 0 18px 40px;
+        padding: 0 var(--content-pad-x-tight) clamp(30px, 4vw, 54px);
     }
 
     .rightColumn {
         width: 100%;
-        padding: 0 18px 60px;
-        gap: 40px;
+        margin-left: 0;
+        padding: 0 var(--content-pad-x-tight) clamp(48px, 5vw, 72px);
+        gap: clamp(24px, 4vw, 40px);
     }
 
     .projectCard {
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+
+    .projectCardLast {
+        position: static;
+        top: auto;
     }
 }
 

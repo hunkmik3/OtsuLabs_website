@@ -1,6 +1,6 @@
 .section {
     width: 100%;
-    padding: 20px 48px 100px 48px;
+    padding: clamp(20px, 1.6vw, 32px) var(--content-pad-x) var(--section-pad-y);
     background-color: #ffffff;
 }
 
@@ -8,7 +8,7 @@
     width: 100%;
     height: auto;
     position: relative;
-    border-radius: 40px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     background-color: #ccc;
 }
@@ -21,18 +21,18 @@
 
 .textOverlay {
     position: absolute;
-    bottom: 50px;
-    left: 80px;
-    right: 80px;
+    bottom: clamp(20px, 2.5vw, 50px);
+    left: clamp(20px, 4.2vw, 80px);
+    right: clamp(20px, 4.2vw, 80px);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(10px, 1vw, 20px);
     z-index: 10;
 }
 
 .row {
     display: flex;
-    gap: 16px;
+    gap: clamp(8px, 0.84vw, 16px);
     flex-wrap: wrap;
 }
 
@@ -43,10 +43,10 @@
 .pill {
     background-color: #ffffff;
     color: #000000;
-    padding: 16px 36px;
-    border-radius: 100px;
+    padding: clamp(8px, 0.84vw, 16px) clamp(16px, 1.88vw, 36px);
+    border-radius: var(--radius-pill);
     font-family: var(--font-geist-sans);
-    font-size: 60px;
+    font-size: clamp(22px, 3.1vw, 60px);
     font-weight: 400;
     font-style: normal;
     line-height: 95%;
@@ -56,13 +56,7 @@
 }
 
 @media (max-width: 768px) {
-    .pill {
-        font-size: 24px;
-        padding: 10px 20px;
-    }
-
     .textOverlay {
-        bottom: 40px;
         left: 20px;
         right: 20px;
     }

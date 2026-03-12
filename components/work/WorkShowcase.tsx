@@ -1,67 +1,274 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { CSSProperties, useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './work-showcase.module.css';
 import { projects } from '@/lib/projects';
 
 export default function WorkShowcase() {
+    const WHEEL_INTENT_THRESHOLD = 72;
+    const WHEEL_RESET_GAP_MS = 140;
+    const SNAP_POST_COOLDOWN_MS = 260;
+
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [leftPinned, setLeftPinned] = useState(true);
+    const [releaseTop, setReleaseTop] = useState(0);
     const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
     const sectionRef = useRef<HTMLElement | null>(null);
     const leftColRef = useRef<HTMLDivElement | null>(null);
+    const activeIndexRef = useRef(0);
+    const leftPinnedRef = useRef(true);
+    const transitionTimerRef = useRef<number | null>(null);
+    const holdTimerRef = useRef<number | null>(null);
+    const holdUntilRef = useRef(0);
+    const finalTouchLockedRef = useRef(false);
+    const bodyOverflowRef = useRef('');
+    const htmlOverflowRef = useRef('');
+    const snapLockRef = useRef(false);
+    const snapTargetYRef = useRef<number | null>(null);
+    const snapSettleRafRef = useRef<number | null>(null);
+    const snapFallbackTimerRef = useRef<number | null>(null);
+    const snapCooldownUntilRef = useRef(0);
+    const wheelIntentRef = useRef(0);
+    const lastWheelTsRef = useRef(0);
+    const lastWheelDirectionRef = useRef(0);
 
     useEffect(() => {
-        const observers: IntersectionObserver[] = [];
-
-        projectRefs.current.forEach((ref, index) => {
-            if (!ref) return;
-
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            setIsTransitioning(true);
-                            setTimeout(() => {
-                                setActiveIndex(index);
-                                setTimeout(() => setIsTransitioning(false), 50);
-                            }, 150);
-                        }
-                    });
-                },
-                { threshold: 0.6 }
-            );
-
-            observer.observe(ref);
-            observers.push(observer);
-        });
-
-        return () => observers.forEach((o) => o.disconnect());
-    }, []);
+        activeIndexRef.current = activeIndex;
+    }, [activeIndex]);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (!sectionRef.current) return;
-            const rect = sectionRef.current.getBoundingClientRect();
-            const sectionBottom = rect.bottom;
-            setLeftPinned(sectionBottom > window.innerHeight);
+        const unlockSnapLock = () => {
+            snapLockRef.current = false;
+            snapTargetYRef.current = null;
+            snapCooldownUntilRef.current = Date.now() + SNAP_POST_COOLDOWN_MS;
+
+            if (snapSettleRafRef.current !== null) {
+                window.cancelAnimationFrame(snapSettleRafRef.current);
+                snapSettleRafRef.current = null;
+            }
+            if (snapFallbackTimerRef.current !== null) {
+                window.clearTimeout(snapFallbackTimerRef.current);
+                snapFallbackTimerRef.current = null;
+            }
         };
 
+        const handleScroll = () => {
+            if (!sectionRef.current) return;
+
+            const rect = sectionRef.current.getBoundingClientRect();
+
+            // Switch info when a card top "touches" the trigger line below the fixed header.
+            const header = document.querySelector('header');
+            const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+            const triggerY = headerBottom + 24;
+
+            let nextIndex = 0;
+            for (let i = 0; i < projectRefs.current.length; i += 1) {
+                const cardRef = projectRefs.current[i];
+                if (!cardRef) continue;
+                if (cardRef.getBoundingClientRect().top <= triggerY) {
+                    nextIndex = i;
+                } else {
+                    break;
+                }
+            }
+
+            // Release left column only when the last card reaches the same trigger line.
+            const lastCardRef = projectRefs.current[projectRefs.current.length - 1];
+            const lastCardTop = lastCardRef?.getBoundingClientRect().top ?? Number.POSITIVE_INFINITY;
+            const shouldReleaseLeftColumn = lastCardTop <= triggerY;
+
+            if (shouldReleaseLeftColumn && leftPinnedRef.current) {
+                const nextReleaseTop = Math.max(0, -rect.top);
+                setReleaseTop(nextReleaseTop);
+                setLeftPinned(false);
+                leftPinnedRef.current = false;
+            } else if (!shouldReleaseLeftColumn && !leftPinnedRef.current) {
+                setLeftPinned(true);
+                leftPinnedRef.current = true;
+            }
+
+            // At the final touch point, hold scroll briefly before allowing further scroll.
+            if (shouldReleaseLeftColumn && !finalTouchLockedRef.current) {
+                finalTouchLockedRef.current = true;
+                holdUntilRef.current = Date.now() + 520;
+                bodyOverflowRef.current = document.body.style.overflow;
+                htmlOverflowRef.current = document.documentElement.style.overflow;
+                document.body.style.overflow = 'hidden';
+                document.documentElement.style.overflow = 'hidden';
+
+                if (holdTimerRef.current) {
+                    window.clearTimeout(holdTimerRef.current);
+                }
+
+                holdTimerRef.current = window.setTimeout(() => {
+                    document.body.style.overflow = bodyOverflowRef.current;
+                    document.documentElement.style.overflow = htmlOverflowRef.current;
+                    holdUntilRef.current = 0;
+                    holdTimerRef.current = null;
+                }, 520);
+            } else if (!shouldReleaseLeftColumn) {
+                finalTouchLockedRef.current = false;
+            }
+
+            nextIndex = Math.min(nextIndex, projects.length - 1);
+            if (nextIndex === activeIndexRef.current) return;
+
+            if (transitionTimerRef.current) {
+                window.clearTimeout(transitionTimerRef.current);
+            }
+
+            activeIndexRef.current = nextIndex;
+            setIsTransitioning(true);
+            transitionTimerRef.current = window.setTimeout(() => {
+                setActiveIndex(nextIndex);
+                setIsTransitioning(false);
+                transitionTimerRef.current = null;
+            }, 120);
+        };
+
+        handleScroll();
         window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleScroll);
+
+        const handleWheel = (event: WheelEvent) => {
+            // Hard-stop during the final touch hold.
+            if (Date.now() < holdUntilRef.current) {
+                event.preventDefault();
+                return;
+            }
+
+            if (!sectionRef.current) return;
+
+            // Apply a slight slow-scroll effect while inside the showcase zone.
+            const sectionRect = sectionRef.current.getBoundingClientRect();
+            const header = document.querySelector('header');
+            const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+            const isInShowcaseRange =
+                sectionRect.top <= headerBottom + 24 &&
+                sectionRect.bottom >= window.innerHeight * 0.18;
+
+            if (!isInShowcaseRange) return;
+
+            const direction = event.deltaY > 0 ? 1 : event.deltaY < 0 ? -1 : 0;
+            if (direction === 0) return;
+            const now = Date.now();
+
+            // Reset accumulated gesture when wheel stream pauses.
+            if (now - lastWheelTsRef.current > WHEEL_RESET_GAP_MS) {
+                wheelIntentRef.current = 0;
+                lastWheelDirectionRef.current = 0;
+            }
+            lastWheelTsRef.current = now;
+
+            // Reset accumulation when user changes direction.
+            if (lastWheelDirectionRef.current !== 0 && lastWheelDirectionRef.current !== direction) {
+                wheelIntentRef.current = 0;
+            }
+            lastWheelDirectionRef.current = direction;
+
+            const currentIndex = activeIndexRef.current;
+            const targetIndex = Math.min(
+                projects.length - 1,
+                Math.max(0, currentIndex + direction)
+            );
+
+            // Let native page scroll continue when user tries to move past bounds.
+            if (targetIndex === currentIndex) return;
+
+            event.preventDefault();
+            if (now < snapCooldownUntilRef.current) return;
+            if (snapLockRef.current) return;
+
+            // Trackpad gestures emit many small deltas; require enough intent before snapping.
+            wheelIntentRef.current += Math.abs(event.deltaY);
+            if (wheelIntentRef.current < WHEEL_INTENT_THRESHOLD) return;
+            wheelIntentRef.current = 0;
+
+            snapLockRef.current = true;
+
+            const targetCard = projectRefs.current[targetIndex];
+            if (targetCard) {
+                const targetTop = window.scrollY + targetCard.getBoundingClientRect().top - (headerBottom + 24);
+                snapTargetYRef.current = Math.max(0, targetTop);
+                window.scrollTo({ top: targetTop, behavior: 'smooth' });
+            }
+
+            if (snapSettleRafRef.current !== null) {
+                window.cancelAnimationFrame(snapSettleRafRef.current);
+            }
+            const waitUntilSettled = () => {
+                if (snapTargetYRef.current === null) {
+                    unlockSnapLock();
+                    return;
+                }
+
+                const remaining = Math.abs(window.scrollY - snapTargetYRef.current);
+                if (remaining <= 3) {
+                    unlockSnapLock();
+                    return;
+                }
+
+                snapSettleRafRef.current = window.requestAnimationFrame(waitUntilSettled);
+            };
+            snapSettleRafRef.current = window.requestAnimationFrame(waitUntilSettled);
+
+            // Safety fallback in case browser blocks smooth scroll settling events.
+            if (snapFallbackTimerRef.current !== null) {
+                window.clearTimeout(snapFallbackTimerRef.current);
+            }
+            snapFallbackTimerRef.current = window.setTimeout(() => {
+                unlockSnapLock();
+            }, 1200);
+        };
+        const blockTouchWhileHolding = (event: TouchEvent) => {
+            if (Date.now() < holdUntilRef.current) {
+                event.preventDefault();
+            }
+        };
+        const blockKeyWhileHolding = (event: KeyboardEvent) => {
+            if (Date.now() >= holdUntilRef.current) return;
+            if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) {
+                event.preventDefault();
+            }
+        };
+
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        window.addEventListener('touchmove', blockTouchWhileHolding, { passive: false });
+        window.addEventListener('keydown', blockKeyWhileHolding);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleScroll);
+            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('touchmove', blockTouchWhileHolding);
+            window.removeEventListener('keydown', blockKeyWhileHolding);
+            if (transitionTimerRef.current) {
+                window.clearTimeout(transitionTimerRef.current);
+            }
+            unlockSnapLock();
+            if (holdTimerRef.current) {
+                window.clearTimeout(holdTimerRef.current);
+            }
+            document.body.style.overflow = bodyOverflowRef.current;
+            document.documentElement.style.overflow = htmlOverflowRef.current;
+        };
     }, []);
 
     const active = projects[activeIndex];
+    const releasedStyle = !leftPinned
+        ? ({ ['--left-column-release-top' as string]: `${releaseTop}px` } as CSSProperties)
+        : undefined;
 
     return (
         <section className={styles.section} ref={sectionRef}>
             {/* Left Column - Sticky Info Panel */}
             <div
                 ref={leftColRef}
-                className={styles.leftColumn}
-                style={leftPinned ? undefined : { position: 'absolute', bottom: 0, top: 'auto' }}
+                className={`${styles.leftColumn} ${!leftPinned ? styles.leftColumnReleased : ''}`}
+                style={releasedStyle}
             >
                 <div className={styles.infoPanel}>
                     <h1
@@ -90,7 +297,7 @@ export default function WorkShowcase() {
                     <div
                         key={project.id}
                         ref={(el) => { projectRefs.current[index] = el; }}
-                        className={styles.projectCard}
+                        className={`${styles.projectCard} ${index === projects.length - 1 ? styles.projectCardLast : ''}`}
                     >
                         <Link href={`/work/${project.slug}`} className={styles.cardLink}>
                             <div className={styles.imageWrapper}>

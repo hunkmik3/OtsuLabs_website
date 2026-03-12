@@ -1,10 +1,10 @@
 .introSection {
     background-color: #ffffff;
-    padding: 0 3.3vw;
+    padding: 0 var(--content-pad-x);
     width: 100%;
     position: relative;
     overflow: visible;
-    min-height: 98vw;
+    min-height: clamp(760px, 98vw, 1880px);
 }
 
 .introContent {
@@ -74,7 +74,7 @@
 
 @media (max-width: 1024px) {
     .introSection {
-        padding: 100px 32px 60px;
+        padding: clamp(86px, 9vw, 100px) var(--content-pad-x-tight) clamp(56px, 6vw, 72px);
         min-height: auto;
         overflow: hidden;
     }
@@ -99,7 +99,7 @@
 
 @media (max-width: 768px) {
     .introSection {
-        padding: 80px 24px 50px;
+        padding: 80px var(--content-pad-x-tight) 50px;
     }
 
     .introText {

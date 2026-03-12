@@ -99,8 +99,8 @@ export default async function ProjectPage({ params }: PageProps) {
         }));
 
     return (
-        <div style={{ background: '#fff', minHeight: '100vh' }}>
-            <main>
+        <div className={projectStyles.projectPage}>
+            <main className={projectStyles.projectMain}>
                 <HeroSection
                     projectTitle={project.projectTitle}
                     date={project.date}
@@ -120,8 +120,8 @@ export default async function ProjectPage({ params }: PageProps) {
                     explorationSlides={project.explorationSlides}
                 />
                 {(showcasePrimaryImage || showcaseSecondaryImage) && (
-                    <section style={{ padding: '0 4vw', marginTop: '11vw' }}>
-                        <div className={projectStyles.postExplorationGallery} style={{ marginTop: 0 }}>
+                    <section className={projectStyles.postExplorationSection}>
+                        <div className={`${projectStyles.postExplorationGallery} ${projectStyles.postExplorationGalleryNoTopMargin}`}>
                             {showcasePrimaryImage && (
                                 <div className={projectStyles.postExplorationPrimary}>
                                     <img

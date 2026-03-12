@@ -2,8 +2,8 @@
     background-color: #000000;
     color: #ffffff;
     width: 100%;
-    height: 1100px;
-    padding: 100px 48px 0px;
+    min-height: clamp(760px, 56vw, 1100px);
+    padding: clamp(72px, 6.2vw, 120px) var(--content-pad-x) 0;
     position: relative;
     overflow: hidden;
     font-family: var(--font-geist-sans);
@@ -19,14 +19,14 @@
 }
 
 .headingBlock {
-    margin-bottom: 80px;
+    margin-bottom: clamp(42px, 4.2vw, 80px);
 }
 
 .title {
     font-family: var(--font-geist-sans), Helvetica, sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 78px;
+    font-size: clamp(38px, 4.06vw, 78px);
     line-height: 95%;
     letter-spacing: -0.04em;
     vertical-align: middle;
@@ -35,7 +35,7 @@
 
 .email {
     font-family: var(--font-geist-sans), Helvetica, sans-serif;
-    font-size: 78px;
+    font-size: clamp(38px, 4.06vw, 78px);
     font-weight: 400;
     font-style: normal;
     line-height: 95%;
@@ -50,9 +50,9 @@
 
 .linksContainer {
     display: flex;
-    gap: 120px;
+    gap: clamp(32px, 6.2vw, 120px);
     font-family: var(--font-geist-mono);
-    font-size: 18.2px;
+    font-size: clamp(12px, 0.95vw, 18px);
     text-transform: uppercase;
     letter-spacing: 0.02em;
 }
@@ -60,7 +60,7 @@
 .col {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: clamp(10px, 0.8vw, 16px);
 }
 
 .link {
@@ -78,7 +78,7 @@
     width: 100%;
     height: 1px;
     background-color: #ff0000;
-    margin: 60px 0;
+    margin: clamp(34px, 3.2vw, 60px) 0;
     opacity: 0.8;
     position: absolute;
     top: 40%;
@@ -89,9 +89,9 @@
 .bottomContent {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: clamp(30px, 3.2vw, 60px);
     font-family: var(--font-geist-mono);
-    font-size: 15.6px;
+    font-size: clamp(11px, 0.82vw, 16px);
     text-transform: uppercase;
     position: relative;
     z-index: 10;
@@ -110,15 +110,15 @@
     width: 100%;
     color: #ccc;
     flex-wrap: wrap;
-    gap: 20px;
-    padding-bottom: 40px;
+    gap: clamp(12px, 1vw, 20px);
+    padding-bottom: clamp(20px, 2.1vw, 40px);
 
 }
 
 .locationItem {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: clamp(2px, 0.2vw, 4px);
 }
 
 @media (max-width: 1024px) {
@@ -137,7 +137,7 @@
 .characterImage {
     position: absolute;
     right: 0;
-    bottom: 90px;
+    bottom: clamp(52px, 4.7vw, 90px);
     height: 90%;
     width: auto;
     object-fit: contain;

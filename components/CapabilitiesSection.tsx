@@ -42,7 +42,7 @@ export default function CapabilitiesSection() {
                                         alt={cap.name}
                                         width={52}
                                         height={52}
-                                        style={{ display: 'inline-block', verticalAlign: 'middle' }}
+                                        className={styles.tagIcon}
                                     />
                                 ) : (
                                     cap.icon

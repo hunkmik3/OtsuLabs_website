@@ -1,47 +1,55 @@
 .section {
-    padding: 100px 48px;
+    padding: var(--section-pad-y) var(--content-pad-x);
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
+.sectionSpacingRegular {
+    padding-top: clamp(80px, 6vw, 120px);
+    padding-bottom: clamp(72px, 6vw, 112px);
+}
+
+.sectionSpacingLarge {
+    padding-top: clamp(140px, 16vw, 320px);
+    padding-bottom: clamp(72px, 7vw, 132px);
+}
+
 .badge {
     background-color: #000000;
     color: #ffffff;
-    padding: 7px 21px;
-    border-radius: 50px;
-    width: 154px;
-    height: 48px;
+    padding: clamp(6px, 0.4vw, 8px) clamp(14px, 1.1vw, 22px);
+    border-radius: var(--radius-pill);
+    width: clamp(122px, 8vw, 154px);
+    height: clamp(36px, 2.5vw, 48px);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 14px;
-    /* Scaled gap 10 * 1.4 */
+    gap: clamp(8px, 0.72vw, 14px);
     font-family: var(--font-geist-mono), monospace;
-    font-size: 15.3px;
+    font-size: clamp(11px, 0.8vw, 15px);
     font-weight: 400;
     line-height: 100%;
     letter-spacing: 0;
     text-align: center;
     text-transform: uppercase;
     position: absolute;
-    left: 39px;
-    top: 100px;
+    left: calc(var(--content-pad-x) - clamp(8px, 0.45vw, 9px));
+    top: clamp(80px, 6vw, 120px);
 }
 
 .content {
-    margin-left: max(300px, 25%);
-    /* Offset to right */
+    margin-left: max(clamp(210px, 15.6vw, 300px), 22%);
     display: flex;
     flex-direction: column;
-    gap: 60px;
-    max-width: 940px;
+    gap: clamp(28px, 3.1vw, 60px);
+    max-width: clamp(560px, 49vw, 940px);
 }
 
 .heading {
     font-family: var(--font-geist-sans);
-    font-size: 83px;
+    font-size: clamp(42px, 4.35vw, 83px);
     font-weight: 400;
     /* Regular based on screenshot */
     line-height: 1.1;
@@ -52,21 +60,21 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(10px, 1vw, 20px);
     width: 100%;
 }
 
 .input,
 .fileUpload {
     width: 100%;
-    height: 78px;
-    border-radius: 65px;
+    height: clamp(56px, 4.05vw, 78px);
+    border-radius: var(--radius-pill);
     background-color: #ffffff;
     border: none;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-    padding: 0 26px;
+    padding: 0 clamp(16px, 1.35vw, 26px);
     font-family: var(--font-geist-mono);
-    font-size: 21px;
+    font-size: clamp(13px, 1.1vw, 21px);
     color: #000;
     outline: none;
     transition: all 0.2s ease;
@@ -90,20 +98,20 @@
     color: #888;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    gap: 12px;
+    gap: clamp(8px, 0.62vw, 12px);
 }
 
 .paperclip {
-    font-size: 20px;
+    font-size: clamp(14px, 1.05vw, 20px);
 }
 
 .submitButton {
-    width: calc(100% + 96px);
-    margin-left: -48px;
-    margin-top: 100px;
-    height: 138px;
+    width: calc(100% + (var(--content-pad-x) * 2));
+    margin-left: calc(var(--content-pad-x) * -1);
+    margin-top: clamp(48px, 5.2vw, 100px);
+    height: clamp(90px, 7.2vw, 138px);
     background-color: #C2C2C2;
-    border-radius: 100px;
+    border-radius: var(--radius-pill);
     border: none;
     overflow: hidden;
     cursor: pointer;
@@ -112,9 +120,13 @@
     align-items: center;
 }
 
+.submitButtonNoTopMargin {
+    margin-top: 0;
+}
+
 .marqueeTrack {
     display: flex;
-    gap: 20px;
+    gap: clamp(10px, 1vw, 20px);
     width: max-content;
     animation: marquee 27s linear infinite;
     mix-blend-mode: multiply;
@@ -122,7 +134,7 @@
 
 .marqueeText {
     font-family: var(--font-geist-sans);
-    font-size: 70px;
+    font-size: clamp(38px, 3.65vw, 70px);
     font-weight: 400;
     font-style: normal;
     line-height: 95%;
@@ -130,7 +142,7 @@
     white-space: nowrap;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: clamp(10px, 1vw, 20px);
     color: #000;
     flex-shrink: 0;
 }
@@ -158,8 +170,8 @@
 }
 
 .videoIcon {
-    width: 108px;
-    height: 90px;
+    width: clamp(68px, 5.62vw, 108px);
+    height: clamp(56px, 4.7vw, 90px);
     opacity: 0.9;
     object-fit: cover;
 }
@@ -167,7 +179,8 @@
 @media (max-width: 1024px) {
     .content {
         margin-left: 0;
-        margin-top: 60px;
+        margin-top: clamp(24px, 4vw, 60px);
+        max-width: 100%;
     }
 
     .badge {
@@ -175,6 +188,12 @@
     }
 
     .heading {
-        font-size: 40px;
+        font-size: clamp(32px, 7.3vw, 40px);
+    }
+
+    .submitButton {
+        width: 100%;
+        margin-left: 0;
+        border-radius: clamp(48px, 9vw, 100px);
     }
 }

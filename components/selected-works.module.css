@@ -1,13 +1,13 @@
 .section {
     width: 100%;
     background-color: #ffffff;
-    padding: 100px 48px 24px;
+    padding: clamp(72px, 8vw, 120px) var(--content-pad-x) clamp(20px, 1.4vw, 28px);
     position: relative;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
     --sticky-top: 0px;
     --stack-gap: clamp(56px, 8vh, 120px);
-    --card-radius: 20px;
+    --card-radius: clamp(14px, 1vw, 20px);
     --card-peek: 15px;
 }
 
@@ -15,13 +15,13 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 40px;
+    margin-bottom: clamp(16px, 2vw, 40px);
     position: relative;
 }
 
 .title {
     font-family: var(--font-geist-sans);
-    font-size: 13.3vw;
+    font-size: clamp(64px, 13.3vw, 255px);
     white-space: nowrap;
     font-weight: 400;
     font-style: normal;
@@ -36,8 +36,8 @@
 }
 
 .arrowIcon {
-    width: 60px;
-    height: 60px;
+    width: clamp(30px, 3.1vw, 60px);
+    height: clamp(30px, 3.1vw, 60px);
     transform: translateY(130%);
 }
 
@@ -45,10 +45,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: clamp(14px, 1vw, 20px);
     font-family: var(--font-geist-mono);
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: clamp(11px, 0.95vw, 18px);
     font-weight: 500;
     color: #000000;
     transform: translateY(-20px);
@@ -60,11 +60,11 @@
     justify-content: center;
     background-color: #000000;
     color: #ffffff;
-    width: 101px;
-    height: 48px;
-    padding: 7px 21px;
-    border-radius: 50px;
-    font-size: 16px;
+    width: clamp(80px, 5.3vw, 101px);
+    height: clamp(36px, 2.5vw, 48px);
+    padding: clamp(6px, 0.35vw, 7px) clamp(14px, 1.1vw, 21px);
+    border-radius: var(--radius-pill);
+    font-size: clamp(11px, 0.82vw, 16px);
     /* Adjusted slightly to fit comfortably in 34px height */
     gap: 10px;
     margin-left: 15px;
@@ -74,11 +74,11 @@
     font-family: var(--font-geist-mono);
     font-weight: 400;
     font-style: normal;
-    font-size: 18px;
+    font-size: clamp(11px, 0.95vw, 18px);
     line-height: 100%;
     letter-spacing: -0.05em;
     vertical-align: bottom;
-    margin-right: 115px;
+    margin-right: clamp(0px, 6vw, 115px);
 }
 
 /* Slide Styles */
@@ -119,7 +119,7 @@
 
 .mediaContainer {
     width: 100%;
-    height: calc(100vh - var(--sticky-top) - 200px);
+    height: calc(100svh - var(--sticky-top) - clamp(140px, 10.4vw, 200px));
     position: relative;
     overflow: hidden;
 }
@@ -149,10 +149,10 @@
     background-color: rgba(0, 0, 0, 0.4);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 12px 24px;
-    border-radius: 50px;
+    padding: clamp(8px, 0.62vw, 12px) clamp(14px, 1.25vw, 24px);
+    border-radius: var(--radius-pill);
     font-family: var(--font-geist-mono);
-    font-size: 12px;
+    font-size: var(--fs-mono-sm);
     text-transform: uppercase;
     backdrop-filter: blur(5px);
     cursor: pointer;

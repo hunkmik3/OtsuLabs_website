@@ -1,3 +1,13 @@
+/* ==================== PAGE WRAPPER ==================== */
+.projectPage {
+    background: #fff;
+    min-height: 100vh;
+}
+
+.projectMain {
+    width: 100%;
+}
+
 /* ==================== HERO SECTION ==================== */
 .hero {
     position: relative;
@@ -436,6 +446,11 @@
 }
 
 /* Post Exploration Gallery */
+.postExplorationSection {
+    padding: 0 var(--content-pad-x);
+    margin-top: clamp(88px, 11vw, 210px);
+}
+
 .postExplorationGallery {
     margin-top: clamp(24px, 2.5vw, 40px);
     display: grid;
@@ -443,6 +458,10 @@
     gap: clamp(12px, 1.2vw, 20px);
     align-items: start;
     --post-exploration-image-height: clamp(320px, 44vw, 760px);
+}
+
+.postExplorationGalleryNoTopMargin {
+    margin-top: 0;
 }
 
 .postExplorationPrimary,

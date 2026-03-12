@@ -12,7 +12,7 @@ export default function Header() {
                         alt="OtsuLabs Logo"
                         width={50}
                         height={50}
-                        style={{ width: 'auto', height: '30px' }}
+                        className={styles.logoImage}
                         priority
                     />
                 </Link>
