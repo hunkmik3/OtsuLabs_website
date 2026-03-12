@@ -1,6 +1,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --vw-unit: calc(100vw / 1920);
 }
 
 @media (prefers-color-scheme: dark) {

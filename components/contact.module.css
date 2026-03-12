@@ -110,7 +110,14 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+.marqueeTrack {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: marquee 27s linear infinite;
+    mix-blend-mode: multiply;
 }
 
 .marqueeText {
@@ -125,8 +132,7 @@
     align-items: center;
     gap: 20px;
     color: #000;
-    mix-blend-mode: multiply;
-    animation: marquee 15s linear infinite;
+    flex-shrink: 0;
 }
 
 @keyframes marquee {
@@ -136,6 +142,19 @@
     100% {
         transform: translateX(-50%);
     }
+}
+
+.marqueeItem {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.marqueeItem:hover {
+    color: red;
+}
+
+.submitButton:hover .marqueeTrack {
+    animation-play-state: paused;
 }
 
 .videoIcon {

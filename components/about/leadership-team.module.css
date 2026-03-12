@@ -1,0 +1,163 @@
+.section {
+    background-color: #ffffff;
+    padding: 6.9vw 2.78vw 0;
+    width: 100%;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5vw 1.1vw;
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 1vw;
+    font-weight: 400;
+    line-height: 100%;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 3.5vw;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    margin-bottom: 2vw;
+}
+
+.heading {
+    font-family: var(--font-geist-sans);
+    font-size: 4.17vw;
+    font-weight: 400;
+    line-height: 95%;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0 0 2.5vw 0;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.84vw;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.42vw;
+}
+
+.member {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42vw;
+}
+
+.avatar {
+    width: 1.8vw;
+    height: 1.8vw;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.name {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.21vw;
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 1.22vw;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding: 0.14vw 0.49vw 0.14vw 0.14vw;
+    border-radius: 3.19vw;
+    white-space: nowrap;
+}
+
+.role {
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 1.55vw;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #000000;
+    background-color: #e8e8e8;
+    border: none;
+    padding: 0.28vw 0.49vw;
+    border-radius: 3.19vw;
+    white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+    .section {
+        padding: 60px 32px 0;
+    }
+
+    .badge {
+        font-size: 12px;
+        padding: 7px 16px;
+        margin-bottom: 24px;
+    }
+
+    .heading {
+        font-size: 36px;
+        margin-bottom: 32px;
+    }
+
+    .grid {
+        gap: 8px;
+    }
+
+    .row {
+        gap: 5px;
+    }
+
+    .avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .name,
+    .role {
+        font-size: 14px;
+        padding: 4px 10px;
+    }
+
+    .name {
+        padding: 3px 10px 3px 3px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 24px 0;
+    }
+
+    .heading {
+        font-size: 28px;
+    }
+
+    .grid {
+        gap: 6px;
+    }
+
+    .row {
+        gap: 4px;
+    }
+
+    .avatar {
+        width: 22px;
+        height: 22px;
+    }
+
+    .name,
+    .role {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+
+    .name {
+        padding: 2px 8px 2px 2px;
+    }
+}

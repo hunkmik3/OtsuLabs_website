@@ -1,6 +1,36 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import styles from './footer.module.css';
 
+const locations = [
+    { name: 'Seoul, South Korea', tz: 'Asia/Seoul', offset: '+09:00' },
+    { name: 'HCMC, Vietnam', tz: 'Asia/Ho_Chi_Minh', offset: '+07:00' },
+    { name: 'Manila, Philippines', tz: 'Asia/Manila', offset: '+08:00' },
+    { name: 'Los Angeles, US', tz: 'America/Los_Angeles', offset: '-07:00' },
+    { name: 'Hong Kong', tz: 'Asia/Hong_Kong', offset: '+08:00' },
+];
+
+function getTimeForTz(tz: string) {
+    return new Date().toLocaleTimeString('en-GB', {
+        timeZone: tz,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+    });
+}
+
 export default function FooterSection() {
+    const [times, setTimes] = useState<string[]>([]);
+
+    useEffect(() => {
+        const update = () => setTimes(locations.map(l => getTimeForTz(l.tz)));
+        update();
+        const interval = setInterval(update, 1000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <footer className={styles.footer}>
             <div className={styles.topContent}>
@@ -25,8 +55,6 @@ export default function FooterSection() {
                 </div>
             </div>
 
-
-
             {/* Character Image */}
             <img
                 src="/images/home/otsu character.png"
@@ -41,26 +69,12 @@ export default function FooterSection() {
                 </div>
 
                 <div className={styles.locations}>
-                    <div className={styles.locationItem}>
-                        <span>Seoul, South Korea</span>
-                        <span>16:32:54 GMT +09:00</span>
-                    </div>
-                    <div className={styles.locationItem}>
-                        <span>HCMC, Vietnam</span>
-                        <span>16:32:54 GMT +07:00</span>
-                    </div>
-                    <div className={styles.locationItem}>
-                        <span>Manila, Philippines</span>
-                        <span>16:32:54 GMT +08:00</span>
-                    </div>
-                    <div className={styles.locationItem}>
-                        <span>Los Angeles, US</span>
-                        <span>16:32:54 GMT -07:00</span>
-                    </div>
-                    <div className={styles.locationItem}>
-                        <span>Hong Kong</span>
-                        <span>16:32:54 GMT +08:00</span>
-                    </div>
+                    {locations.map((loc, i) => (
+                        <div key={loc.tz} className={styles.locationItem}>
+                            <span>{loc.name}</span>
+                            <span>{times[i] ?? '--:--:--'} GMT {loc.offset}</span>
+                        </div>
+                    ))}
                 </div>
             </div>
         </footer>

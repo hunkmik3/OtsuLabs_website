@@ -1,0 +1,129 @@
+.section {
+    background-color: #ffffff;
+    padding: 6.9vw 2.78vw 6.9vw;
+    width: 100%;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    left: 2.78vw;
+    top: 6.9vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5vw 1.1vw;
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 1vw;
+    font-weight: 400;
+    line-height: 100%;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 3.5vw;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.textBlock {
+    margin-left: 18.75vw;
+    margin-bottom: 4.2vw;
+}
+
+.heading {
+    font-family: var(--font-geist-sans);
+    font-size: 12.5vw;
+    font-weight: 400;
+    line-height: 105%;
+    white-space: nowrap;
+    letter-spacing: -0.04em;
+    color: #000000;
+    margin: 0 0 1.4vw 0;
+}
+
+.description {
+    font-family: var(--font-geist-sans);
+    font-size: 2.5vw;
+    font-weight: 400;
+    line-height: 105%;
+    letter-spacing: -0.05em;
+    color: #000000;
+}
+
+.imageRow {
+    display: flex;
+    gap: 1.39vw;
+    width: 100%;
+}
+
+.imageLeft {
+    flex: 1;
+    height: 34vw;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.imageLeftImg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 3% center;
+    transform: scale(1.58) translate(-8%, -20%);
+}
+
+.imageRight {
+    flex: 0.5;
+    height: 34vw;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.imageRightImg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 80% center;
+    transform: scale(1.58) translateY(-20%);
+}
+
+@media (max-width: 1024px) {
+    .section {
+        padding: 60px 32px 0;
+    }
+
+    .badge {
+        position: static;
+        font-size: 12px;
+        padding: 7px 16px;
+        margin-bottom: 24px;
+    }
+
+    .textBlock {
+        margin-left: 0;
+        margin-bottom: 40px;
+    }
+
+    .heading {
+        font-size: 48px;
+        margin-bottom: 16px;
+    }
+
+    .description {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 50px 24px 0;
+    }
+
+    .heading {
+        font-size: 36px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+}
