@@ -26,42 +26,53 @@ export default function ClientsSection() {
             <div className={styles.clientsHeader}>
                 <span className={styles.badge}>OUR CLIENTS</span>
                 <p className={styles.description}>
-                    Otsu Labs is a creative studio crafting frame-by-frame animation for
-                    advertising, social media, tv, and beyond.
+                    Otsu Labs is a creative<br />
+                    studio crafting frame-<br />
+                    by-frame animation for advertising, social<br />
+                    media, tv, and beyond.
                 </p>
             </div>
 
             <div className={styles.logoContainer}>
-                {/* Row 1 - Full image with 6 logos */}
-                <div className={styles.logoRow}>
-                    <Image
-                        src="/images/home/Row 1.png"
-                        alt="Client logos row 1"
-                        width={1200}
-                        height={60}
-                        className={styles.logoRowImage}
-                    />
+                {/* Desktop: 3 row images */}
+                <div className={styles.desktopRows}>
+                    <div className={styles.logoRow}>
+                        <Image
+                            src="/images/home/Row 1.png"
+                            alt="Client logos row 1"
+                            width={1200}
+                            height={60}
+                            className={styles.logoRowImage}
+                        />
+                    </div>
+                    <div className={styles.logoRow}>
+                        <Image
+                            src="/images/home/Row 2.png"
+                            alt="Client logos row 2"
+                            width={1200}
+                            height={60}
+                            className={styles.logoRowImage}
+                        />
+                    </div>
+                    <div className={styles.logoRow}>
+                        <Image
+                            src="/images/home/Row 3.png"
+                            alt="Client logos row 3"
+                            width={1200}
+                            height={60}
+                            className={styles.logoRowImage}
+                        />
+                    </div>
                 </div>
 
-                {/* Row 2 - Full image with 6 logos */}
-                <div className={styles.logoRow}>
+                {/* Mobile: single combined image */}
+                <div className={styles.mobileLogos}>
                     <Image
-                        src="/images/home/Row 2.png"
-                        alt="Client logos row 2"
-                        width={1200}
-                        height={60}
-                        className={styles.logoRowImage}
-                    />
-                </div>
-
-                {/* Row 3 - Full image with logos */}
-                <div className={styles.logoRow}>
-                    <Image
-                        src="/images/home/Row 3.png"
-                        alt="Client logos row 3"
-                        width={1200}
-                        height={60}
-                        className={styles.logoRowImage}
+                        src="/images/home/Frame 2147237019.png"
+                        alt="Our clients"
+                        width={600}
+                        height={800}
+                        className={styles.mobileLogosImage}
                     />
                 </div>
             </div>

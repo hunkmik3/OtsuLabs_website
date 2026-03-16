@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Otsu Labs Website
 
-## Getting Started
+Next.js website with CMS-driven project pages (Novathera template as baseline).
 
-First, run the development server:
+## Quick Start
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## CMS Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Public work list: `/work`
+- Public project detail: `/work/[slug]`
+- Admin login: `/admin/login`
+- Admin project list: `/admin/projects`
+- Admin editor: `/admin/projects/[id]`
+- Admin draft preview: `/admin/projects/[id]/preview`
 
-## Learn More
+## CMS Runtime Modes
 
-To learn more about Next.js, take a look at the following resources:
+Set `CMS_REPOSITORY_MODE`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `file` (default): uses JSON store (`data/cms/projects.json`)
+- `postgres`: uses Postgres repository
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### File mode
+- Good for local/dev.
+- Uses atomic file writes and process-level write lock.
 
-## Deploy on Vercel
+### Postgres mode
+- Set `CMS_DATABASE_URL` (or `DATABASE_URL`).
+- Run migration command: `npm run cms:migrate:postgres`.
+- Verify flow on Postgres: `npm run cms:verify:postgres`.
+- Schema/table can be configured with `CMS_DATABASE_SCHEMA` and `CMS_DATABASE_TABLE`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Admin Auth
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Admin is protected by `CMS_ADMIN_TOKEN`.
+- Session cookie is signed with `CMS_AUTH_SECRET`.
+- Admin APIs/pages require valid session cookie or admin token header.
+
+## Media Upload
+
+- Endpoint: `POST /api/admin/media`
+- Uses storage abstraction (`lib/cms/media-storage.ts`)
+- Storage modes:
+  - `local` (default): `/public/uploads`
+  - `s3`: S3/R2-compatible object storage (`CMS_S3_*`)
+- Limits/type are env-configurable (`CMS_MEDIA_*`).
+
+## Env Configuration
+
+See `.env.example` for full list:
+
+- Auth/session: `CMS_ADMIN_TOKEN`, `CMS_AUTH_SECRET`, `CMS_ADMIN_SESSION_*`
+- Repository: `CMS_REPOSITORY_MODE`, `CMS_DATA_FILE_PATH`, `CMS_DATABASE_URL`
+- Media: `CMS_MEDIA_*`
+- Metadata base URL: `CMS_PUBLIC_BASE_URL`
+
+## Tests
+
+Run CMS integration tests:
+
+```bash
+npm run test:cms
+```
+
+Includes:
+- auth/session checks
+- core project service flow (create/edit/publish/unpublish/duplicate/delete)
+- draft preview vs published-only public policy
+- optional Postgres integration flow (when `CMS_DATABASE_URL` is set)
+
+## Ops Scripts
+
+```bash
+npm run cms:migrate:postgres
+npm run cms:verify:postgres
+npm run cms:backup:db -- --output backups/cms-db.sql
+npm run cms:restore:db -- --input backups/cms-db.sql
+npm run cms:backup:media -- --output backups/cms-media.tar.gz
+npm run cms:restore:media -- --input backups/cms-media.tar.gz
+```
+
+## More Docs
+
+Detailed production notes:
+
+- [docs/cms-production.md](docs/cms-production.md)

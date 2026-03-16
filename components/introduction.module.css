@@ -54,6 +54,14 @@
     color: #000000;
 }
 
+.introTextDesktop {
+    display: block;
+}
+
+.introTextMobile {
+    display: none;
+}
+
 .introImageWrapper {
     position: absolute;
     right: -14vw;
@@ -99,10 +107,59 @@
 
 @media (max-width: 768px) {
     .introSection {
-        padding: 80px var(--content-pad-x-tight) 50px;
+        padding: 84px 24px 0;
+        overflow: hidden;
+    }
+
+    .introTextWrapper {
+        width: 100%;
+        margin-top: 0;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .badge {
+        width: auto;
+        min-width: auto;
+        height: 28px;
+        padding: 0 14px;
+        margin-bottom: 18px;
+        border-radius: 999px;
+        font-size: 11px;
+        line-height: 100%;
     }
 
     .introText {
-        font-size: 32px;
+        font-size: clamp(34px, 9.1vw, 47px);
+        line-height: 105%;
+        letter-spacing: -0.04em;
+    }
+
+    .introTextDesktop {
+        display: none;
+    }
+
+    .introTextMobile {
+        display: block;
+    }
+
+    .introContent {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .introImageWrapper {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: 153%;
+        max-width: none;
+        margin-top: -22%;
+        margin-left: -16%;
+        z-index: 1;
+    }
+
+    .introImage {
+        object-fit: cover;
     }
 }

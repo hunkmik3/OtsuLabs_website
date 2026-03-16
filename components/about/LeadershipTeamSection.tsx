@@ -38,7 +38,8 @@ export default function LeadershipTeamSection() {
             <div className={styles.badge}>LEADERSHIP TEAM</div>
 
             <h2 className={styles.heading}>
-                Meet Otsu&apos;s Scientists ↓
+                <span className={styles.headingDesktop}>Meet Otsu&apos;s Scientists ↓</span>
+                <span className={styles.headingMobile}><span>Meet Otsu&apos;s<br />Scientists</span> <span className={styles.arrowMobile}>↓</span></span>
             </h2>
 
             <div className={styles.grid}>

@@ -157,6 +157,18 @@
     opacity: 0.6;
 }
 
+.headingDesktop {
+    display: inline;
+}
+
+.headingMobile {
+    display: none;
+}
+
+.mobileDescription {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .section {
         padding: clamp(56px, 6vw, 72px) var(--content-pad-x-tight) 0;
@@ -178,6 +190,10 @@
         height: 180px;
     }
 
+    .stripExtra {
+        height: 0;
+    }
+
     .stripExtraVisible {
         height: 180px;
     }
@@ -191,24 +207,88 @@
 
 @media (max-width: 768px) {
     .section {
-        padding: 50px var(--content-pad-x-tight) 0;
+        padding: 40px 24px 0;
+    }
+
+    .badge {
+        position: static;
+        font-size: 9px;
+        padding: 6px 12px;
+        margin-bottom: 16px;
+        border-radius: 999px;
+    }
+
+    .headingDesktop {
+        display: none;
+    }
+
+    .headingMobile {
+        display: inline;
     }
 
     .heading {
-        font-size: 28px;
+        font-size: clamp(38px, 10.2vw, 53px);
+        line-height: 105%;
+        margin-bottom: 12px;
+        width: 100%;
+    }
+
+    .mobileDescription {
+        display: block;
+        font-family: var(--font-geist-sans);
+        font-size: clamp(15px, 4.2vw, 20px);
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: -0.05em;
+        color: #000000;
+        margin: 0 0 24px 0;
+    }
+
+    .strips {
+        border-radius: 12px;
     }
 
     .strip {
-        height: 140px;
+        height: 180px;
+    }
+
+    .stripExtra {
+        height: 0;
     }
 
     .stripExtraVisible {
-        height: 140px;
+        height: 180px;
+    }
+
+    .stripImage {
+        object-position: center center;
+    }
+
+    .stripImageOnePiece.stripImage {
+        object-position: 70% center;
+    }
+
+    .stripImageDanDaDan.stripImage {
+        object-position: 30% center;
+    }
+
+    .stripContent {
+        padding: 8px 10px;
     }
 
     .label {
-        font-size: 14px;
-        padding: 4px 10px;
+        font-size: 10px;
+        padding: 4px 8px;
         border-radius: 46px;
+    }
+
+    .strips::after {
+        height: 30%;
+    }
+
+    .seeMore {
+        font-size: 10px;
+        margin-top: 8px;
+        padding: 4px 12px;
     }
 }

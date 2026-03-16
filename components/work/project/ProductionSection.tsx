@@ -42,7 +42,7 @@ export default function ProductionSection({
                 <div className={styles.productionOverlay}>
                     <span className={styles.productionOverlayItem}>{projectTitle.toUpperCase()}</span>
                     <span className={styles.productionOverlayItem}>{duration}</span>
-                    <span className={styles.productionOverlayItem}>OTSU LABS COLLECTION</span>
+                    <span className={`${styles.productionOverlayItem} ${styles.productionOverlayCollection}`}>OTSU LABS COLLECTION</span>
                 </div>
             </div>
         </section>

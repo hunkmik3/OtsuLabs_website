@@ -1,0 +1,154 @@
+.page {
+    width: 100%;
+}
+
+.main {
+    width: min(var(--content-max), 100%);
+    margin: 0 auto;
+    padding: calc(clamp(72px, 6vw, 112px) + clamp(64px, 4vw, 96px)) var(--content-pad-x) clamp(72px, 8vw, 120px);
+    display: grid;
+    gap: clamp(14px, 2vw, 24px);
+}
+
+.article {
+    border: var(--border-soft);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.8);
+    padding: clamp(20px, 2.3vw, 34px);
+}
+
+.meta {
+    font-family: var(--font-geist-mono);
+    font-size: var(--fs-mono-sm);
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.6rem;
+}
+
+.title {
+    font-size: clamp(1.9rem, 3.3vw, 3.3rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.9rem;
+}
+
+.intro {
+    font-size: clamp(1.08rem, 1.3vw, 1.26rem);
+    line-height: 1.55;
+    color: rgba(0, 0, 0, 0.82);
+}
+
+.contentSection {
+    margin-top: clamp(1.1rem, 2vw, 1.8rem);
+}
+
+.contentSection h2 {
+    font-size: clamp(1.35rem, 1.8vw, 1.95rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.contentSection p {
+    line-height: 1.65;
+    color: rgba(0, 0, 0, 0.82);
+}
+
+.contentSection p + p {
+    margin-top: 0.55rem;
+}
+
+.contentSection ul {
+    margin-top: 0.6rem;
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 0.42rem;
+    line-height: 1.5;
+}
+
+.relatedSection {
+    border: var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: clamp(16px, 1.8vw, 26px);
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.relatedSection h2 {
+    font-size: clamp(1.2rem, 1.7vw, 1.75rem);
+    margin-bottom: 0.7rem;
+}
+
+.relatedList {
+    list-style: none;
+    display: grid;
+    gap: 0.42rem;
+}
+
+.relatedList a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.relatedWorkGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(12px, 1.5vw, 18px);
+}
+
+.relatedWorkCard {
+    border: var(--border-soft);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.84);
+    overflow: hidden;
+}
+
+.relatedWorkImage {
+    display: block;
+    width: 100%;
+    height: clamp(150px, 13vw, 210px);
+    object-fit: cover;
+}
+
+.relatedWorkCard h3 {
+    font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+    margin: 0.6rem 0.72rem 0.2rem;
+}
+
+.relatedWorkCard p {
+    margin: 0 0.72rem 0.82rem;
+    color: rgba(0, 0, 0, 0.72);
+    line-height: 1.45;
+}
+
+.ctaPanel {
+    background: #000;
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: clamp(20px, 2.1vw, 32px);
+}
+
+.ctaPanel h2 {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    margin-bottom: 0.45rem;
+}
+
+.ctaPanel p {
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.5;
+}
+
+.ctaButton {
+    margin-top: 0.9rem;
+    display: inline-flex;
+    border-radius: var(--radius-pill);
+    padding: 0.58rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    font-family: var(--font-geist-mono);
+    font-size: var(--fs-mono-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+    .relatedWorkGrid {
+        grid-template-columns: 1fr;
+    }
+}

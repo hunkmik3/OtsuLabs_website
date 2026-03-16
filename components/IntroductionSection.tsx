@@ -7,12 +7,19 @@ import styles from "./introduction.module.css";
 export default function IntroductionSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
-    const counterRef = useRef<HTMLSpanElement>(null);
+    const counterRef = useRef<HTMLParagraphElement>(null);
     const [count, setCount] = useState(0);
     const hasAnimatedRef = useRef(false);
 
     // Parallax effect — image shifts up on scroll to reveal text underneath
     useEffect(() => {
+        if (window.matchMedia("(max-width: 1024px)").matches) {
+            if (imageRef.current) {
+                imageRef.current.style.transform = "";
+            }
+            return;
+        }
+
         const handleScroll = () => {
             if (!sectionRef.current || !imageRef.current) return;
             const rect = sectionRef.current.getBoundingClientRect();
@@ -61,8 +68,18 @@ export default function IntroductionSection() {
             <div className={styles.introContent}>
                 <div className={styles.introTextWrapper}>
                     <span className={styles.badge}>INTRODUCTION</span>
-                    <p className={styles.introText}>
-                        We are a lab for world class <br />storytelling. Thousands of <br />seconds of animation <br />shipped. <span ref={counterRef}>{count}M+</span> views <br />and climbing.
+                    <p ref={counterRef} className={styles.introText}>
+                        <span className={styles.introTextDesktop}>
+                            We are a lab for world class <br />storytelling. Thousands of <br />seconds of animation <br />shipped. <span>{count}M+</span> views <br />and climbing.
+                        </span>
+                        <span className={styles.introTextMobile}>
+                            We are a lab for world<br />
+                            class storytelling.<br />
+                            Thousands of seconds<br />
+                            of animation shipped.<br />
+                            <span>{count}M+</span> views and<br />
+                            climbing.
+                        </span>
                     </p>
                 </div>
 

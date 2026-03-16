@@ -75,3 +75,31 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 768px) {
+    .topContainer {
+        flex-direction: column;
+    }
+
+    .description {
+        width: 100%;
+        font-size: clamp(37px, 9.8vw, 51px);
+        line-height: 105%;
+        margin-top: 20px;
+    }
+
+    .tagsContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 12px;
+    }
+
+    .tag {
+        font-size: clamp(16px, 4.4vw, 21px);
+    }
+
+    .tagIcon {
+        width: clamp(21px, 5.5vw, 28px);
+        height: clamp(21px, 5.5vw, 28px);
+    }
+}

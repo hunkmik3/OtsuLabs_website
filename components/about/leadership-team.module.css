@@ -89,6 +89,14 @@
     white-space: nowrap;
 }
 
+.headingDesktop {
+    display: inline;
+}
+
+.headingMobile {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .section {
         padding: clamp(56px, 6vw, 72px) var(--content-pad-x-tight) 0;
@@ -131,11 +139,38 @@
 
 @media (max-width: 768px) {
     .section {
-        padding: 50px var(--content-pad-x-tight) 0;
+        padding: 40px 24px 0;
+    }
+
+    .badge {
+        font-size: 9px;
+        padding: 6px 12px;
+        margin-bottom: 16px;
+        border-radius: 999px;
+    }
+
+    .headingDesktop {
+        display: none;
+    }
+
+    .headingMobile {
+        display: inline;
+    }
+
+    .headingMobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
     }
 
     .heading {
-        font-size: 28px;
+        font-size: clamp(31px, 8.4vw, 41px);
+        margin-bottom: 24px;
+    }
+
+    .arrowMobile {
+        font-size: clamp(31px, 8.4vw, 41px);
     }
 
     .grid {
@@ -147,17 +182,17 @@
     }
 
     .avatar {
-        width: 22px;
-        height: 22px;
+        width: 25px;
+        height: 25px;
     }
 
     .name,
     .role {
-        font-size: 12px;
-        padding: 3px 8px;
+        font-size: 14px;
+        padding: 3.5px 9px;
     }
 
     .name {
-        padding: 2px 8px 2px 2px;
+        padding: 2.5px 9px 2.5px 2.5px;
     }
 }

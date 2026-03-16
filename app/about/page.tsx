@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import { buildSeoMetadata } from "@/lib/seo/metadata-builder";
+import { getStaticPageSeo } from "@/lib/seo/page-seo";
 import styles from "./about.module.css";
 import contactStyles from "@/components/contact.module.css";
 import WhoWeAreSection from "@/components/about/WhoWeAreSection";
@@ -5,6 +8,8 @@ import MentionsSection from "@/components/about/MentionsSection";
 import OtsuHasPackedSection from "@/components/about/OtsuHasPackedSection";
 import LeadershipTeamSection from "@/components/about/LeadershipTeamSection";
 import FooterSection from "@/components/FooterSection";
+
+export const metadata: Metadata = buildSeoMetadata(getStaticPageSeo("about"));
 
 export default function AboutPage() {
     return (

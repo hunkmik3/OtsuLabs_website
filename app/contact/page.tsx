@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
+import { buildSeoMetadata } from "@/lib/seo/metadata-builder";
+import { getStaticPageSeo } from "@/lib/seo/page-seo";
 import styles from "./contact.module.css";
 import FooterSection from "@/components/FooterSection";
+import ContactForm from "./ContactForm";
 
 const faqItems = [
   {
@@ -25,6 +29,8 @@ const faqItems = [
   },
 ];
 
+export const metadata: Metadata = buildSeoMetadata(getStaticPageSeo("contact"));
+
 export default function ContactPage() {
   return (
     <div className={styles.page}>
@@ -42,65 +48,23 @@ export default function ContactPage() {
             <div className={styles.formCol}>
               <h1 className={styles.title}>Let&apos;s get in touch</h1>
               <p className={styles.description}>
-                A quick hello 👋 is all it takes to start something great.
-                Share about your project or idea below. We&apos;ll get back to
-                you with next steps.
+                <span className={styles.descDesktop}>
+                  A quick hello 👋 is all it takes to start something great.
+                  Share about your project or idea below. We&apos;ll get back to
+                  you with next steps.
+                </span>
+                <span className={styles.descMobile}>
+                  A quick hello 👋 is all it takes to start<br />
+                  something great. Every collaboration<br />
+                  begins with a message, yours starts<br />
+                  here. Let&apos;s turn your idea into<br />
+                  something real, tell us more below.
+                </span>
               </p>
 
               <span className={styles.badge}>Contact Form</span>
 
-              <form className={styles.form}>
-                <div className={styles.rowTwo}>
-                  <input
-                    type="text"
-                    className={styles.input}
-                    placeholder="First Name"
-                    aria-label="First Name"
-                  />
-                  <input
-                    type="text"
-                    className={styles.input}
-                    placeholder="Last Name"
-                    aria-label="Last Name"
-                  />
-                </div>
-
-                <input
-                  type="tel"
-                  className={styles.input}
-                  placeholder="Phone Number"
-                  aria-label="Phone Number"
-                />
-
-                <input
-                  type="email"
-                  className={styles.input}
-                  placeholder="Your Email"
-                  aria-label="Your Email"
-                />
-
-                <textarea
-                  className={`${styles.input} ${styles.textarea}`}
-                  placeholder="How can we help?"
-                  aria-label="How can we help?"
-                />
-
-                <label className={`${styles.input} ${styles.uploadRow}`}>
-                  <input
-                    type="file"
-                    className={styles.fileInput}
-                    aria-label="Upload File"
-                  />
-                  <span className={styles.uploadIcon} aria-hidden="true">
-                    📎
-                  </span>
-                  <span>Upload File</span>
-                </label>
-
-                <button type="submit" className={styles.submitButton}>
-                  Submit
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </section>
@@ -129,4 +93,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

@@ -1,0 +1,30 @@
+.page {
+    width: 100%;
+}
+
+.main {
+    width: min(860px, 100%);
+    margin: 0 auto;
+    padding: calc(clamp(72px, 6vw, 112px) + clamp(64px, 4vw, 96px)) var(--content-pad-x) clamp(72px, 8vw, 120px);
+}
+
+.main h1 {
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.9rem;
+}
+
+.main p {
+    line-height: 1.65;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.main p + p {
+    margin-top: 0.75rem;
+}
+
+.main a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}

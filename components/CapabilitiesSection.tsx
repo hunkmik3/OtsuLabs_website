@@ -26,7 +26,14 @@ export default function CapabilitiesSection() {
             <div className={styles.topContainer}>
                 <div className={styles.badge}>CAPABILITIES</div>
                 <p className={styles.description}>
-                    Animation for brands, screens, and <br />stories of every scale. We're your <br />creative partner, equipped to tackle <br />any challenge. Delivering A-Z or<br /> tailored solutions.
+                    Animation for brands,<br />
+                    screens, and stories<br />
+                    of every scale. We&apos;re<br />
+                    your creative partner,<br />
+                    equipped to tackle<br />
+                    any challenge.<br />
+                    Delivering A-Z or<br />
+                    tailored solutions.
                 </p>
             </div>
 

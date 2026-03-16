@@ -49,6 +49,14 @@
     color: #000000;
 }
 
+.descDesktop {
+    display: inline;
+}
+
+.descMobile {
+    display: none;
+}
+
 .imageRow {
     display: flex;
     gap: 1.39vw;
@@ -116,14 +124,55 @@
 
 @media (max-width: 768px) {
     .section {
-        padding: 50px var(--content-pad-x-tight) 0;
+        padding: 40px 24px 0;
+    }
+
+    .badge {
+        position: static;
+        font-size: 9px;
+        padding: 6px 12px;
+        margin-bottom: 16px;
+        border-radius: 999px;
+    }
+
+    .textBlock {
+        margin-left: 0;
+        margin-bottom: 24px;
     }
 
     .heading {
-        font-size: 36px;
+        font-size: clamp(48px, 13vw, 64px);
+        margin-bottom: 12px;
+    }
+
+    .descDesktop {
+        display: none;
+    }
+
+    .descMobile {
+        display: inline;
     }
 
     .description {
-        font-size: 16px;
+        font-size: clamp(15px, 4.2vw, 20px);
+        line-height: 130%;
+    }
+
+    .imageRow {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .imageLeft {
+        flex: 1;
+        height: 22vw;
+        border-radius: 8px;
+    }
+
+    .imageRight {
+        flex: 1;
+        height: 44vw;
+        border-radius: 8px;
     }
 }

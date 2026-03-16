@@ -121,8 +121,11 @@
     gap: clamp(2px, 0.2vw, 4px);
 }
 
-@media (max-width: 1024px) {
+.mobileLocations {
+    display: none;
+}
 
+@media (max-width: 1024px) {
     .title,
     .email {
         font-size: 52px;
@@ -131,6 +134,87 @@
     .locations {
         display: grid;
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        min-height: 100vh;
+        padding: 40px 24px 0;
+    }
+
+    .title,
+    .email {
+        font-size: clamp(26px, 7.5vw, 36px);
+        line-height: 105%;
+    }
+
+    .email {
+        color: #666666;
+    }
+
+    .headingBlock {
+        margin-bottom: 36px;
+    }
+
+    .linksContainer {
+        display: flex;
+        gap: 48px;
+        font-size: 12px;
+    }
+
+    .col {
+        gap: 12px;
+    }
+
+    .characterImage {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: auto;
+        margin-top: -60px;
+        margin-bottom: 40px;
+        z-index: 1;
+    }
+
+    .bottomContent {
+        gap: 16px;
+        font-size: 11px;
+        margin-top: 0;
+    }
+
+    .legal {
+        gap: 6px;
+        margin-top: 0;
+        color: #ccc;
+    }
+
+    .locations {
+        display: none;
+    }
+
+    .mobileLocations {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 24px;
+    }
+
+    .mobileLocationItem {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-family: var(--font-geist-mono);
+        font-size: 14px;
+        color: #ccc;
+    }
+
+    .mobileLocationName {
+        font-size: 14px;
+    }
+
+    .mobileLocationTime {
+        font-size: 14px;
     }
 }
 

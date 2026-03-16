@@ -6,19 +6,30 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:cms": "node --test --import tsx tests/cms/**/*.test.ts",
+    "cms:migrate:postgres": "node --import tsx scripts/cms/migrate-postgres.ts",
+    "cms:verify:postgres": "node --import tsx scripts/cms/verify-postgres.ts",
+    "cms:backup:db": "node --import tsx scripts/cms/backup-db.ts",
+    "cms:restore:db": "node --import tsx scripts/cms/restore-db.ts",
+    "cms:backup:media": "node --import tsx scripts/cms/backup-media.ts",
+    "cms:restore:media": "node --import tsx scripts/cms/restore-media.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1008.0",
     "next": "16.1.6",
+    "pg": "^8.16.3",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/pg": "^8.15.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "tsx": "^4.20.6",
     "typescript": "^5"
   }
 }

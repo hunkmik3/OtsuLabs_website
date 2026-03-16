@@ -1,0 +1,1634 @@
+{
+  "version": 1,
+  "projects": [
+    {
+      "id": "project_1f2d8e14-50c1-4d90-a381-8b0a81b837df",
+      "slug": "pixelmon",
+      "templateId": "novathera-v1",
+      "templateVersion": "1.0.0",
+      "status": "published",
+      "order": 0,
+      "basicInfo": {
+        "title": "Nova Thera: Initiation",
+        "clientName": "Nova Thera: Initiation",
+        "dateLabel": "[OCTOBER, 2025]",
+        "animationDuration": "00:00:36",
+        "scopeSummary": "Character design, Storyboard, Color script, Lighting Mood, Script Writing, Concept art, Full production, Visual effects, Sound design",
+        "workCardImage": {
+          "src": "/images/home/selected_works_1.png",
+          "alt": "Nova Thera: Initiation card image",
+          "type": "image"
+        },
+        "workCardOverlayText": "Pixelmon™ Official Anime Teaser. Crafted with passion by our studio, this teaser marks the beginning of a journey, a glimpse into the heart of Pixelmon as you’ve never seen before."
+      },
+      "seo": {
+        "title": "Nova Thera: Initiation | Otsu Labs",
+        "description": "Pixelmon™ Official Anime Teaser. Crafted with passion by our studio, this teaser marks the beginning of a journey, a glimpse into the heart of Pixelmon as you’ve never seen before.",
+        "ogImage": {
+          "src": "/images/home/selected_works_1.png",
+          "alt": "Nova Thera: Initiation OG image",
+          "type": "image"
+        },
+        "noindex": false
+      },
+      "sections": [
+        {
+          "id": "section_hero_faadddf2-568c-4b89-8c9c-3734290f3ce0",
+          "type": "hero",
+          "enabled": true,
+          "order": 0,
+          "content": {
+            "titleText": "Nova Thera: Initiation",
+            "viewFullVideoLabel": "View Full Video",
+            "animationTimeLabel": "Animation Time",
+            "media": {
+              "src": "/images/projects/Nova%20Thera/novathrea_initiation.mp4",
+              "alt": "Nova Thera: Initiation hero video",
+              "type": "video"
+            },
+            "metaItems": [
+              {
+                "label": "Date",
+                "value": "[OCTOBER, 2025]"
+              },
+              {
+                "label": "Client",
+                "value": "Nova Thera: Initiation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_aboutproject_86fc435d-a7b3-41f2-8738-f2b799ebb929",
+          "type": "aboutProject",
+          "enabled": true,
+          "order": 1,
+          "content": {
+            "badgeLabel": "About Projects",
+            "description": "Pixelmon™ Official Anime Teaser. Crafted with passion by our studio, this teaser marks the beginning of a journey, a glimpse into the heart of Pixelmon as you’ve never seen before.",
+            "scopeBadgeLabel": "Scope of Work",
+            "scopeItems": [
+              "Character design",
+              "Storyboard",
+              "Color script",
+              "Lighting Mood",
+              "Script Writing",
+              "Concept art",
+              "Full production",
+              "Visual effects",
+              "Sound design"
+            ],
+            "scopeGallery": {
+              "top": [
+                {
+                  "src": "/images/projects/Nova%20Thera/novatheraintiation1.png",
+                  "alt": "Nova Thera: Initiation scope image 1",
+                  "type": "image"
+                },
+                {
+                  "src": "/images/projects/Nova%20Thera/novatheraintiation2.png",
+                  "alt": "Nova Thera: Initiation scope image 2",
+                  "type": "image"
+                }
+              ],
+              "bottom": {
+                "src": "/images/projects/Nova%20Thera/novatheraintiation3.png",
+                "alt": "Nova Thera: Initiation scope image 3",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "id": "section_preproduction_fdb5362c-2200-4b1d-b717-f6067eb4ccc2",
+          "type": "preProduction",
+          "enabled": true,
+          "order": 2,
+          "content": {
+            "badgeLabel": "Pre-Production",
+            "headerText": "A short description of development process goes like this.",
+            "characterSheet": {
+              "label": "Character Sheet",
+              "text": "[Place holder]\nWe build worlds,\ncreate memorable\ncharacters and craft\nanimations that\nawaken people's\ninner weeb.",
+              "items": [
+                {
+                  "id": "item_character_d75f0c44-80d0-4988-8104-0ff5a92601ee",
+                  "media": {
+                    "src": "/images/projects/images_global/nova model 1.png",
+                    "alt": "[NAME OF CHARACTER]",
+                    "type": "image"
+                  },
+                  "label": "[NAME OF CHARACTER]"
+                },
+                {
+                  "id": "item_character_8aa79ada-d06e-4da7-8fe7-789951630604",
+                  "media": {
+                    "src": "/images/projects/images_global/nova model2 .png",
+                    "alt": "[NAME OF CHARACTER]",
+                    "type": "image"
+                  },
+                  "label": "[NAME OF CHARACTER]"
+                },
+                {
+                  "id": "item_character_b3a22055-1d38-4bb6-adb6-273b30fa194b",
+                  "media": {
+                    "src": "/images/projects/images_global/novamodal3.png",
+                    "alt": "[NAME OF CHARACTER]",
+                    "type": "image"
+                  },
+                  "label": "[NAME OF CHARACTER]"
+                },
+                {
+                  "id": "item_character_9244af8b-d6f4-465d-a55b-5f4e5bc98a2f",
+                  "media": {
+                    "src": "/images/projects/images_global/nova model 4.png",
+                    "alt": "[NAME OF CHARACTER]",
+                    "type": "image"
+                  },
+                  "label": "[NAME OF CHARACTER]"
+                }
+              ]
+            },
+            "explorationSlides": [
+              {
+                "id": "item_exploration-slide_b235276e-2a89-4144-b3fc-be12b9662731",
+                "media": {
+                  "src": "/images/projects/images_global/dragon1%20.png",
+                  "alt": "[The Dragon Name]",
+                  "type": "image"
+                },
+                "title": "[The Dragon Name]",
+                "description": "A short process description goes here"
+              },
+              {
+                "id": "item_exploration-slide_4948da93-78bf-43e2-b986-540f118bf049",
+                "media": {
+                  "src": "/images/projects/images_global/dragon%202.png",
+                  "alt": "[The Phoenix]",
+                  "type": "image"
+                },
+                "title": "[The Phoenix]",
+                "description": "Creature exploration and iteration"
+              },
+              {
+                "id": "item_exploration-slide_ba3970d6-003d-475c-aec1-3500e1bf745d",
+                "media": {
+                  "src": "/images/projects/images_global/dragon3.png",
+                  "alt": "[The Serpent]",
+                  "type": "image"
+                },
+                "title": "[The Serpent]",
+                "description": "Final concept art for production"
+              },
+              {
+                "id": "item_exploration-slide_37380bb2-1cbf-4feb-bef0-a7cfe6447c87",
+                "media": {
+                  "src": "/images/projects/images_global/dragon%204%20.png",
+                  "alt": "[The Guardian]",
+                  "type": "image"
+                },
+                "title": "[The Guardian]",
+                "description": "Boss character design exploration"
+              },
+              {
+                "id": "item_exploration-slide_9663db72-c25a-4ad9-a5fe-d80bea8148b5",
+                "media": {
+                  "src": "/images/projects/images_global/dragon%205.png",
+                  "alt": "[The Colossus]",
+                  "type": "image"
+                },
+                "title": "[The Colossus]",
+                "description": "Extended concept exploration"
+              }
+            ],
+            "autoRotateMs": 5000
+          }
+        },
+        {
+          "id": "section_postexplorationgallery_00e8eba0-5d0f-4394-89a5-470898beee38",
+          "type": "postExplorationGallery",
+          "enabled": true,
+          "order": 3,
+          "content": {
+            "primary": {
+              "src": "/images/projects/images_global/highligh1.png",
+              "alt": "Nova Thera: Initiation highlight image 1",
+              "type": "image"
+            },
+            "secondary": {
+              "src": "/images/projects/images_global/highlight2.png",
+              "alt": "Nova Thera: Initiation highlight image 2",
+              "type": "image"
+            },
+            "caption": "We build worlds, create memorable characters and craft animations that awaken people's inner weeb."
+          }
+        },
+        {
+          "id": "section_production_3b8d92a2-1efc-4339-bdc1-7026f6c565ba",
+          "type": "production",
+          "enabled": true,
+          "order": 4,
+          "content": {
+            "badgeLabel": "Production",
+            "description": "A short description of production/\nanimation goes like this.",
+            "media": {
+              "src": "/images/projects/Nova%20Thera/novathrea_initiation.mp4",
+              "alt": "Nova Thera: Initiation production video",
+              "type": "video"
+            },
+            "overlayItems": [
+              "NOVA THERA: INITIATION",
+              "00:00:36",
+              "OTSU LABS COLLECTION"
+            ]
+          }
+        },
+        {
+          "id": "section_animationkey_bbfc0093-d8b3-4dbc-8ba1-d199e14254d5",
+          "type": "animationKey",
+          "enabled": true,
+          "order": 5,
+          "content": {
+            "title": "Animation key",
+            "badgeLabel": "Post-Production",
+            "terms": "Some technical terms | should go here",
+            "arrowSymbol": "↓",
+            "metaLabel": "Animation Highlights",
+            "scenes": [
+              {
+                "id": "item_scene_bcd901e5-80df-48f3-bd09-24836cf5f133",
+                "label": "Scene 1",
+                "media": {
+                  "src": "/images/projects/Nova%20Thera/animationkey1.png",
+                  "alt": "Nova Thera: Initiation Scene 1",
+                  "type": "image"
+                },
+                "duration": "00:00:20"
+              },
+              {
+                "id": "item_scene_b39d8866-76c4-41fe-afd2-eb962289c1a8",
+                "label": "Scene 2",
+                "media": {
+                  "src": "/images/projects/Nova%20Thera/animationkey2.png",
+                  "alt": "Nova Thera: Initiation Scene 2",
+                  "type": "image"
+                },
+                "duration": "00:00:18"
+              },
+              {
+                "id": "item_scene_3025771a-819e-4a1d-b766-1df0ed7f603f",
+                "label": "Scene 3",
+                "media": {
+                  "src": "/images/projects/Nova%20Thera/animationkey3.png",
+                  "alt": "Nova Thera: Initiation Scene 3",
+                  "type": "image"
+                },
+                "duration": "00:00:23"
+              },
+              {
+                "id": "item_scene_ce7185d0-1dcd-40d9-abc7-fedeb4b0ca07",
+                "label": "Scene 4",
+                "media": {
+                  "src": "/images/projects/Nova%20Thera/animationkey4.png",
+                  "alt": "Nova Thera: Initiation Scene 4",
+                  "type": "image"
+                },
+                "duration": "00:00:21"
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_keyhighlightpair_dbdf19fc-70c2-482c-9419-edb4722251dc",
+          "type": "keyHighlightPair",
+          "enabled": true,
+          "order": 6,
+          "content": {
+            "leftMedia": {
+              "src": "/images/projects/Nova%20Thera/keyhighlight1.png",
+              "alt": "Nova Thera: Initiation key highlight left",
+              "type": "image"
+            },
+            "rightMedia": {
+              "src": "/images/projects/Nova%20Thera/keyhighlight2.png",
+              "alt": "Nova Thera: Initiation key highlight right",
+              "type": "image"
+            },
+            "caption": "SCENE'S NAME / DESCRIPTION"
+          }
+        },
+        {
+          "id": "section_credits_2e5d43f6-1619-4a70-840f-0db3c21ab866",
+          "type": "credits",
+          "enabled": true,
+          "order": 7,
+          "content": {
+            "title": "Meet\nOtsu's Team",
+            "badgeLabel": "Credits",
+            "leftColumn": [
+              {
+                "role": "Producer",
+                "names": [
+                  "Khoa Trinh"
+                ]
+              },
+              {
+                "role": "Director",
+                "names": [
+                  "Duc Nguyen"
+                ]
+              },
+              {
+                "role": "Animation Director",
+                "names": [
+                  "Huu Tu"
+                ]
+              },
+              {
+                "role": "Art Director",
+                "names": [
+                  "Long An"
+                ]
+              },
+              {
+                "role": "Storyboard",
+                "names": [
+                  "Ngoc Huynh"
+                ]
+              },
+              {
+                "role": "Head Manager",
+                "names": [
+                  "Raymond Trinh"
+                ]
+              },
+              {
+                "role": "Production Assistant",
+                "names": [
+                  "Trung Nguyen",
+                  "Khoa Trinh"
+                ]
+              },
+              {
+                "role": "Concept Artists",
+                "names": [
+                  "Khang Nguyen",
+                  "Long An"
+                ]
+              },
+              {
+                "role": "Chief Animation Supervisors",
+                "names": [
+                  "Alejandro Jhon Belen"
+                ]
+              },
+              {
+                "role": "Animation Supervisors",
+                "names": [
+                  "Alejandro Jhon Belen",
+                  "Thuy Vy"
+                ]
+              },
+              {
+                "role": "LO Animators",
+                "names": [
+                  "Huu Tu",
+                  "Lucas",
+                  "Aisha",
+                  "Cesar D. deLeon JR",
+                  "Anya"
+                ]
+              }
+            ],
+            "rightColumn": [
+              {
+                "role": "Genga Animators",
+                "names": [
+                  "Cariza Gabito",
+                  "Bonz Bolalin",
+                  "Wencis Nico",
+                  "Matiella Garia",
+                  "Raissa Vinny"
+                ]
+              },
+              {
+                "role": "Clean Ups Animators",
+                "names": [
+                  "Julius L. de Belen",
+                  "RC",
+                  "PewPew",
+                  "Mark"
+                ]
+              },
+              {
+                "role": "2DFX Animator",
+                "names": [
+                  "Viet Nguyen"
+                ]
+              },
+              {
+                "role": "Colorist",
+                "names": [
+                  "Long An",
+                  "Khang Nguyen"
+                ]
+              },
+              {
+                "role": "Background Artist",
+                "names": [
+                  "Giao Nguyen"
+                ]
+              },
+              {
+                "role": "Lead Compositing",
+                "names": [
+                  "Daniel Laney"
+                ]
+              },
+              {
+                "role": "Compositing Editors",
+                "names": [
+                  "Phuc Pham",
+                  "Loc",
+                  "Le Nguyen",
+                  "Lam Nguyen"
+                ]
+              },
+              {
+                "role": "Music Composer",
+                "names": [
+                  "Jakub Pietras"
+                ]
+              },
+              {
+                "role": "SFX and Mastering",
+                "names": [
+                  "Jordan Wilberg"
+                ]
+              },
+              {
+                "role": "Editor",
+                "names": [
+                  "Quang Nguyen"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_moreprojects_ca513386-43e8-4d63-9ec3-3230943c1c7c",
+          "type": "moreProjects",
+          "enabled": true,
+          "order": 8,
+          "content": {
+            "title": "More Projects",
+            "backLinkLabel": "Back to Work",
+            "backLinkHref": "/work",
+            "mode": "autoRelated",
+            "maxItems": 2,
+            "manualItems": [
+              {
+                "slug": "nova-thera",
+                "title": "Nova Thera: Genesis",
+                "subtitle": "Nova Thera",
+                "year": "2025",
+                "image": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "Nova Thera: Genesis cover",
+                  "type": "image"
+                }
+              },
+              {
+                "slug": "ronin-labs",
+                "title": "Ronin: Awakening",
+                "subtitle": "Ronin Labs",
+                "year": "2025",
+                "image": {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "Ronin: Awakening cover",
+                  "type": "image"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "createdAt": "2026-03-12T22:54:35.278Z",
+      "updatedAt": "2026-03-12T22:54:35.278Z",
+      "publishedAt": "2026-03-12T22:54:35.278Z"
+    },
+    {
+      "id": "project_e1dac108-49ba-4cee-af75-6a8aac1b2119",
+      "slug": "nova-thera",
+      "templateId": "legacy-import-v1",
+      "templateVersion": "1.0.0",
+      "status": "published",
+      "order": 1,
+      "basicInfo": {
+        "title": "testing",
+        "subtitle": "Nova Thera",
+        "clientName": "Nova Thera",
+        "dateLabel": "[NOVEMBER, 2025]",
+        "animationDuration": "00:01:12",
+        "scopeSummary": "Concept Art & Motion",
+        "workCardImage": {
+          "src": "/images/home/hero_banner.png",
+          "alt": "Nova Thera: Genesis card image",
+          "type": "image"
+        },
+        "workCardOverlayText": "A cinematic exploration of light and shadow, blending traditional anime aesthetics with cutting-edge digital techniques for a new generation."
+      },
+      "seo": {
+        "title": "Nova Thera: Genesis | Otsu Labs",
+        "description": "A cinematic exploration of light and shadow, blending traditional anime aesthetics with cutting-edge digital techniques for a new generation.",
+        "ogImage": {
+          "src": "/images/home/hero_banner.png",
+          "alt": "Nova Thera: Genesis OG image",
+          "type": "image"
+        },
+        "noindex": false
+      },
+      "sections": [
+        {
+          "id": "section_hero_1ea74d59-b673-4b27-8f45-71fa405293cb",
+          "type": "hero",
+          "enabled": true,
+          "order": 0,
+          "content": {
+            "titleText": "Nova Thera: Genesis",
+            "viewFullVideoLabel": "View Full Video",
+            "animationTimeLabel": "Animation Time",
+            "media": {
+              "src": "/images/home/showreels.mp4",
+              "alt": "Nova Thera: Genesis hero video",
+              "type": "video"
+            },
+            "metaItems": [
+              {
+                "label": "Date",
+                "value": "[NOVEMBER, 2025]"
+              },
+              {
+                "label": "Client",
+                "value": "Nova Thera"
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_aboutproject_8e7874bb-7206-4900-9369-1c2204c0a90a",
+          "type": "aboutProject",
+          "enabled": true,
+          "order": 1,
+          "content": {
+            "badgeLabel": "About Projects",
+            "description": "A cinematic exploration of light and shadow, blending traditional anime aesthetics with cutting-edge digital techniques for a new generation.",
+            "scopeBadgeLabel": "Scope of Work",
+            "scopeItems": [
+              "Creative Direction",
+              "Concept Art",
+              "Motion Design",
+              "Storyboard",
+              "Compositing & Finishing"
+            ],
+            "scopeGallery": {
+              "top": [
+                {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "Nova Thera: Genesis scope image 1",
+                  "type": "image"
+                },
+                {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "Nova Thera: Genesis scope image 2",
+                  "type": "image"
+                }
+              ],
+              "bottom": {
+                "src": "/images/home/banner_production.png",
+                "alt": "Nova Thera: Genesis scope image 3",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "id": "section_preproduction_34384068-9235-42e9-a538-86180ac1ec5b",
+          "type": "preProduction",
+          "enabled": true,
+          "order": 2,
+          "content": {
+            "badgeLabel": "Pre-Production",
+            "headerText": "Exploring the boundaries of light and shadow in anime production.",
+            "characterSheet": {
+              "label": "Character Sheet",
+              "text": "[Place holder]\nWe build worlds,\ncreate memorable\ncharacters and craft\nanimations that\nawaken people's\ninner weeb.",
+              "items": [
+                {
+                  "id": "item_character_2576ba81-144c-461a-9f2c-1251ee4707e0",
+                  "media": {
+                    "src": "/images/home/hero_banner.png",
+                    "alt": "Character A",
+                    "type": "image"
+                  },
+                  "label": "Character A"
+                },
+                {
+                  "id": "item_character_3489419b-dd7a-4468-b90a-88925684be44",
+                  "media": {
+                    "src": "/images/home/selected_works_1.png",
+                    "alt": "Character B",
+                    "type": "image"
+                  },
+                  "label": "Character B"
+                },
+                {
+                  "id": "item_character_05973e69-ba17-433d-802e-7c047515b886",
+                  "media": {
+                    "src": "/images/home/feature_image.png",
+                    "alt": "Character C",
+                    "type": "image"
+                  },
+                  "label": "Character C"
+                }
+              ]
+            },
+            "explorationSlides": [
+              {
+                "id": "item_exploration-slide_829515a1-efb1-477a-89d4-4042a69512ad",
+                "media": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "[Light Study]",
+                  "type": "image"
+                },
+                "title": "[Light Study]",
+                "description": "Atmospheric exploration"
+              },
+              {
+                "id": "item_exploration-slide_21797c3b-65e5-452c-9ee5-bdb44b32cbac",
+                "media": {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "[Shadow Play]",
+                  "type": "image"
+                },
+                "title": "[Shadow Play]",
+                "description": "Contrast development"
+              },
+              {
+                "id": "item_exploration-slide_5ab2f41b-a29c-4687-bb64-b62ed4e6120c",
+                "media": {
+                  "src": "/images/home/banner_production.png",
+                  "alt": "[Final Scene]",
+                  "type": "image"
+                },
+                "title": "[Final Scene]",
+                "description": "Scene assembly and composition"
+              }
+            ],
+            "autoRotateMs": 5000
+          }
+        },
+        {
+          "id": "section_postexplorationgallery_63ff767b-e389-46be-ae5c-6c417fd51259",
+          "type": "postExplorationGallery",
+          "enabled": true,
+          "order": 3,
+          "content": {
+            "primary": {
+              "src": "/images/home/hero_banner.png",
+              "alt": "Nova Thera: Genesis highlight image 1",
+              "type": "image"
+            },
+            "secondary": {
+              "src": "/images/home/feature_image.png",
+              "alt": "Nova Thera: Genesis highlight image 2",
+              "type": "image"
+            },
+            "caption": "We build worlds, create memorable characters and craft animations that awaken people's inner weeb."
+          }
+        },
+        {
+          "id": "section_production_616569e9-6aac-4ef8-a27a-dc88792b3a3d",
+          "type": "production",
+          "enabled": true,
+          "order": 4,
+          "content": {
+            "badgeLabel": "Production",
+            "description": "A short description of production/\nanimation goes like this.",
+            "media": {
+              "src": "/images/home/showreels.mp4",
+              "alt": "Nova Thera: Genesis production video",
+              "type": "video"
+            },
+            "overlayItems": [
+              "NOVA THERA: GENESIS",
+              "00:01:12",
+              "OTSU LABS COLLECTION"
+            ]
+          }
+        },
+        {
+          "id": "section_animationkey_7cce870c-fb23-46df-b384-e9010e499973",
+          "type": "animationKey",
+          "enabled": true,
+          "order": 5,
+          "content": {
+            "title": "Animation key",
+            "badgeLabel": "Post-Production",
+            "terms": "Some technical terms | should go here",
+            "arrowSymbol": "↓",
+            "metaLabel": "Animation Highlights",
+            "scenes": [
+              {
+                "id": "item_scene_e68495b7-8c62-4803-8cb9-c888fa4a9f4b",
+                "label": "Scene 1",
+                "media": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "Nova Thera: Genesis Scene 1",
+                  "type": "image"
+                },
+                "duration": "00:00:16"
+              },
+              {
+                "id": "item_scene_a63773bc-42f0-4237-978e-60cf0fbac734",
+                "label": "Scene 2",
+                "media": {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "Nova Thera: Genesis Scene 2",
+                  "type": "image"
+                },
+                "duration": "00:00:18"
+              },
+              {
+                "id": "item_scene_21b25f4f-8e12-4e7e-93df-9480bb1963f6",
+                "label": "Scene 3",
+                "media": {
+                  "src": "/images/home/banner_production.png",
+                  "alt": "Nova Thera: Genesis Scene 3",
+                  "type": "image"
+                },
+                "duration": "00:00:20"
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_keyhighlightpair_0021831e-0bf1-4386-b555-2387e2834d53",
+          "type": "keyHighlightPair",
+          "enabled": true,
+          "order": 6,
+          "content": {
+            "leftMedia": {
+              "src": "/images/home/hero_banner.png",
+              "alt": "Nova Thera: Genesis key highlight left",
+              "type": "image"
+            },
+            "rightMedia": {
+              "src": "/images/home/feature_image.png",
+              "alt": "Nova Thera: Genesis key highlight right",
+              "type": "image"
+            },
+            "caption": "SCENE'S NAME / DESCRIPTION"
+          }
+        },
+        {
+          "id": "section_credits_2543dd4b-20e9-4590-b3d2-3ded53c6de71",
+          "type": "credits",
+          "enabled": true,
+          "order": 7,
+          "content": {
+            "title": "Meet\nOtsu's Team",
+            "badgeLabel": "Credits",
+            "leftColumn": [
+              {
+                "role": "Creative Direction",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Concept Art",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Motion Design",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Storyboard",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Compositing & Finishing",
+                "names": [
+                  "Otsu Team"
+                ]
+              }
+            ],
+            "rightColumn": []
+          }
+        },
+        {
+          "id": "section_moreprojects_5a004c06-f7d9-4080-af15-f57c55b96c8c",
+          "type": "moreProjects",
+          "enabled": true,
+          "order": 8,
+          "content": {
+            "title": "More Projects",
+            "backLinkLabel": "Back to Work",
+            "backLinkHref": "/work",
+            "mode": "autoRelated",
+            "maxItems": 2,
+            "manualItems": [
+              {
+                "slug": "pixelmon",
+                "title": "Nova Thera: Initiation",
+                "subtitle": "Nova Thera: Initiation",
+                "year": "2025",
+                "image": {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "Nova Thera: Initiation cover",
+                  "type": "image"
+                }
+              },
+              {
+                "slug": "ronin-labs",
+                "title": "Ronin: Awakening",
+                "subtitle": "Ronin Labs",
+                "year": "2025",
+                "image": {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "Ronin: Awakening cover",
+                  "type": "image"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "createdAt": "2026-03-12T22:54:35.278Z",
+      "updatedAt": "2026-03-13T10:58:00.055Z",
+      "publishedAt": "2026-03-12T22:54:35.278Z"
+    },
+    {
+      "id": "project_6a0915ac-757a-422b-a5b6-9bb09341b4d0",
+      "slug": "ronin-labs",
+      "templateId": "legacy-import-v1",
+      "templateVersion": "1.0.0",
+      "status": "published",
+      "order": 2,
+      "basicInfo": {
+        "title": "Ronin: Awakening",
+        "subtitle": "Ronin Labs",
+        "clientName": "Ronin Labs",
+        "dateLabel": "[DECEMBER, 2025]",
+        "animationDuration": "00:00:48",
+        "scopeSummary": "Character Design & Storyboard",
+        "workCardImage": {
+          "src": "/images/home/feature_image.png",
+          "alt": "Ronin: Awakening card image",
+          "type": "image"
+        },
+        "workCardOverlayText": "Bold character work and dynamic storyboards that push the boundaries of visual storytelling in the web3 space."
+      },
+      "seo": {
+        "title": "Ronin: Awakening | Otsu Labs",
+        "description": "Bold character work and dynamic storyboards that push the boundaries of visual storytelling in the web3 space.",
+        "ogImage": {
+          "src": "/images/home/feature_image.png",
+          "alt": "Ronin: Awakening OG image",
+          "type": "image"
+        },
+        "noindex": false
+      },
+      "sections": [
+        {
+          "id": "section_hero_14b03498-bac5-4887-a5d4-d4f3b040dee2",
+          "type": "hero",
+          "enabled": true,
+          "order": 0,
+          "content": {
+            "titleText": "Ronin: Awakening",
+            "viewFullVideoLabel": "View Full Video",
+            "animationTimeLabel": "Animation Time",
+            "media": {
+              "src": "/images/home/showreels.mp4",
+              "alt": "Ronin: Awakening hero video",
+              "type": "video"
+            },
+            "metaItems": [
+              {
+                "label": "Date",
+                "value": "[DECEMBER, 2025]"
+              },
+              {
+                "label": "Client",
+                "value": "Ronin Labs"
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_aboutproject_d293027e-3ea3-4633-b8d8-26000d023e55",
+          "type": "aboutProject",
+          "enabled": true,
+          "order": 1,
+          "content": {
+            "badgeLabel": "About Projects",
+            "description": "Bold character work and dynamic storyboards that push the boundaries of visual storytelling in the web3 space.",
+            "scopeBadgeLabel": "Scope of Work",
+            "scopeItems": [
+              "Character Design",
+              "Storyboard",
+              "Animation Production",
+              "Narrative Design",
+              "Compositing & Finishing"
+            ],
+            "scopeGallery": {
+              "top": [
+                {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "Ronin: Awakening scope image 1",
+                  "type": "image"
+                },
+                {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "Ronin: Awakening scope image 2",
+                  "type": "image"
+                }
+              ],
+              "bottom": {
+                "src": "/images/home/hero_banner.png",
+                "alt": "Ronin: Awakening scope image 3",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "id": "section_preproduction_0b8a8c26-485e-4322-9b33-0fe87b38a3e8",
+          "type": "preProduction",
+          "enabled": true,
+          "order": 2,
+          "content": {
+            "badgeLabel": "Pre-Production",
+            "headerText": "Character-driven storytelling from sketch to screen.",
+            "characterSheet": {
+              "label": "Character Sheet",
+              "text": "[Place holder]\nWe build worlds,\ncreate memorable\ncharacters and craft\nanimations that\nawaken people's\ninner weeb.",
+              "items": [
+                {
+                  "id": "item_character_df92de89-61a1-41e3-b0b1-303588bbbefe",
+                  "media": {
+                    "src": "/images/home/feature_image.png",
+                    "alt": "Ronin A",
+                    "type": "image"
+                  },
+                  "label": "Ronin A"
+                },
+                {
+                  "id": "item_character_a31897ce-5f7b-4deb-aefe-d86b85ecdfaf",
+                  "media": {
+                    "src": "/images/home/selected_works_1.png",
+                    "alt": "Ronin B",
+                    "type": "image"
+                  },
+                  "label": "Ronin B"
+                },
+                {
+                  "id": "item_character_a8a34668-f37d-41dc-92ca-7b4859680455",
+                  "media": {
+                    "src": "/images/home/hero_banner.png",
+                    "alt": "Ronin C",
+                    "type": "image"
+                  },
+                  "label": "Ronin C"
+                },
+                {
+                  "id": "item_character_15128a3c-53e2-480e-98a8-38e17e300cee",
+                  "media": {
+                    "src": "/images/home/banner_production.png",
+                    "alt": "Ronin D",
+                    "type": "image"
+                  },
+                  "label": "Ronin D"
+                }
+              ]
+            },
+            "explorationSlides": [
+              {
+                "id": "item_exploration-slide_b5f355c9-aa28-4636-aef6-4a212d963f8e",
+                "media": {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "[The Ronin]",
+                  "type": "image"
+                },
+                "title": "[The Ronin]",
+                "description": "Main character exploration"
+              },
+              {
+                "id": "item_exploration-slide_365aac05-c5f7-46aa-b2c2-dcaa60a6576a",
+                "media": {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "[The Blade]",
+                  "type": "image"
+                },
+                "title": "[The Blade]",
+                "description": "Weapon and prop design"
+              },
+              {
+                "id": "item_exploration-slide_344b56e5-ae04-40b1-9be5-9adbd8289f0f",
+                "media": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "[The Arena]",
+                  "type": "image"
+                },
+                "title": "[The Arena]",
+                "description": "Environment concept art"
+              }
+            ],
+            "autoRotateMs": 5000
+          }
+        },
+        {
+          "id": "section_postexplorationgallery_2c5f0604-6e0a-4c3b-9e45-e1f7a79362e0",
+          "type": "postExplorationGallery",
+          "enabled": true,
+          "order": 3,
+          "content": {
+            "primary": {
+              "src": "/images/home/feature_image.png",
+              "alt": "Ronin: Awakening highlight image 1",
+              "type": "image"
+            },
+            "secondary": {
+              "src": "/images/home/selected_works_1.png",
+              "alt": "Ronin: Awakening highlight image 2",
+              "type": "image"
+            },
+            "caption": "We build worlds, create memorable characters and craft animations that awaken people's inner weeb."
+          }
+        },
+        {
+          "id": "section_production_9cce11e4-093b-4ed2-b37b-3f3caff83c19",
+          "type": "production",
+          "enabled": true,
+          "order": 4,
+          "content": {
+            "badgeLabel": "Production",
+            "description": "A short description of production/\nanimation goes like this.",
+            "media": {
+              "src": "/images/home/showreels.mp4",
+              "alt": "Ronin: Awakening production video",
+              "type": "video"
+            },
+            "overlayItems": [
+              "RONIN: AWAKENING",
+              "00:00:48",
+              "OTSU LABS COLLECTION"
+            ]
+          }
+        },
+        {
+          "id": "section_animationkey_a931b2e8-8f1c-4c10-90a8-6efb65e318b8",
+          "type": "animationKey",
+          "enabled": true,
+          "order": 5,
+          "content": {
+            "title": "Animation key",
+            "badgeLabel": "Post-Production",
+            "terms": "Some technical terms | should go here",
+            "arrowSymbol": "↓",
+            "metaLabel": "Animation Highlights",
+            "scenes": [
+              {
+                "id": "item_scene_e7ae09e5-cc7a-4af4-8612-39f0a9876e6a",
+                "label": "Scene 1",
+                "media": {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "Ronin: Awakening Scene 1",
+                  "type": "image"
+                },
+                "duration": "00:00:16"
+              },
+              {
+                "id": "item_scene_0fb90715-b5c9-431c-aa78-bfd73a3af3a6",
+                "label": "Scene 2",
+                "media": {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "Ronin: Awakening Scene 2",
+                  "type": "image"
+                },
+                "duration": "00:00:18"
+              },
+              {
+                "id": "item_scene_efa03c7a-79ce-45f4-ab99-438d5b2a8320",
+                "label": "Scene 3",
+                "media": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "Ronin: Awakening Scene 3",
+                  "type": "image"
+                },
+                "duration": "00:00:20"
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_keyhighlightpair_1c3ca6ff-0536-4042-aaa6-12c5465d6a17",
+          "type": "keyHighlightPair",
+          "enabled": true,
+          "order": 6,
+          "content": {
+            "leftMedia": {
+              "src": "/images/home/feature_image.png",
+              "alt": "Ronin: Awakening key highlight left",
+              "type": "image"
+            },
+            "rightMedia": {
+              "src": "/images/home/selected_works_1.png",
+              "alt": "Ronin: Awakening key highlight right",
+              "type": "image"
+            },
+            "caption": "SCENE'S NAME / DESCRIPTION"
+          }
+        },
+        {
+          "id": "section_credits_c113a278-2674-4913-b830-4e04d021ffb6",
+          "type": "credits",
+          "enabled": true,
+          "order": 7,
+          "content": {
+            "title": "Meet\nOtsu's Team",
+            "badgeLabel": "Credits",
+            "leftColumn": [
+              {
+                "role": "Character Design",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Storyboard",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Animation Production",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Narrative Design",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Compositing & Finishing",
+                "names": [
+                  "Otsu Team"
+                ]
+              }
+            ],
+            "rightColumn": []
+          }
+        },
+        {
+          "id": "section_moreprojects_a14850db-bb03-4515-822f-06bd757e4754",
+          "type": "moreProjects",
+          "enabled": true,
+          "order": 8,
+          "content": {
+            "title": "More Projects",
+            "backLinkLabel": "Back to Work",
+            "backLinkHref": "/work",
+            "mode": "autoRelated",
+            "maxItems": 2,
+            "manualItems": [
+              {
+                "slug": "pixelmon",
+                "title": "Nova Thera: Initiation",
+                "subtitle": "Nova Thera: Initiation",
+                "year": "2025",
+                "image": {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "Nova Thera: Initiation cover",
+                  "type": "image"
+                }
+              },
+              {
+                "slug": "nova-thera",
+                "title": "Nova Thera: Genesis",
+                "subtitle": "Nova Thera",
+                "year": "2025",
+                "image": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "Nova Thera: Genesis cover",
+                  "type": "image"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "createdAt": "2026-03-12T22:54:35.278Z",
+      "updatedAt": "2026-03-12T22:54:35.278Z",
+      "publishedAt": "2026-03-12T22:54:35.278Z"
+    },
+    {
+      "id": "project_01adcdf5-64ff-46f8-87d2-f98a99f0ba77",
+      "slug": "aether-studios",
+      "templateId": "legacy-import-v1",
+      "templateVersion": "1.0.0",
+      "status": "published",
+      "order": 3,
+      "basicInfo": {
+        "title": "Aether: Convergence",
+        "subtitle": "Aether Studios",
+        "clientName": "Aether Studios",
+        "dateLabel": "[JANUARY, 2026]",
+        "animationDuration": "00:02:05",
+        "scopeSummary": "Full Production Pipeline",
+        "workCardImage": {
+          "src": "/images/home/banner_production.png",
+          "alt": "Aether: Convergence card image",
+          "type": "image"
+        },
+        "workCardOverlayText": "End-to-end animation production from concept to final cut, delivering a breathtaking visual experience for the community."
+      },
+      "seo": {
+        "title": "Aether: Convergence | Otsu Labs",
+        "description": "End-to-end animation production from concept to final cut, delivering a breathtaking visual experience for the community.",
+        "ogImage": {
+          "src": "/images/home/banner_production.png",
+          "alt": "Aether: Convergence OG image",
+          "type": "image"
+        },
+        "noindex": false
+      },
+      "sections": [
+        {
+          "id": "section_hero_66edc3af-fbed-45d0-bb29-a8a4c98fe085",
+          "type": "hero",
+          "enabled": true,
+          "order": 0,
+          "content": {
+            "titleText": "Aether: Convergence",
+            "viewFullVideoLabel": "View Full Video",
+            "animationTimeLabel": "Animation Time",
+            "media": {
+              "src": "/images/home/showreels.mp4",
+              "alt": "Aether: Convergence hero video",
+              "type": "video"
+            },
+            "metaItems": [
+              {
+                "label": "Date",
+                "value": "[JANUARY, 2026]"
+              },
+              {
+                "label": "Client",
+                "value": "Aether Studios"
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_aboutproject_2de41032-3d96-40c1-b7e2-a0bdb24fa562",
+          "type": "aboutProject",
+          "enabled": true,
+          "order": 1,
+          "content": {
+            "badgeLabel": "About Projects",
+            "description": "End-to-end animation production from concept to final cut, delivering a breathtaking visual experience for the community.",
+            "scopeBadgeLabel": "Scope of Work",
+            "scopeItems": [
+              "Creative Direction",
+              "Script Writing",
+              "Animation Production",
+              "Storyboard",
+              "Cinematic Planning",
+              "Compositing & Finishing"
+            ],
+            "scopeGallery": {
+              "top": [
+                {
+                  "src": "/images/home/banner_production.png",
+                  "alt": "Aether: Convergence scope image 1",
+                  "type": "image"
+                },
+                {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "Aether: Convergence scope image 2",
+                  "type": "image"
+                }
+              ],
+              "bottom": {
+                "src": "/images/home/feature_image.png",
+                "alt": "Aether: Convergence scope image 3",
+                "type": "image"
+              }
+            }
+          }
+        },
+        {
+          "id": "section_preproduction_756e9035-cf87-4a43-b017-37c25259bd1b",
+          "type": "preProduction",
+          "enabled": true,
+          "order": 2,
+          "content": {
+            "badgeLabel": "Pre-Production",
+            "headerText": "Full pipeline production from concept to delivery.",
+            "characterSheet": {
+              "label": "Character Sheet",
+              "text": "[Place holder]\nWe build worlds,\ncreate memorable\ncharacters and craft\nanimations that\nawaken people's\ninner weeb.",
+              "items": [
+                {
+                  "id": "item_character_a08dcb49-eb75-4e75-95ae-6d54f14dedfd",
+                  "media": {
+                    "src": "/images/home/banner_production.png",
+                    "alt": "Aether A",
+                    "type": "image"
+                  },
+                  "label": "Aether A"
+                },
+                {
+                  "id": "item_character_ae61db08-ef43-4a0a-ae21-90d29fc3959e",
+                  "media": {
+                    "src": "/images/home/selected_works_1.png",
+                    "alt": "Aether B",
+                    "type": "image"
+                  },
+                  "label": "Aether B"
+                },
+                {
+                  "id": "item_character_b601cd6c-eca9-43f0-bd63-04b93f93c12d",
+                  "media": {
+                    "src": "/images/home/hero_banner.png",
+                    "alt": "Aether C",
+                    "type": "image"
+                  },
+                  "label": "Aether C"
+                }
+              ]
+            },
+            "explorationSlides": [
+              {
+                "id": "item_exploration-slide_20c83846-b75f-4a07-9219-5ac6aefdb8fe",
+                "media": {
+                  "src": "/images/home/banner_production.png",
+                  "alt": "[The Core]",
+                  "type": "image"
+                },
+                "title": "[The Core]",
+                "description": "Central concept development"
+              },
+              {
+                "id": "item_exploration-slide_cd9f770c-196d-4731-ade2-09b5def8bf7b",
+                "media": {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "[The Rift]",
+                  "type": "image"
+                },
+                "title": "[The Rift]",
+                "description": "Dimensional exploration art"
+              },
+              {
+                "id": "item_exploration-slide_72967e26-f83f-4b37-8c33-5af812a5580b",
+                "media": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "[The Nexus]",
+                  "type": "image"
+                },
+                "title": "[The Nexus]",
+                "description": "Final convergence scene"
+              },
+              {
+                "id": "item_exploration-slide_17dd3afd-ee78-48b2-a56f-9a6f1034183f",
+                "media": {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "[The Echo]",
+                  "type": "image"
+                },
+                "title": "[The Echo]",
+                "description": "Aftermath sequence design"
+              }
+            ],
+            "autoRotateMs": 5000
+          }
+        },
+        {
+          "id": "section_postexplorationgallery_3dd23be3-5357-4b24-81b4-7de3bac9a0d2",
+          "type": "postExplorationGallery",
+          "enabled": true,
+          "order": 3,
+          "content": {
+            "primary": {
+              "src": "/images/home/banner_production.png",
+              "alt": "Aether: Convergence highlight image 1",
+              "type": "image"
+            },
+            "secondary": {
+              "src": "/images/home/selected_works_1.png",
+              "alt": "Aether: Convergence highlight image 2",
+              "type": "image"
+            },
+            "caption": "We build worlds, create memorable characters and craft animations that awaken people's inner weeb."
+          }
+        },
+        {
+          "id": "section_production_2bc4db7a-29c8-44a3-acc8-986a490e334e",
+          "type": "production",
+          "enabled": true,
+          "order": 4,
+          "content": {
+            "badgeLabel": "Production",
+            "description": "A short description of production/\nanimation goes like this.",
+            "media": {
+              "src": "/images/home/showreels.mp4",
+              "alt": "Aether: Convergence production video",
+              "type": "video"
+            },
+            "overlayItems": [
+              "AETHER: CONVERGENCE",
+              "00:02:05",
+              "OTSU LABS COLLECTION"
+            ]
+          }
+        },
+        {
+          "id": "section_animationkey_e5ae29d5-3f23-4d7e-a237-e1e4c0d8a7df",
+          "type": "animationKey",
+          "enabled": true,
+          "order": 5,
+          "content": {
+            "title": "Animation key",
+            "badgeLabel": "Post-Production",
+            "terms": "Some technical terms | should go here",
+            "arrowSymbol": "↓",
+            "metaLabel": "Animation Highlights",
+            "scenes": [
+              {
+                "id": "item_scene_3484c231-d7e9-470c-b55a-aa79b87b165a",
+                "label": "Scene 1",
+                "media": {
+                  "src": "/images/home/banner_production.png",
+                  "alt": "Aether: Convergence Scene 1",
+                  "type": "image"
+                },
+                "duration": "00:00:16"
+              },
+              {
+                "id": "item_scene_1cd24883-6f9b-45f9-a414-8aad53d884fd",
+                "label": "Scene 2",
+                "media": {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "Aether: Convergence Scene 2",
+                  "type": "image"
+                },
+                "duration": "00:00:18"
+              },
+              {
+                "id": "item_scene_819bc91e-b2b3-4374-89be-f10cba184873",
+                "label": "Scene 3",
+                "media": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "Aether: Convergence Scene 3",
+                  "type": "image"
+                },
+                "duration": "00:00:20"
+              },
+              {
+                "id": "item_scene_26dfaa74-f799-4aa3-b900-89fcc168715a",
+                "label": "Scene 4",
+                "media": {
+                  "src": "/images/home/feature_image.png",
+                  "alt": "Aether: Convergence Scene 4",
+                  "type": "image"
+                },
+                "duration": "00:00:22"
+              }
+            ]
+          }
+        },
+        {
+          "id": "section_keyhighlightpair_e68ff4a4-64d9-4d51-84a5-8fbfc0fc5bc7",
+          "type": "keyHighlightPair",
+          "enabled": true,
+          "order": 6,
+          "content": {
+            "leftMedia": {
+              "src": "/images/home/banner_production.png",
+              "alt": "Aether: Convergence key highlight left",
+              "type": "image"
+            },
+            "rightMedia": {
+              "src": "/images/home/selected_works_1.png",
+              "alt": "Aether: Convergence key highlight right",
+              "type": "image"
+            },
+            "caption": "SCENE'S NAME / DESCRIPTION"
+          }
+        },
+        {
+          "id": "section_credits_782690ff-f4f4-4113-b553-83fbd0559666",
+          "type": "credits",
+          "enabled": true,
+          "order": 7,
+          "content": {
+            "title": "Meet\nOtsu's Team",
+            "badgeLabel": "Credits",
+            "leftColumn": [
+              {
+                "role": "Creative Direction",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Script Writing",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Animation Production",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Storyboard",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Cinematic Planning",
+                "names": [
+                  "Otsu Team"
+                ]
+              },
+              {
+                "role": "Compositing & Finishing",
+                "names": [
+                  "Otsu Team"
+                ]
+              }
+            ],
+            "rightColumn": []
+          }
+        },
+        {
+          "id": "section_moreprojects_30750ece-9f58-4916-bb78-ae49a3e1c113",
+          "type": "moreProjects",
+          "enabled": true,
+          "order": 8,
+          "content": {
+            "title": "More Projects",
+            "backLinkLabel": "Back to Work",
+            "backLinkHref": "/work",
+            "mode": "autoRelated",
+            "maxItems": 2,
+            "manualItems": [
+              {
+                "slug": "pixelmon",
+                "title": "Nova Thera: Initiation",
+                "subtitle": "Nova Thera: Initiation",
+                "year": "2025",
+                "image": {
+                  "src": "/images/home/selected_works_1.png",
+                  "alt": "Nova Thera: Initiation cover",
+                  "type": "image"
+                }
+              },
+              {
+                "slug": "nova-thera",
+                "title": "Nova Thera: Genesis",
+                "subtitle": "Nova Thera",
+                "year": "2025",
+                "image": {
+                  "src": "/images/home/hero_banner.png",
+                  "alt": "Nova Thera: Genesis cover",
+                  "type": "image"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "createdAt": "2026-03-12T22:54:35.278Z",
+      "updatedAt": "2026-03-12T22:54:35.278Z",
+      "publishedAt": "2026-03-12T22:54:35.278Z"
+    }
+  ]
+}

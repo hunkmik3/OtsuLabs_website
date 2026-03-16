@@ -144,7 +144,6 @@ export default function PreProductionSection({
                         onTouchStart={(e) => startDrag(e.touches[0].pageX)}
                         onTouchMove={(e) => {
                             if (!isDraggingRef.current) return;
-                            e.preventDefault();
                             moveDrag(e.touches[0].pageX);
                         }}
                         onTouchEnd={endDrag}

@@ -340,6 +340,7 @@
     user-select: none;
     -webkit-user-select: none;
     position: relative;
+    -webkit-overflow-scrolling: touch;
 }
 
 .characterGallery::-webkit-scrollbar {
@@ -1191,6 +1192,25 @@
 }
 
 @media (max-width: 768px) {
+    .hero {
+        height: 100vh;
+    }
+
+    .heroOverlay {
+        padding: 24px;
+    }
+
+    .heroInfoCard {
+        max-width: 100%;
+        padding: 25px 20px 32px;
+        border-radius: 16px;
+        gap: 16px;
+    }
+
+    .viewFullVideo {
+        font-size: 10px;
+    }
+
     .heroTitle {
         font-size: clamp(28px, 7vw, 42px);
     }
@@ -1199,12 +1219,81 @@
         gap: 24px;
     }
 
+    .heroMetaLabel {
+        font-size: 10px;
+    }
+
+    .heroMetaValue {
+        font-size: 12px;
+    }
+
+    .animationTime {
+        display: none;
+    }
+
+    .aboutSection {
+        padding: 40px 24px;
+    }
+
+    .aboutRow {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .aboutBadge {
+        font-size: 9px;
+        padding: 6px 12px;
+        border-radius: 999px;
+    }
+
+    .aboutDescription {
+        max-width: 100%;
+        font-size: clamp(28px, 7.5vw, 38px);
+        line-height: 115%;
+    }
+
+    .scopeItem {
+        font-size: clamp(18px, 5vw, 24px);
+    }
+
+    .scopeSeparator {
+        font-size: clamp(16px, 4.5vw, 22px);
+    }
+
     .imageGridTop {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .imageGrid {
+        gap: 8px;
     }
 
     .gridImage {
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 1 / 1.25;
+        border-radius: 12px;
+    }
+
+    .gridImageBottom {
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+    }
+
+    .preProductionSection {
+        padding: 40px 24px;
+    }
+
+    .preProductionBadge {
+        order: -1;
+        font-size: 9px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        margin-top: 0;
+    }
+
+    .preProductionTitle {
+        font-size: clamp(34px, 9.1vw, 44px);
+        max-width: 100%;
     }
 
     .explorationCard {
@@ -1213,7 +1302,16 @@
     }
 
     .characterCard {
-        width: 150px;
+        width: 254px;
+    }
+
+    .characterGalleryWrapper::after,
+    .characterGalleryWrapper::before {
+        width: 40px;
+    }
+
+    .characterSheetText {
+        font-size: clamp(18px, 4.8vw, 24px);
     }
 
     .productionSection {
@@ -1233,35 +1331,135 @@
         font-size: 10px;
     }
 
+    .productionOverlayCollection {
+        display: none;
+    }
+
+    .productionOverlay {
+        justify-content: space-between;
+    }
+
     .postExplorationGallery {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        --post-exploration-image-height: clamp(220px, 58vw, 420px);
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        --post-exploration-image-height: clamp(286px, 75vw, 546px);
+    }
+
+    .postExplorationPrimaryImage {
+        height: calc(var(--post-exploration-image-height) / 2);
     }
 
     .postExplorationCaption {
-        font-size: 25px;
+        font-size: clamp(14px, 3.8vw, 18px);
+        line-height: 130%;
     }
 
     .postProductionSection {
-        padding-top: 64px;
+        padding: 40px 24px 0;
+    }
+
+    .postProductionTop {
+        flex-direction: row !important;
+        align-items: flex-end;
+        gap: 0;
+    }
+
+    .postProductionLeft {
+        flex: 1;
     }
 
     .postProductionTitle {
-        font-size: clamp(52px, 13vw, 78px);
+        font-size: clamp(49px, 13vw, 68px);
+        white-space: nowrap;
+    }
+
+    .postProductionRight {
+        width: auto !important;
+        align-items: flex-start;
+        justify-content: flex-start;
+        min-width: auto;
+        padding-bottom: 0;
+    }
+
+    .postProductionArrow {
+        font-size: clamp(30px, 8vw, 42px);
+        transform: translateY(-100%);
+    }
+
+    .postProductionBadgeRow {
+        flex-wrap: nowrap;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .postProductionBadge {
+        font-size: 9px;
+        padding: 6px 12px;
+        border-radius: 999px;
+    }
+
+    .postProductionTerms {
+        transform: none;
+        font-size: 9px;
+        margin-left: 0;
+    }
+
+    .postProductionMedia {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .postProductionBottom {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 4px;
+    }
+
+    .postProductionTabs {
+        flex-wrap: nowrap;
+        gap: 4px;
+    }
+
+    .postProductionTab {
+        font-size: 13px;
+        padding: 5px 13px;
+        border: 1px solid rgba(0, 0, 0, 0.65);
+        border-radius: 20px;
+        white-space: nowrap;
+    }
+
+    .postProductionMeta {
+        display: none;
     }
 
     .postProductionScenePairSection {
-        padding-top: 18px;
+        padding: 24px 24px 0;
     }
 
     .postProductionScenePairGrid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
     }
 
     .postProductionScenePairLeftImage {
-        aspect-ratio: 16 / 10;
+        aspect-ratio: auto;
+        height: clamp(180px, 48vw, 340px);
+    }
+
+    .postProductionScenePairRightMedia {
+        border-width: 0;
+    }
+
+    .postProductionScenePairRightImage {
+        height: clamp(130px, 34vw, 240px);
+    }
+
+    .postProductionScenePairCaption {
+        font-size: 13px;
+        text-align: left;
     }
 
     .creditsSection {
@@ -1307,10 +1505,6 @@
 
     .postProductionBadgeRow {
         row-gap: 6px;
-    }
-
-    .postProductionTab {
-        font-size: clamp(18px, 5.3vw, 24px);
     }
 
 }

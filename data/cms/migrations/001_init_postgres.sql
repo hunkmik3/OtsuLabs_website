@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS {{CMS_QUALIFIED_TABLE}} (
+    id TEXT PRIMARY KEY,
+    slug TEXT NOT NULL UNIQUE,
+    status TEXT NOT NULL CHECK (status IN ('draft', 'published')),
+    sort_order INTEGER NOT NULL,
+    template_id TEXT NOT NULL,
+    template_version TEXT NOT NULL,
+    basic_info JSONB NOT NULL,
+    seo JSONB NOT NULL,
+    sections JSONB NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL,
+    updated_at TIMESTAMPTZ NOT NULL,
+    published_at TIMESTAMPTZ NULL
+);
+
+CREATE INDEX IF NOT EXISTS {{CMS_STATUS_INDEX}} ON {{CMS_QUALIFIED_TABLE}} (status);
+CREATE INDEX IF NOT EXISTS {{CMS_ORDER_INDEX}} ON {{CMS_QUALIFIED_TABLE}} (sort_order);
+CREATE INDEX IF NOT EXISTS {{CMS_UPDATED_INDEX}} ON {{CMS_QUALIFIED_TABLE}} (updated_at DESC);

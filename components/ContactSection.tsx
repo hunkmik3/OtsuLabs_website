@@ -12,16 +12,18 @@ export default function ContactSection() {
                     or media inquiries.
                 </h2>
 
-                <form className={styles.form} id="contactForm">
-                    <input type="text" placeholder="YOUR NAME" className={styles.input} />
-                    <input type="email" placeholder="YOUR EMAIL" className={styles.input} />
-                    <input type="text" placeholder="HOW CAN WE HELP?" className={styles.input} />
+                <div className={styles.formWrapper}>
+                    <form className={styles.form} id="contactForm">
+                        <input type="text" placeholder="YOUR NAME" className={styles.input} />
+                        <input type="email" placeholder="YOUR EMAIL" className={styles.input} />
+                        <input type="text" placeholder="HOW CAN WE HELP?" className={styles.input} />
 
-                    <div className={styles.fileUpload}>
-                        <span className={styles.paperclip}>📎</span>
-                        <span>UPLOAD FILE</span>
-                    </div>
-                </form>
+                        <div className={styles.fileUpload}>
+                            <span className={styles.paperclip}>📎</span>
+                            <span>UPLOAD FILE</span>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <button className={styles.submitButton} type="submit" form="contactForm">

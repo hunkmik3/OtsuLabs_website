@@ -258,3 +258,111 @@
         font-size: clamp(28px, 8.6vw, 44px);
     }
 }
+
+@media (max-width: 768px) {
+    .section {
+        padding: 42px 18px 24px;
+        --stack-gap: 26px;
+        --card-peek: 0px;
+    }
+
+    .title {
+        font-size: clamp(44px, 13.2vw, 56px);
+        line-height: 96%;
+        letter-spacing: -0.04em;
+        align-items: flex-end;
+        margin-bottom: 12px;
+    }
+
+    .arrowIcon {
+        width: 30px;
+        height: 30px;
+        transform: translateY(-4px);
+        flex-shrink: 0;
+    }
+
+    .metadataBar {
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+        font-size: 10px;
+    }
+
+    .yearBadge {
+        height: 26px;
+        min-width: auto;
+        padding: 0 12px;
+        border-radius: 999px;
+        font-size: 10px;
+        line-height: 100%;
+    }
+
+    .clientInfo {
+        font-size: clamp(7px, 2.1vw, 10px);
+        line-height: 100%;
+        letter-spacing: -0.02em;
+        margin-right: 0;
+        text-align: right;
+        flex: 1;
+        white-space: nowrap;
+    }
+
+    .worksList {
+        padding-bottom: 24px;
+    }
+
+    .card {
+        position: relative;
+        top: auto;
+        border-radius: 18px;
+        box-shadow: none;
+        overflow: hidden;
+    }
+
+    .card + .card {
+        margin-top: 22px;
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(2),
+    .card:nth-child(3) {
+        top: auto;
+    }
+
+    .mediaContainer {
+        height: auto;
+        aspect-ratio: 0.66;
+    }
+
+    .viewButton {
+        display: none;
+    }
+
+    .cardFooter {
+        padding: 14px 16px 18px;
+        background: #d9d9d9;
+        align-items: flex-start;
+        gap: 12px;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+    }
+
+    .textInfo h3 {
+        font-size: clamp(18px, 5vw, 24px);
+        line-height: 100%;
+        margin: 0 0 4px 0;
+    }
+
+    .textInfo p {
+        font-size: clamp(14px, 3.8vw, 18px);
+        line-height: 110%;
+        color: #787878;
+        max-width: 16ch;
+    }
+
+    .counter {
+        font-size: clamp(18px, 5vw, 24px);
+        line-height: 100%;
+        padding-top: 2px;
+    }
+}

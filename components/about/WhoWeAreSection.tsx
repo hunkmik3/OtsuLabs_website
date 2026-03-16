@@ -7,22 +7,42 @@ export default function WhoWeAreSection() {
             <div className={styles.badge}>WHO WE ARE</div>
 
             <h1 className={styles.heading}>
-                Animators, artists,<br />
-                storytellers, producers,<br />
-                and just weebs.
+                <span className={styles.headingDesktop}>
+                    Animators, artists,<br />
+                    storytellers, producers,<br />
+                    and just weebs.
+                </span>
+                <span className={styles.headingMobile}>
+                    Animators, artists,<br />
+                    storytellers,<br />
+                    producers, and just<br />
+                    weebs.
+                </span>
             </h1>
 
             <div className={styles.content}>
                 <div className={styles.textColumn}>
                     <p className={styles.paragraph}>
-                        We are a group of independent<br />
-                        creators pushing the boundaries of<br />
-                        visual storytelling.
+                        <span className={styles.textDesktop}>
+                            We are a group of independent<br />
+                            creators pushing the boundaries of<br />
+                            visual storytelling.
+                        </span>
+                        <span className={styles.textMobile}>
+                            We are a group of independent creators pushing the
+                            boundaries of visual storytelling.
+                        </span>
                     </p>
                     <p className={styles.paragraph}>
-                        Across borders and backgrounds,<br />
-                        we&apos;re bound by one obsession: anime.<br />
-                        Lots of cultures, one creative force.
+                        <span className={styles.textDesktop}>
+                            Across borders and backgrounds,<br />
+                            we&apos;re bound by one obsession: anime.<br />
+                            Lots of cultures, one creative force.
+                        </span>
+                        <span className={styles.textMobile}>
+                            Across borders and backgrounds, we&apos;re bound by one
+                            obsession: anime. Lots of cultures, one creative force.
+                        </span>
                     </p>
                 </div>
                 <div className={styles.imageColumn}>

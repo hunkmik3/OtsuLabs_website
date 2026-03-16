@@ -9,9 +9,15 @@ export default function MentionsSection() {
             <div className={styles.textBlock}>
                 <h2 className={styles.heading}>Annecy 2025</h2>
                 <p className={styles.description}>
-                    Proudly represented Vietnam at<br />
-                    Annecy 2025, including as a panelist<br />
-                    at the WIA World Summit.
+                    <span className={styles.descDesktop}>
+                        Proudly represented Vietnam at<br />
+                        Annecy 2025, including as a panelist<br />
+                        at the WIA World Summit.
+                    </span>
+                    <span className={styles.descMobile}>
+                        Proudly represented Vietnam at Annecy 2025,<br />
+                        including as a panelist at the WIA World Summit.
+                    </span>
                 </p>
             </div>
 

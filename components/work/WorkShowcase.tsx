@@ -3,9 +3,13 @@
 import { CSSProperties, useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './work-showcase.module.css';
-import { projects } from '@/lib/projects';
+import type { ProjectData } from '@/lib/projects';
 
-export default function WorkShowcase() {
+interface WorkShowcaseProps {
+    projects: ProjectData[];
+}
+
+export default function WorkShowcase({ projects }: WorkShowcaseProps) {
     const WHEEL_INTENT_THRESHOLD = 72;
     const WHEEL_RESET_GAP_MS = 220;
     const SNAP_POST_COOLDOWN_MS = 260;
@@ -282,9 +286,21 @@ export default function WorkShowcase() {
             document.body.style.overflow = bodyOverflowRef.current;
             document.documentElement.style.overflow = htmlOverflowRef.current;
         };
-    }, []);
+    }, [projects.length]);
 
-    const active = projects[activeIndex];
+    if (projects.length === 0) {
+        return (
+            <section className={styles.section} ref={sectionRef}>
+                <div className={styles.leftColumn}>
+                    <div className={styles.infoPanel}>
+                        <h1 className={styles.projectTitle}>No projects available.</h1>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    const active = projects[Math.min(activeIndex, projects.length - 1)];
     const releasedStyle = !leftPinned
         ? ({ ['--left-column-release-top' as string]: `${releaseTop}px` } as CSSProperties)
         : undefined;
@@ -340,6 +356,13 @@ export default function WorkShowcase() {
                                 </div>
                             </div>
                         </Link>
+                        <div className={styles.mobileCardInfo}>
+                            <h2 className={styles.mobileCardTitle}>{project.projectTitle}</h2>
+                            <span className={styles.badge}>CLIENT&apos;S NAME</span>
+                            <p className={styles.clientName}>{project.client}</p>
+                            <span className={styles.badge}>SCOPE</span>
+                            <p className={styles.scopeText}>[{project.scope}]</p>
+                        </div>
                     </div>
                 ))}
             </div>
