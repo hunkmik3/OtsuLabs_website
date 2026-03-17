@@ -2,6 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { randomUUID } from "node:crypto";
 import { extname, join } from "node:path";
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import type { MediaAsset } from "@/lib/cms/types";
 import { CmsApiError } from "@/lib/cms/api-response";
 import { getCmsConfig } from "@/lib/cms/config";
@@ -19,8 +20,29 @@ export interface SaveMediaOutput {
     filename: string;
 }
 
+export interface MediaUploadPlan {
+    mode: "server" | "direct";
+    media: MediaAsset;
+    filename: string;
+    mimeType: string;
+    bytes: number;
+    upload?: {
+        url: string;
+        method: "PUT";
+        headers: Record<string, string>;
+    };
+}
+
+interface CreateUploadPlanInput {
+    fileName: string;
+    mimeType: string;
+    bytes: number;
+    alt?: string;
+}
+
 export interface CmsMediaStorage {
     save(input: SaveMediaInput): Promise<SaveMediaOutput>;
+    createUploadPlan?(input: CreateUploadPlanInput): Promise<MediaUploadPlan>;
 }
 
 const sanitizeName = (value: string) =>
@@ -34,23 +56,23 @@ const detectMediaType = (mimeType: string, extension: string): MediaAsset["type"
     return "image";
 };
 
-const normalizeFileExtension = (file: File) => {
-    const mime = file.type.toLowerCase();
-    const ext = extname(file.name).toLowerCase();
+const normalizeFileExtension = (fileName: string, mimeType: string) => {
+    const mime = mimeType.toLowerCase();
+    const ext = extname(fileName).toLowerCase();
     if (ext) return ext;
     if (mime.startsWith("video/")) return ".mp4";
     return ".png";
 };
 
-const validateUploadFile = (file: File) => {
+const validateUploadDescriptor = (fileName: string, mimeType: string, bytes: number) => {
     const config = getCmsConfig();
-    const mime = file.type.toLowerCase();
-    const extension = normalizeFileExtension(file);
+    const mime = mimeType.toLowerCase();
+    const extension = normalizeFileExtension(fileName, mimeType);
 
-    if (file.size <= 0) {
+    if (bytes <= 0) {
         throw new CmsApiError(400, "VALIDATION_ERROR", "Uploaded file is empty.");
     }
-    if (file.size > config.media.maxUploadBytes) {
+    if (bytes > config.media.maxUploadBytes) {
         throw new CmsApiError(
             400,
             "VALIDATION_ERROR",
@@ -65,13 +87,17 @@ const validateUploadFile = (file: File) => {
     }
 };
 
+const validateUploadFile = (file: File) => {
+    validateUploadDescriptor(file.name, file.type, file.size);
+};
+
 class LocalCmsMediaStorage implements CmsMediaStorage {
     async save(input: SaveMediaInput): Promise<SaveMediaOutput> {
         const file = input.file;
         validateUploadFile(file);
 
         const config = getCmsConfig();
-        const extension = normalizeFileExtension(file);
+        const extension = normalizeFileExtension(file.name, file.type);
         const baseName = sanitizeName(file.name.replace(/\.[^.]+$/, "")) || "media";
         const filename = `${baseName}-${Date.now()}-${randomUUID().slice(0, 8)}${extension}`;
         const outputPath = join(config.media.localUploadDirectory, filename);
@@ -163,7 +189,7 @@ class S3CmsMediaStorage implements CmsMediaStorage {
         validateUploadFile(file);
 
         const config = ensureS3Config();
-        const extension = normalizeFileExtension(file);
+        const extension = normalizeFileExtension(file.name, file.type);
         const baseName = sanitizeName(file.name.replace(/\.[^.]+$/, "")) || "media";
         const randomSuffix = `${Date.now()}-${randomUUID().slice(0, 8)}`;
         const filename = `${baseName}-${randomSuffix}${extension}`;
@@ -204,6 +230,60 @@ class S3CmsMediaStorage implements CmsMediaStorage {
             throw new CmsApiError(500, "MEDIA_UPLOAD_FAILED", "Failed to upload media to object storage.");
         }
     }
+
+    async createUploadPlan(input: CreateUploadPlanInput): Promise<MediaUploadPlan> {
+        validateUploadDescriptor(input.fileName, input.mimeType, input.bytes);
+
+        const config = ensureS3Config();
+        const extension = normalizeFileExtension(input.fileName, input.mimeType);
+        const baseName = sanitizeName(input.fileName.replace(/\.[^.]+$/, "")) || "media";
+        const randomSuffix = `${Date.now()}-${randomUUID().slice(0, 8)}`;
+        const filename = `${baseName}-${randomSuffix}${extension}`;
+        const keyPrefix = trimSlashes(config.keyPrefix);
+        const objectKey = keyPrefix ? `${keyPrefix}/${filename}` : filename;
+        const client = this.getClient();
+
+        try {
+            const command = new PutObjectCommand({
+                Bucket: config.bucket,
+                Key: objectKey,
+                ContentType: input.mimeType || "application/octet-stream",
+            });
+            const presignedUrl = await getSignedUrl(client, command, { expiresIn: 60 * 10 });
+            const media: MediaAsset = {
+                src: buildS3PublicUrl(objectKey),
+                alt: input.alt?.trim() || baseName,
+                type: detectMediaType(input.mimeType.toLowerCase(), extension),
+            };
+
+            return {
+                mode: "direct",
+                media,
+                filename: objectKey,
+                mimeType: input.mimeType.toLowerCase(),
+                bytes: input.bytes,
+                upload: {
+                    url: presignedUrl,
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": input.mimeType || "application/octet-stream",
+                    },
+                },
+            };
+        } catch (error) {
+            cmsLogger.error("CMS media presign failed for S3 storage.", {
+                mode: "s3",
+                bucket: config.bucket,
+                key: objectKey,
+                error: cmsLogger.normalizeError(error),
+            });
+            throw new CmsApiError(
+                500,
+                "MEDIA_UPLOAD_FAILED",
+                "Failed to generate direct upload URL for object storage."
+            );
+        }
+    }
 }
 
 let cachedStorage: CmsMediaStorage | null = null;
@@ -222,6 +302,28 @@ export const createCmsMediaStorage = () => {
         }
     }
     return cachedStorage;
+};
+
+export const createCmsMediaUploadPlan = async (input: CreateUploadPlanInput): Promise<MediaUploadPlan> => {
+    const storage = createCmsMediaStorage();
+    if (storage.createUploadPlan) {
+        return storage.createUploadPlan(input);
+    }
+
+    validateUploadDescriptor(input.fileName, input.mimeType, input.bytes);
+    const extension = normalizeFileExtension(input.fileName, input.mimeType);
+    const baseName = sanitizeName(input.fileName.replace(/\.[^.]+$/, "")) || "media";
+    return {
+        mode: "server",
+        media: {
+            src: "",
+            alt: input.alt?.trim() || baseName,
+            type: detectMediaType(input.mimeType.toLowerCase(), extension),
+        },
+        filename: input.fileName,
+        mimeType: input.mimeType.toLowerCase(),
+        bytes: input.bytes,
+    };
 };
 
 export const resetCmsMediaStorageForTests = () => {

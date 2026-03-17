@@ -14,6 +14,12 @@ interface MediaUploadResponse {
     success: boolean;
     data?: {
         media: MediaAsset;
+        mode?: "server" | "direct";
+        upload?: {
+            url: string;
+            method: "PUT";
+            headers?: Record<string, string>;
+        };
     };
     error?: {
         message?: string;
@@ -68,6 +74,43 @@ export default function MediaInputField({ label, value, onChange }: MediaInputFi
 
     const media = ensureMedia(value);
 
+    const readApiPayload = async (response: Response): Promise<MediaUploadResponse> => {
+        try {
+            return (await response.json()) as MediaUploadResponse;
+        } catch {
+            const text = await response.text();
+            return {
+                success: false,
+                error: {
+                    message: text || `Request failed with status ${response.status}.`,
+                },
+            };
+        }
+    };
+
+    const uploadViaServer = async (file: File) => {
+        const body = new FormData();
+        body.set("file", file);
+        body.set("alt", media.alt || file.name);
+
+        const response = await fetch("/api/admin/media", {
+            method: "POST",
+            body,
+        });
+        if (response.status === 401) {
+            window.location.href = `/admin/login?next=${encodeURIComponent(window.location.pathname)}`;
+            return;
+        }
+        const payload = await readApiPayload(response);
+        if (!response.ok || !payload.success || !payload.data) {
+            throw new Error(payload.error?.message || "Upload failed.");
+        }
+        onChange({
+            ...media,
+            ...payload.data.media,
+        });
+    };
+
     const handleUpload = async (file: File) => {
         setUploading(true);
         setError("");
@@ -85,27 +128,44 @@ export default function MediaInputField({ label, value, onChange }: MediaInputFi
         }
 
         try {
-            const body = new FormData();
-            body.set("file", file);
-            body.set("alt", media.alt || file.name);
-
-            const response = await fetch("/api/admin/media", {
+            const presignResponse = await fetch("/api/admin/media/presign", {
                 method: "POST",
-                body,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    fileName: file.name,
+                    contentType: file.type || "application/octet-stream",
+                    size: file.size,
+                    alt: media.alt || file.name,
+                }),
             });
-            if (response.status === 401) {
+            if (presignResponse.status === 401) {
                 window.location.href = `/admin/login?next=${encodeURIComponent(window.location.pathname)}`;
                 return;
             }
-            const payload = (await response.json()) as MediaUploadResponse;
-            if (!response.ok || !payload.success || !payload.data) {
-                throw new Error(payload.error?.message || "Upload failed.");
+            const presignPayload = await readApiPayload(presignResponse);
+            if (!presignResponse.ok || !presignPayload.success || !presignPayload.data) {
+                throw new Error(presignPayload.error?.message || "Failed to prepare upload.");
             }
 
-            onChange({
-                ...media,
-                ...payload.data.media,
-            });
+            if (presignPayload.data.mode === "direct" && presignPayload.data.upload?.url) {
+                const uploadResult = await fetch(presignPayload.data.upload.url, {
+                    method: presignPayload.data.upload.method || "PUT",
+                    headers: presignPayload.data.upload.headers || {},
+                    body: file,
+                });
+                if (!uploadResult.ok) {
+                    throw new Error(`Direct upload failed with status ${uploadResult.status}.`);
+                }
+                onChange({
+                    ...media,
+                    ...presignPayload.data.media,
+                });
+            } else {
+                await uploadViaServer(file);
+            }
+
             setUploadMessage(`Uploaded ${file.name} (${formatBytes(file.size)}).`);
         } catch (uploadError) {
             setError(uploadError instanceof Error ? uploadError.message : "Upload failed.");
