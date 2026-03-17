@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
-import type { ReactNode } from "react";
+"use client";
 
-export const metadata: Metadata = {
-    robots: {
-        index: false,
-        follow: false,
-    },
-};
+import { useEffect } from "react";
 
-export default function AdminLayout({ children }: { children: ReactNode }) {
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+    useEffect(() => {
+        document.body.classList.add("is-admin-route");
+        return () => {
+            document.body.classList.remove("is-admin-route");
+        };
+    }, []);
+
     return <>{children}</>;
 }
+

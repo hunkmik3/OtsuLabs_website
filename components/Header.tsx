@@ -10,7 +10,7 @@ export default function Header() {
 
     return (
         <>
-            <header className={styles.header}>
+            <header className={styles.header} data-cms-global-header>
                 <div className={styles.logoContainer}>
                     <Link href="/">
                         <Image
@@ -53,8 +53,12 @@ export default function Header() {
             </header>
 
             {/* Mobile slide-in menu */}
-            <div className={`${styles.mobileOverlay} ${menuOpen ? styles.mobileOverlayOpen : ''}`} onClick={() => setMenuOpen(false)} />
-            <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ''}`}>
+            <div
+                className={`${styles.mobileOverlay} ${menuOpen ? styles.mobileOverlayOpen : ''}`}
+                onClick={() => setMenuOpen(false)}
+                data-cms-global-header-overlay
+            />
+            <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ''}`} data-cms-global-header-menu>
                 <div className={styles.mobileMenuHeader}>
                     <div className={styles.mobileMenuLogo}>
                         <Link href="/" onClick={() => setMenuOpen(false)}>
