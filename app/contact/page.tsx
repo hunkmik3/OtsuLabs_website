@@ -4,6 +4,7 @@ import { getStaticPageSeo } from "@/lib/seo/page-seo";
 import styles from "./contact.module.css";
 import FooterSection from "@/components/FooterSection";
 import ContactForm from "./ContactForm";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const faqItems = [
   {
@@ -46,46 +47,52 @@ export default function ContactPage() {
             </div>
 
             <div className={styles.formCol}>
-              <h1 className={styles.title}>Let&apos;s get in touch</h1>
-              <p className={styles.description}>
-                <span className={styles.descDesktop}>
-                  A quick hello 👋 is all it takes to start something great.
-                  Share about your project or idea below. We&apos;ll get back to
-                  you with next steps.
-                </span>
-                <span className={styles.descMobile}>
-                  A quick hello 👋 is all it takes to start<br />
-                  something great. Every collaboration<br />
-                  begins with a message, yours starts<br />
-                  here. Let&apos;s turn your idea into<br />
-                  something real, tell us more below.
-                </span>
-              </p>
+              <ScrollReveal>
+                <h1 className={styles.title}>Let&apos;s get in touch</h1>
+                <p className={styles.description}>
+                  <span className={styles.descDesktop}>
+                    A quick hello 👋 is all it takes to start something great.
+                    Share about your project or idea below. We&apos;ll get back to
+                    you with next steps.
+                  </span>
+                  <span className={styles.descMobile}>
+                    A quick hello 👋 is all it takes to start<br />
+                    something great. Every collaboration<br />
+                    begins with a message, yours starts<br />
+                    here. Let&apos;s turn your idea into<br />
+                    something real, tell us more below.
+                  </span>
+                </p>
 
-              <span className={styles.badge}>Contact Form</span>
+                <span className={styles.badge}>Contact Form</span>
+              </ScrollReveal>
 
-              <ContactForm />
+              <ScrollReveal delay={0.15}>
+                <ContactForm />
+              </ScrollReveal>
             </div>
           </div>
         </section>
 
         <section className={styles.faqSection}>
-          <div className={styles.faqLayout}>
-            <span className={styles.faqBadge}>FAQ</span>
+          <ScrollReveal>
+            <div className={styles.faqLayout}>
+              <span className={styles.faqBadge}>FAQ</span>
 
-            <div className={styles.faqList}>
-              {faqItems.map((item) => (
-                <details
-                  key={item.question}
-                  className={styles.faqItem}
-                  open={item.defaultOpen}
-                >
-                  <summary className={styles.faqQuestion}>{item.question}</summary>
-                  <p className={styles.faqAnswer}>{item.answer}</p>
-                </details>
-              ))}
+              <div className={styles.faqList}>
+                {faqItems.map((item) => (
+                  <details
+                    key={item.question}
+                    className={styles.faqItem}
+                    open={item.defaultOpen}
+                  >
+                    <summary className={styles.faqQuestion}>{item.question}</summary>
+                    <p className={styles.faqAnswer}>{item.answer}</p>
+                  </details>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         <FooterSection />

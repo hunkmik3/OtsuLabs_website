@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./leadership-team.module.css";
+import ScrollReveal from "../ScrollReveal";
 
 const rows = [
     [
@@ -35,16 +36,19 @@ const rows = [
 export default function LeadershipTeamSection() {
     return (
         <section className={styles.section}>
-            <div className={styles.badge}>LEADERSHIP TEAM</div>
+            <ScrollReveal>
+                <div className={styles.badge}>LEADERSHIP TEAM</div>
 
-            <h2 className={styles.heading}>
-                <span className={styles.headingDesktop}>Meet Otsu&apos;s Scientists ↓</span>
-                <span className={styles.headingMobile}><span>Meet Otsu&apos;s<br />Scientists</span> <span className={styles.arrowMobile}>↓</span></span>
-            </h2>
+                <h2 className={styles.heading}>
+                    <span className={styles.headingDesktop}>Meet Otsu&apos;s Scientists ↓</span>
+                    <span className={styles.headingMobile}><span>Meet Otsu&apos;s<br />Scientists</span> <span className={styles.arrowMobile}>↓</span></span>
+                </h2>
+            </ScrollReveal>
 
             <div className={styles.grid}>
                 {rows.map((row, rowIndex) => (
-                    <div key={rowIndex} className={styles.row}>
+                    <ScrollReveal key={rowIndex} delay={rowIndex * 0.08}>
+                    <div className={styles.row}>
                         {row.map((member, index) => (
                             <div key={index} className={styles.member}>
                                 <span className={styles.name}>
@@ -61,6 +65,7 @@ export default function LeadershipTeamSection() {
                             </div>
                         ))}
                     </div>
+                    </ScrollReveal>
                 ))}
             </div>
         </section>

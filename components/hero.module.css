@@ -16,6 +16,7 @@
     display: block;
     object-fit: cover;
     object-position: center bottom;
+    animation: heroImageIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .overlay {
@@ -39,12 +40,36 @@
     letter-spacing: -0.04em;
     color: #ffffff;
     margin: 0;
+    animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 .clocksRow {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    animation: heroFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes heroImageIn {
+    from {
+        opacity: 0;
+        transform: scale(1.03);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .clockItem {

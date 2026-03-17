@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import styles from "./video.module.css";
+import ScrollReveal from "./ScrollReveal";
 
 export default function VideoSection() {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -56,6 +57,7 @@ export default function VideoSection() {
     };
 
     return (
+        <ScrollReveal animation="fade" duration={1}>
         <section className={styles.videoSection}>
             <video
                 ref={videoRef}
@@ -81,5 +83,6 @@ export default function VideoSection() {
                 <span>OTSU LABS COLLECTION</span>
             </div>
         </section>
+        </ScrollReveal>
     );
 }

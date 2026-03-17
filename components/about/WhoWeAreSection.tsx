@@ -1,26 +1,30 @@
 import Image from "next/image";
 import styles from "./who-we-are.module.css";
+import ScrollReveal from "../ScrollReveal";
 
 export default function WhoWeAreSection() {
     return (
         <section className={styles.section}>
-            <div className={styles.badge}>WHO WE ARE</div>
+            <ScrollReveal>
+                <div className={styles.badge}>WHO WE ARE</div>
 
-            <h1 className={styles.heading}>
-                <span className={styles.headingDesktop}>
-                    Animators, artists,<br />
-                    storytellers, producers,<br />
-                    and just weebs.
-                </span>
-                <span className={styles.headingMobile}>
-                    Animators, artists,<br />
-                    storytellers,<br />
-                    producers, and just<br />
-                    weebs.
-                </span>
-            </h1>
+                <h1 className={styles.heading}>
+                    <span className={styles.headingDesktop}>
+                        Animators, artists,<br />
+                        storytellers, producers,<br />
+                        and just weebs.
+                    </span>
+                    <span className={styles.headingMobile}>
+                        Animators, artists,<br />
+                        storytellers,<br />
+                        producers, and just<br />
+                        weebs.
+                    </span>
+                </h1>
+            </ScrollReveal>
 
             <div className={styles.content}>
+                <ScrollReveal delay={0.1}>
                 <div className={styles.textColumn}>
                     <p className={styles.paragraph}>
                         <span className={styles.textDesktop}>
@@ -45,7 +49,8 @@ export default function WhoWeAreSection() {
                         </span>
                     </p>
                 </div>
-                <div className={styles.imageColumn}>
+                </ScrollReveal>
+                <ScrollReveal delay={0.2} animation="scale" className={styles.imageColumn}>
                     <Image
                         src="/images/about/image/about_banner.png"
                         alt="OtsuLabs team at work"
@@ -54,7 +59,7 @@ export default function WhoWeAreSection() {
                         className={styles.image}
                         priority
                     />
-                </div>
+                </ScrollReveal>
             </div>
         </section>
     );

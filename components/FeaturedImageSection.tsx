@@ -1,9 +1,11 @@
 import Image from "next/image";
 import styles from "./featured-image.module.css";
+import ScrollReveal from "./ScrollReveal";
 
 export default function FeaturedImageSection() {
     return (
         <section className={styles.section}>
+            <ScrollReveal animation="scale" duration={1} threshold={0.1}>
             <div className={styles.imageContainer}>
                 <img
                     src="/images/home/feature_image.png"
@@ -39,6 +41,7 @@ export default function FeaturedImageSection() {
                     </div>
                 </div>
             </div>
+            </ScrollReveal>
         </section>
     );
 }

@@ -68,7 +68,7 @@
     height: auto;
     display: block;
     object-fit: cover;
-    margin-left: 10%;
+    margin-left: auto;
 }
 
 @media (max-width: 1024px) {

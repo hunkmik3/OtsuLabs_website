@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './footer.module.css';
+import ScrollReveal from './ScrollReveal';
 
 const locations = [
     { name: 'Seoul, South Korea', tz: 'Asia/Seoul', offset: '+09:00' },
@@ -39,34 +40,38 @@ export default function FooterSection() {
 
     return (
         <footer className={styles.footer}>
-            <div className={styles.topContent}>
-                <div className={styles.headingBlock}>
-                    <h2 className={styles.title}>Let's set your brand in motion.</h2>
-                    <a href="mailto:contact@otsulabs.com" className={styles.email}>contact@otsulabs.com</a>
-                </div>
+            <ScrollReveal>
+                <div className={styles.topContent}>
+                    <div className={styles.headingBlock}>
+                        <h2 className={styles.title}>Let's set your brand in motion.</h2>
+                        <a href="mailto:contact@otsulabs.com" className={styles.email}>contact@otsulabs.com</a>
+                    </div>
 
-                <div className={styles.linksContainer}>
-                    <div className={styles.col}>
-                        <Link href="/about" className={styles.link}>ABOUT</Link>
-                        <Link href="/work" className={styles.link}>PROJECTS</Link>
-                        <span className={styles.link}>JOIN US</span>
-                        <Link href="/contact" className={styles.link}>CONTACT</Link>
-                    </div>
-                    <div className={styles.col}>
-                        <a href="https://www.linkedin.com/company/otsulabs/" target="_blank" rel="noreferrer" className={styles.link}>LINKEDIN</a>
-                        <a href="https://www.instagram.com/otsulabs/" target="_blank" rel="noreferrer" className={styles.link}>INSTAGRAM</a>
-                        <a href="https://twitter.com/OtsuLabs" target="_blank" rel="noreferrer" className={styles.link}>TWITTER</a>
-                        <a href="https://vimeo.com/otsulabs" target="_blank" rel="noreferrer" className={styles.link}>VIMEO</a>
+                    <div className={styles.linksContainer}>
+                        <div className={styles.col}>
+                            <Link href="/about" className={styles.link}>ABOUT</Link>
+                            <Link href="/work" className={styles.link}>PROJECTS</Link>
+                            <span className={styles.link}>JOIN US</span>
+                            <Link href="/contact" className={styles.link}>CONTACT</Link>
+                        </div>
+                        <div className={styles.col}>
+                            <a href="https://www.linkedin.com/company/otsulabs/" target="_blank" rel="noreferrer" className={styles.link}>LINKEDIN</a>
+                            <a href="https://www.instagram.com/otsulabs/" target="_blank" rel="noreferrer" className={styles.link}>INSTAGRAM</a>
+                            <a href="https://twitter.com/OtsuLabs" target="_blank" rel="noreferrer" className={styles.link}>TWITTER</a>
+                            <a href="https://vimeo.com/otsulabs" target="_blank" rel="noreferrer" className={styles.link}>VIMEO</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </ScrollReveal>
 
             {/* Character Image */}
-            <img
-                src="/images/home/otsu character.png"
-                alt="Otsu Character"
-                className={styles.characterImage}
-            />
+            <ScrollReveal animation="scale" delay={0.15}>
+                <img
+                    src="/images/home/otsu character.png"
+                    alt="Otsu Character"
+                    className={styles.characterImage}
+                />
+            </ScrollReveal>
 
             <div className={styles.bottomContent}>
                 <div className={styles.legal}>

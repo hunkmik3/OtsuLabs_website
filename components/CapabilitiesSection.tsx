@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./capabilities.module.css";
+import ScrollReveal from "./ScrollReveal";
 
 const capabilities = [
     { name: "Creative Direction", icon: "/images/home/icon/image 173.svg" },
@@ -23,20 +24,20 @@ const capabilities = [
 export default function CapabilitiesSection() {
     return (
         <section className={styles.section}>
-            <div className={styles.topContainer}>
-                <div className={styles.badge}>CAPABILITIES</div>
-                <p className={styles.description}>
-                    Animation for brands,<br />
-                    screens, and stories<br />
-                    of every scale. We&apos;re<br />
-                    your creative partner,<br />
-                    equipped to tackle<br />
-                    any challenge.<br />
-                    Delivering A-Z or<br />
-                    tailored solutions.
-                </p>
-            </div>
+            <ScrollReveal>
+                <div className={styles.topContainer}>
+                    <div className={styles.badge}>CAPABILITIES</div>
+                    <p className={styles.description}>
+                        Animation for brands,screens, and<br />
+                        stories of every scale. We&apos;re your<br />
+                        creative partner, equipped to tackle<br />
+                        any challenge. Delivering A-Z or<br />
+                        tailored solutions.
+                    </p>
+                </div>
+            </ScrollReveal>
 
+            <ScrollReveal delay={0.15}>
             <div className={styles.tagsContainer}>
                 {capabilities.map((cap, index) => (
                     <div key={index} className={styles.tag}>
@@ -59,6 +60,7 @@ export default function CapabilitiesSection() {
                     </div>
                 ))}
             </div>
+            </ScrollReveal>
         </section>
     );
 }

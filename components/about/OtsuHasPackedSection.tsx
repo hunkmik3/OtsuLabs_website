@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./otsu-has-packed.module.css";
+import ScrollReveal from "../ScrollReveal";
 
 const projects = [
     { name: "One Piece", role: "Key Animation", year: "1999", image: "/images/about/image/otsu has packed session/one_peace.png", shiftRole: true, mobileImageClass: "stripImageOnePiece" },
@@ -31,28 +32,31 @@ export default function OtsuHasPackedSection() {
 
     return (
         <section className={styles.section}>
-            <div className={styles.badge}>OTSU HAS PACKED</div>
+            <ScrollReveal>
+                <div className={styles.badge}>OTSU HAS PACKED</div>
 
-            <h2 className={styles.heading}>
-                <span className={styles.headingDesktop}>
-                    Our team members have<br />
-                    hands-on experience working<br />
-                    on iconic anime shows.
-                </span>
-                <span className={styles.headingMobile}>
-                    Our team members<br />
-                    have with hands-on<br />
-                    experience working<br />
-                    on iconic anime<br />
-                    shows.
-                </span>
-            </h2>
+                <h2 className={styles.heading}>
+                    <span className={styles.headingDesktop}>
+                        Our team members have<br />
+                        hands-on experience working<br />
+                        on iconic anime shows.
+                    </span>
+                    <span className={styles.headingMobile}>
+                        Our team members<br />
+                        have with hands-on<br />
+                        experience working<br />
+                        on iconic anime<br />
+                        shows.
+                    </span>
+                </h2>
 
-            <p className={styles.mobileDescription}>
+                <p className={styles.mobileDescription}>
                 Proudly represented Vietnam at Annecy 2025,<br />
                 including as a panelist at the WIA World Summit.
             </p>
+            </ScrollReveal>
 
+            <ScrollReveal delay={0.15}>
             <div className={`${styles.strips} ${showAll ? styles.stripsExpanded : ''}`}>
                 {projects.map((project, index) => (
                     <div
@@ -77,6 +81,7 @@ export default function OtsuHasPackedSection() {
                     </div>
                 ))}
             </div>
+            </ScrollReveal>
 
             <button ref={seeMoreRef} className={styles.seeMore} onClick={handleToggle}>
                 {showAll ? 'HIDE −' : 'SEE MORE +'}

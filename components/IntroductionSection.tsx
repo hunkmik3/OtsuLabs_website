@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./introduction.module.css";
+import ScrollReveal from "./ScrollReveal";
 
 export default function IntroductionSection() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -66,7 +67,7 @@ export default function IntroductionSection() {
     return (
         <section ref={sectionRef} className={styles.introSection}>
             <div className={styles.introContent}>
-                <div className={styles.introTextWrapper}>
+                <ScrollReveal className={styles.introTextWrapper}>
                     <span className={styles.badge}>INTRODUCTION</span>
                     <p ref={counterRef} className={styles.introText}>
                         <span className={styles.introTextDesktop}>
@@ -81,7 +82,7 @@ export default function IntroductionSection() {
                             climbing.
                         </span>
                     </p>
-                </div>
+                </ScrollReveal>
 
                 {/* Character image with parallax */}
                 <div ref={imageRef} className={styles.introImageWrapper}>

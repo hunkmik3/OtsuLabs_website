@@ -1,26 +1,30 @@
 import Image from "next/image";
 import styles from "./mentions.module.css";
+import ScrollReveal from "../ScrollReveal";
 
 export default function MentionsSection() {
     return (
         <section className={styles.section}>
-            <div className={styles.badge}>MENTIONS</div>
+            <ScrollReveal>
+                <div className={styles.badge}>MENTIONS</div>
 
-            <div className={styles.textBlock}>
-                <h2 className={styles.heading}>Annecy 2025</h2>
-                <p className={styles.description}>
-                    <span className={styles.descDesktop}>
-                        Proudly represented Vietnam at<br />
-                        Annecy 2025, including as a panelist<br />
-                        at the WIA World Summit.
-                    </span>
-                    <span className={styles.descMobile}>
-                        Proudly represented Vietnam at Annecy 2025,<br />
-                        including as a panelist at the WIA World Summit.
-                    </span>
-                </p>
-            </div>
+                <div className={styles.textBlock}>
+                    <h2 className={styles.heading}>Annecy 2025</h2>
+                    <p className={styles.description}>
+                        <span className={styles.descDesktop}>
+                            Proudly represented Vietnam at<br />
+                            Annecy 2025, including as a panelist<br />
+                            at the WIA World Summit.
+                        </span>
+                        <span className={styles.descMobile}>
+                            Proudly represented Vietnam at Annecy 2025,<br />
+                            including as a panelist at the WIA World Summit.
+                        </span>
+                    </p>
+                </div>
+            </ScrollReveal>
 
+            <ScrollReveal delay={0.15}>
             <div className={styles.imageRow}>
                 <div className={styles.imageLeft}>
                     <Image
@@ -41,6 +45,7 @@ export default function MentionsSection() {
                     />
                 </div>
             </div>
+            </ScrollReveal>
         </section>
     );
 }
