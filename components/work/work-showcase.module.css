@@ -52,16 +52,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 8.35vw;
+    height: 2.21vw;
+    padding: 0.32vw 0.64vw;
     background-color: #000;
     color: #fff;
     font-family: var(--font-geist-mono), monospace;
-    font-size: clamp(11px, 0.9vw, 14px);
+    font-size: 0.81vw;
     font-weight: 400;
-    letter-spacing: 0.05em;
+    line-height: 100%;
+    letter-spacing: 0;
     text-transform: uppercase;
-    padding: clamp(5px, 0.35vw, 7px) clamp(12px, 0.95vw, 18px);
-    border-radius: var(--radius-pill);
-    width: fit-content;
+    border-radius: 3.5vw;
+    white-space: nowrap;
     margin-top: 8px;
 }
 
@@ -212,6 +215,16 @@
 @media (max-width: 768px) {
     .section {
         padding-top: 80px;
+    }
+
+    .badge {
+        width: auto;
+        min-width: auto;
+        height: 18px;
+        padding: 0 9px;
+        border-radius: 999px;
+        font-size: 7px;
+        line-height: 100%;
     }
 
     .leftColumn {

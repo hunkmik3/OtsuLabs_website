@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./header.module.css";
+import RollingText from "./RollingText";
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function Header() {
                 <div className={styles.logoContainer}>
                     <Link href="/">
                         <Image
-                            src="/images/home/Frame 1948755263.png"
+                            src="/images/home/Otsu_Logo_white.png"
                             alt="OtsuLabs Logo"
                             width={50}
                             height={50}
@@ -24,18 +25,18 @@ export default function Header() {
                     </Link>
                 </div>
                 <nav className={styles.nav}>
-                    <Link href="/about" className={styles.navLink}>
-                        ABOUT
+                    <Link href="/about" className={`${styles.navLink} roll-trigger`} aria-label="About">
+                        <RollingText text="ABOUT" />
                     </Link>
-                    <Link href="/work" className={styles.navLink}>
-                        WORK
+                    <Link href="/work" className={`${styles.navLink} roll-trigger`} aria-label="Work">
+                        <RollingText text="WORK" />
                     </Link>
-                    <Link href="/contact" className={styles.navLink}>
-                        CONTACT
+                    <Link href="/contact" className={`${styles.navLink} roll-trigger`} aria-label="Contact">
+                        <RollingText text="CONTACT" />
                     </Link>
                 </nav>
-                <a href="mailto:contact@otsulabs.com" className={styles.contactLink}>
-                    CONTACT@OTSULABS.COM
+                <a href="mailto:contact@otsulabs.com" className={`${styles.contactLink} roll-trigger`} aria-label="contact@otsulabs.com">
+                    <RollingText text="CONTACT@OTSULABS.COM" />
                 </a>
 
                 {/* Mobile hamburger */}
@@ -63,7 +64,7 @@ export default function Header() {
                     <div className={styles.mobileMenuLogo}>
                         <Link href="/" onClick={() => setMenuOpen(false)}>
                             <Image
-                                src="/images/home/Frame 1948755263.png"
+                                src="/images/home/Otsu_Logo_white.png"
                                 alt="OtsuLabs Logo"
                                 width={50}
                                 height={50}
@@ -84,13 +85,19 @@ export default function Header() {
                 </div>
 
                 <nav className={styles.mobileNav}>
-                    <Link href="/about" className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>ABOUT</Link>
-                    <Link href="/work" className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>WORK</Link>
-                    <Link href="/contact" className={styles.mobileNavLink} onClick={() => setMenuOpen(false)}>CONTACT</Link>
+                    <Link href="/about" className={`${styles.mobileNavLink} roll-trigger`} aria-label="About" onClick={() => setMenuOpen(false)}>
+                        <RollingText text="ABOUT" />
+                    </Link>
+                    <Link href="/work" className={`${styles.mobileNavLink} roll-trigger`} aria-label="Work" onClick={() => setMenuOpen(false)}>
+                        <RollingText text="WORK" />
+                    </Link>
+                    <Link href="/contact" className={`${styles.mobileNavLink} roll-trigger`} aria-label="Contact" onClick={() => setMenuOpen(false)}>
+                        <RollingText text="CONTACT" />
+                    </Link>
                 </nav>
 
-                <a href="mailto:contact@otsulabs.com" className={styles.mobileContactLink} onClick={() => setMenuOpen(false)}>
-                    CONTACT@OTSULABS.COM
+                <a href="mailto:contact@otsulabs.com" className={`${styles.mobileContactLink} roll-trigger`} aria-label="contact@otsulabs.com" onClick={() => setMenuOpen(false)}>
+                    <RollingText text="CONTACT@OTSULABS.COM" />
                 </a>
             </div>
         </>

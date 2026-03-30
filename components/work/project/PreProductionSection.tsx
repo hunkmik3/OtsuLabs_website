@@ -120,7 +120,7 @@ export default function PreProductionSection({
         <section className={styles.preProductionSection}>
             <div className={styles.preProductionHeader}>
                 <h2 className={styles.preProductionTitle}>{preProductionDescription}</h2>
-                <span className={styles.preProductionBadge}>Pre-Production</span>
+                <span className={`${styles.preProductionBadge} badge-animate`}>Pre-Production</span>
             </div>
 
             <div className={styles.characterSheetRow}>

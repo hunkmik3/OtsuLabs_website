@@ -36,8 +36,8 @@ const rows = [
 export default function LeadershipTeamSection() {
     return (
         <section className={styles.section}>
-            <ScrollReveal>
-                <div className={styles.badge}>LEADERSHIP TEAM</div>
+            <ScrollReveal animation="fade">
+                <div className={`${styles.badge} badge-animate`}>LEADERSHIP TEAM</div>
 
                 <h2 className={styles.heading}>
                     <span className={styles.headingDesktop}>Meet Otsu&apos;s Scientists ↓</span>

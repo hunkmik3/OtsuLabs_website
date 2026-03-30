@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './footer.module.css';
 import ScrollReveal from './ScrollReveal';
+import RollingText from './RollingText';
 
 const locations = [
     { name: 'Seoul, South Korea', tz: 'Asia/Seoul', offset: '+09:00' },
@@ -44,21 +45,39 @@ export default function FooterSection() {
                 <div className={styles.topContent}>
                     <div className={styles.headingBlock}>
                         <h2 className={styles.title}>Let's set your brand in motion.</h2>
-                        <a href="mailto:contact@otsulabs.com" className={styles.email}>contact@otsulabs.com</a>
+                        <a href="mailto:contact@otsulabs.com" className={`${styles.email} roll-trigger`} aria-label="contact@otsulabs.com">
+                            <RollingText text="contact@otsulabs.com" />
+                        </a>
                     </div>
 
                     <div className={styles.linksContainer}>
                         <div className={styles.col}>
-                            <Link href="/about" className={styles.link}>ABOUT</Link>
-                            <Link href="/work" className={styles.link}>PROJECTS</Link>
-                            <span className={styles.link}>JOIN US</span>
-                            <Link href="/contact" className={styles.link}>CONTACT</Link>
+                            <Link href="/about" className={`${styles.link} roll-trigger`} aria-label="About">
+                                <RollingText text="ABOUT" />
+                            </Link>
+                            <Link href="/work" className={`${styles.link} roll-trigger`} aria-label="Projects">
+                                <RollingText text="PROJECTS" />
+                            </Link>
+                            <span className={`${styles.link} roll-trigger`} aria-label="Join us">
+                                <RollingText text="JOIN US" />
+                            </span>
+                            <Link href="/contact" className={`${styles.link} roll-trigger`} aria-label="Contact">
+                                <RollingText text="CONTACT" />
+                            </Link>
                         </div>
                         <div className={styles.col}>
-                            <a href="https://www.linkedin.com/company/otsulabs/" target="_blank" rel="noreferrer" className={styles.link}>LINKEDIN</a>
-                            <a href="https://www.instagram.com/otsulabs/" target="_blank" rel="noreferrer" className={styles.link}>INSTAGRAM</a>
-                            <a href="https://twitter.com/OtsuLabs" target="_blank" rel="noreferrer" className={styles.link}>TWITTER</a>
-                            <a href="https://vimeo.com/otsulabs" target="_blank" rel="noreferrer" className={styles.link}>VIMEO</a>
+                            <a href="https://www.linkedin.com/company/otsulabs/" target="_blank" rel="noreferrer" className={`${styles.link} roll-trigger`} aria-label="LinkedIn">
+                                <RollingText text="LINKEDIN" />
+                            </a>
+                            <a href="https://www.instagram.com/otsulabs/" target="_blank" rel="noreferrer" className={`${styles.link} roll-trigger`} aria-label="Instagram">
+                                <RollingText text="INSTAGRAM" />
+                            </a>
+                            <a href="https://x.com/OtsuLabs" target="_blank" rel="noreferrer" className={`${styles.link} roll-trigger`} aria-label="Twitter">
+                                <RollingText text="TWITTER" />
+                            </a>
+                            <a href="https://vimeo.com/otsulabs" target="_blank" rel="noreferrer" className={`${styles.link} roll-trigger`} aria-label="Vimeo">
+                                <RollingText text="VIMEO" />
+                            </a>
                         </div>
                     </div>
                 </div>

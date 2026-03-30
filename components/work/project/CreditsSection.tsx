@@ -49,7 +49,7 @@ export default function CreditsSection({
             <div className={styles.creditsLayout}>
                 <div className={styles.creditsIntro}>
                     <h2 className={styles.creditsTitle}>{title}</h2>
-                    <span className={styles.creditsBadge}>Credits</span>
+                    <span className={`${styles.creditsBadge} badge-animate`}>Credits</span>
                 </div>
 
                 <div className={styles.creditsColumn}>

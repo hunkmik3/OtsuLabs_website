@@ -24,9 +24,9 @@ const row3Logos = [
 export default function ClientsSection() {
     return (
         <section className={styles.clientsSection}>
-            <ScrollReveal>
+            <ScrollReveal animation="fade">
                 <div className={styles.clientsHeader}>
-                    <span className={styles.badge}>OUR CLIENTS</span>
+                    <span className={`${styles.badge} badge-animate`}>OUR CLIENTS</span>
                     <p className={styles.description}>
                         Otsu Labs is a creative<br />
                         studio crafting frame-<br />

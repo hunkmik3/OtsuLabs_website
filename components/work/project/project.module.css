@@ -45,9 +45,13 @@
     border-radius: calc(28 * var(--vw-unit));
     padding: clamp(20px, 2.1vw, 33px) clamp(41px, 4.3vw, 69px);
     max-width: calc(897 * var(--vw-unit));
+    width: min(100%, calc(897 * var(--vw-unit)));
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: calc(13 * var(--vw-unit));
+    overflow: hidden;
+    container-type: inline-size;
 }
 
 .viewFullVideo {
@@ -61,24 +65,31 @@
 
 .heroTitle {
     font-family: var(--font-geist-sans);
-    font-size: clamp(79px, 8.8vw, 140px);
+    font-size: clamp(48px, 15cqw, 140px);
     font-weight: 400;
     line-height: 1.05;
     letter-spacing: -0.03em;
     color: #fff;
     margin: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .heroMeta {
     display: flex;
-    gap: clamp(69px, 8.6vw, 173px);
+    flex-wrap: wrap;
+    gap: clamp(18px, 2.6vw, 48px);
     margin-top: calc(10 * var(--vw-unit));
+    max-width: 100%;
 }
 
 .heroMetaItem {
     display: flex;
     flex-direction: column;
     gap: calc(7 * var(--vw-unit));
+    min-width: 0;
 }
 
 .heroMetaLabel {
@@ -94,6 +105,8 @@
     font-size: clamp(17px, 1.5vw, 24px);
     color: #fff;
     letter-spacing: 0.02em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .animationTime {
@@ -1205,6 +1218,7 @@
         padding: 25px 20px 32px;
         border-radius: 16px;
         gap: 16px;
+        overflow: hidden;
     }
 
     .viewFullVideo {
@@ -1212,11 +1226,16 @@
     }
 
     .heroTitle {
-        font-size: clamp(28px, 7vw, 42px);
+        font-size: clamp(28px, 13cqw, 42px);
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
     }
 
     .heroMeta {
+        flex-wrap: wrap;
         gap: 24px;
+        row-gap: 10px;
     }
 
     .heroMetaLabel {

@@ -323,10 +323,10 @@ export default function WorkShowcase({ projects }: WorkShowcaseProps) {
                     <div
                         className={`${styles.details} ${isTransitioning ? styles.fadeOut : styles.fadeIn}`}
                     >
-                        <span className={styles.badge}>CLIENT&apos;S NAME</span>
+                        <span className={`${styles.badge} badge-animate`}>CLIENT&apos;S NAME</span>
                         <p className={styles.clientName}>{active.client}</p>
 
-                        <span className={styles.badge}>SCOPE</span>
+                        <span className={`${styles.badge} badge-animate`}>SCOPE</span>
                         <p className={styles.scopeText}>
                             [{active.scope}]
                         </p>
@@ -358,9 +358,9 @@ export default function WorkShowcase({ projects }: WorkShowcaseProps) {
                         </Link>
                         <div className={styles.mobileCardInfo}>
                             <h2 className={styles.mobileCardTitle}>{project.projectTitle}</h2>
-                            <span className={styles.badge}>CLIENT&apos;S NAME</span>
+                            <span className={`${styles.badge} badge-animate`}>CLIENT&apos;S NAME</span>
                             <p className={styles.clientName}>{project.client}</p>
-                            <span className={styles.badge}>SCOPE</span>
+                            <span className={`${styles.badge} badge-animate`}>SCOPE</span>
                             <p className={styles.scopeText}>[{project.scope}]</p>
                         </div>
                     </div>

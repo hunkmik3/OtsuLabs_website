@@ -5,8 +5,8 @@ import ScrollReveal from "../ScrollReveal";
 export default function MentionsSection() {
     return (
         <section className={styles.section}>
-            <ScrollReveal>
-                <div className={styles.badge}>MENTIONS</div>
+            <ScrollReveal animation="fade">
+                <div className={`${styles.badge} badge-animate`}>MENTIONS</div>
 
                 <div className={styles.textBlock}>
                     <h2 className={styles.heading}>Annecy 2025</h2>

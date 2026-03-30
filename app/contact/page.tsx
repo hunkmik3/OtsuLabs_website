@@ -64,7 +64,7 @@ export default function ContactPage() {
                   </span>
                 </p>
 
-                <span className={styles.badge}>Contact Form</span>
+                <span className={`${styles.badge} badge-animate`}>Contact Form</span>
               </ScrollReveal>
 
               <ScrollReveal delay={0.15}>
@@ -77,7 +77,7 @@ export default function ContactPage() {
         <section className={styles.faqSection}>
           <ScrollReveal>
             <div className={styles.faqLayout}>
-              <span className={styles.faqBadge}>FAQ</span>
+              <span className={`${styles.faqBadge} badge-animate`}>FAQ</span>
 
               <div className={styles.faqList}>
                 {faqItems.map((item) => (

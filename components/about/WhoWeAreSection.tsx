@@ -5,8 +5,8 @@ import ScrollReveal from "../ScrollReveal";
 export default function WhoWeAreSection() {
     return (
         <section className={styles.section}>
-            <ScrollReveal>
-                <div className={styles.badge}>WHO WE ARE</div>
+            <ScrollReveal animation="fade">
+                <div className={`${styles.badge} badge-animate`}>WHO WE ARE</div>
 
                 <h1 className={styles.heading}>
                     <span className={styles.headingDesktop}>

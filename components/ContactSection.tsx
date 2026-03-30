@@ -4,8 +4,8 @@ import ScrollReveal from "./ScrollReveal";
 export default function ContactSection() {
     return (
         <section className={styles.section}>
-            <ScrollReveal>
-                <div className={styles.badge}>LET US KNOW</div>
+            <ScrollReveal animation="fade">
+                <div className={`${styles.badge} badge-animate`}>LET US KNOW</div>
             </ScrollReveal>
 
             <div className={styles.content}>

@@ -14,14 +14,23 @@
 }
 
 .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 8.35vw;
+    height: 2.21vw;
     background-color: #000000;
     color: #ffffff;
-    padding: clamp(8px, 0.75vw, 13px) clamp(16px, 1.55vw, 28px);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-geist-mono);
-    font-size: clamp(11px, 0.82vw, 14px);
-    text-transform: uppercase;
-    font-weight: 500;
+    padding: 0.32vw 0.64vw;
+    border-radius: 3.5vw;
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 0.81vw;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+    gap: 0.56vw;
 }
 
 .description {
@@ -77,6 +86,17 @@
 }
 
 @media (max-width: 768px) {
+    .badge {
+        width: auto;
+        min-width: auto;
+        height: 18px;
+        padding: 0 9px;
+        border-radius: 999px;
+        font-size: 7px;
+        line-height: 100%;
+        gap: 0;
+    }
+
     .topContainer {
         flex-direction: column;
     }

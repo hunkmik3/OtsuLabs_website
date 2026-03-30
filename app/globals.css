@@ -79,3 +79,66 @@ body.is-admin-route [data-cms-global-header-overlay],
 body.is-admin-route [data-cms-global-header-menu] {
   display: none !important;
 }
+
+.roll-trigger {
+  overflow: hidden;
+}
+
+.roll-text {
+  display: inline-flex;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.roll-letter {
+  position: relative;
+  display: inline-flex;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.roll-letter-down {
+  position: absolute;
+  transform: translateY(100%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .roll-trigger:hover .roll-letter {
+    transform: translateY(-100%);
+  }
+
+  .badge-animate {
+    animation: badgeFadeIn 320ms ease both;
+    transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  .badge-animate:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+    filter: saturate(1.04);
+  }
+}
+
+@keyframes badgeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-animate,
+  .badge-animate:hover {
+    transition: none;
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+}

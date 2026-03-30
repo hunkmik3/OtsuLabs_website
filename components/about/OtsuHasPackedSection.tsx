@@ -32,8 +32,8 @@ export default function OtsuHasPackedSection() {
 
     return (
         <section className={styles.section}>
-            <ScrollReveal>
-                <div className={styles.badge}>OTSU HAS PACKED</div>
+            <ScrollReveal animation="fade">
+                <div className={`${styles.badge} badge-animate`}>OTSU HAS PACKED</div>
 
                 <h2 className={styles.heading}>
                     <span className={styles.headingDesktop}>

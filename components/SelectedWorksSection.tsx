@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./selected-works.module.css";
+import RollingText from "./RollingText";
 
 const works = [
     {
@@ -46,7 +47,7 @@ export default function SelectedWorksSection() {
             </div>
 
             <div className={styles.metadataBar}>
-                <span className={styles.yearBadge}>22-25</span>
+                <span className={`${styles.yearBadge} badge-animate`}>22-25</span>
                 <span className={styles.clientInfo}>CLIENT: PIXELMON OFFICIAL ANIME | OTSU LABS COLLECTION</span>
             </div>
 
@@ -72,7 +73,9 @@ export default function SelectedWorksSection() {
                                     sizes="(max-width: 1024px) 100vw, 92vw"
                                 />
                             )}
-                            <button className={styles.viewButton}>VIEW PROJECT</button>
+                            <button className={`${styles.viewButton} roll-trigger`} aria-label="View project">
+                                <RollingText text="VIEW PROJECT" />
+                            </button>
                         </div>
                         <div className={styles.cardFooter}>
                             <div className={styles.textInfo}>

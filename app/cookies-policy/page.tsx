@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { buildSeoMetadata } from "@/lib/seo/metadata-builder";
 import { getStaticPageSeo } from "@/lib/seo/page-seo";
+import FooterSection from "@/components/FooterSection";
 import styles from "@/app/privacy-policy/privacy-policy.module.css";
 
 export const metadata: Metadata = buildSeoMetadata(getStaticPageSeo("cookiesPolicy"));
@@ -19,6 +20,7 @@ export default function CookiesPolicyPage() {
                     contact <a href="mailto:contact@otsulabs.com">contact@otsulabs.com</a>.
                 </p>
             </main>
+            <FooterSection />
         </div>
     );
 }

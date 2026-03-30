@@ -32,7 +32,7 @@ export default function PostProductionSection({
                 <div className={styles.postProductionLeft}>
                     <h2 className={styles.postProductionTitle}>{title}</h2>
                     <div className={styles.postProductionBadgeRow}>
-                        <span className={styles.postProductionBadge}>Post-Production</span>
+                        <span className={`${styles.postProductionBadge} badge-animate`}>Post-Production</span>
                         <p className={styles.postProductionTerms}>{terms}</p>
                     </div>
                 </div>

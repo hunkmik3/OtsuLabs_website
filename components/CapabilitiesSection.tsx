@@ -24,9 +24,9 @@ const capabilities = [
 export default function CapabilitiesSection() {
     return (
         <section className={styles.section}>
-            <ScrollReveal>
+            <ScrollReveal animation="fade">
                 <div className={styles.topContainer}>
-                    <div className={styles.badge}>CAPABILITIES</div>
+                    <div className={`${styles.badge} badge-animate`}>CAPABILITIES</div>
                     <p className={styles.description}>
                         Animation for brands,screens, and<br />
                         stories of every scale. We&apos;re your<br />

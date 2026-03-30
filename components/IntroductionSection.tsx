@@ -67,8 +67,8 @@ export default function IntroductionSection() {
     return (
         <section ref={sectionRef} className={styles.introSection}>
             <div className={styles.introContent}>
-                <ScrollReveal className={styles.introTextWrapper}>
-                    <span className={styles.badge}>INTRODUCTION</span>
+                <ScrollReveal animation="fade" className={styles.introTextWrapper}>
+                    <span className={`${styles.badge} badge-animate`}>INTRODUCTION</span>
                     <p ref={counterRef} className={styles.introText}>
                         <span className={styles.introTextDesktop}>
                             We are a lab for world class <br />storytelling. Thousands of <br />seconds of animation <br />shipped. <span>{count}M+</span> views <br />and climbing.

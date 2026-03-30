@@ -18,7 +18,7 @@ export default function ProductionSection({
     return (
         <section className={styles.productionSection}>
             <div className={styles.productionHeader}>
-                <span className={styles.productionBadge}>Production</span>
+                <span className={`${styles.productionBadge} badge-animate`}>Production</span>
                 <h2 className={styles.productionDescription}>
                     {descriptionLines.map((line, i) => (
                         <span key={`${line}-${i}`} className={styles.productionDescriptionLine}>

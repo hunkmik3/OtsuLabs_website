@@ -13,13 +13,13 @@ export default function AboutProjectSection({ aboutDescription, scopeOfWork, sco
         <section className={styles.aboutSection}>
             <div className={styles.aboutRow}>
                 <div className={styles.aboutBadgeCol}>
-                    <span className={styles.aboutBadge}>About Projects</span>
+                    <span className={`${styles.aboutBadge} badge-animate`}>About Projects</span>
                 </div>
                 <p className={styles.aboutDescription}>{aboutDescription}</p>
             </div>
 
             <div className={styles.scopeBadge}>
-                <span className={styles.aboutBadge}>Scope of Work</span>
+                <span className={`${styles.aboutBadge} badge-animate`}>Scope of Work</span>
             </div>
             <div className={styles.scopeList}>
                 {scopeOfWork.map((item, i) => (

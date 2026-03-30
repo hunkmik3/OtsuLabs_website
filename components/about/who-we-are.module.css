@@ -8,19 +8,21 @@
 .badge {
     position: absolute;
     right: var(--content-pad-x);
-    top: clamp(72px, 6vw, 116px);
+    top: calc(clamp(72px, 6vw, 116px) + 1.8vw);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5vw 1.1vw;
+    width: 8.35vw;
+    height: 2.21vw;
+    padding: 0.32vw 0.64vw;
     font-family: var(--font-geist-mono), monospace;
-    font-size: 1vw;
+    font-size: 0.81vw;
     font-weight: 400;
     line-height: 100%;
     color: #ffffff;
     background-color: #000000;
     border-radius: 3.5vw;
-    letter-spacing: 0.02em;
+    letter-spacing: 0;
     white-space: nowrap;
 }
 
@@ -78,8 +80,13 @@
 
     .badge {
         position: static;
-        font-size: 12px;
-        padding: 7px 16px;
+        width: auto;
+        min-width: auto;
+        height: 18px;
+        padding: 0 9px;
+        border-radius: 999px;
+        font-size: 7px;
+        line-height: 100%;
         margin-bottom: 24px;
     }
 
@@ -140,8 +147,12 @@
 
     .badge {
         position: static;
-        font-size: 9px;
-        padding: 6px 12px;
+        width: auto;
+        min-width: auto;
+        height: 18px;
+        padding: 0 9px;
+        font-size: 7px;
+        line-height: 100%;
         margin-bottom: 16px;
         border-radius: 999px;
     }
