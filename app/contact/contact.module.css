@@ -95,14 +95,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 13.2vw;
-    height: 3.5vw;
-    padding: 0.5vw 1vw;
+    width: 8.35vw;
+    height: 2.21vw;
+    padding: 0.32vw 0.64vw;
     border-radius: 3.5vw;
     background: #000;
     color: #fff;
     font-family: var(--font-geist-mono), monospace;
-    font-size: 1.4vw;
+    font-size: 0.81vw;
     line-height: 100%;
     letter-spacing: 0;
     text-transform: uppercase;
@@ -251,14 +251,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 13.2vw;
-    height: 3.5vw;
-    padding: 0.5vw 1vw;
+    width: 8.35vw;
+    height: 2.21vw;
+    padding: 0.32vw 0.64vw;
     border-radius: 3.5vw;
     background: #000;
     color: #fff;
     font-family: var(--font-geist-mono), monospace;
-    font-size: 1.4vw;
+    font-size: 0.81vw;
     line-height: 100%;
     text-transform: uppercase;
     letter-spacing: 0;
@@ -395,20 +395,20 @@
     .badge {
         width: auto;
         min-width: auto;
-        height: 28px;
-        padding: 0 14px;
+        height: 18px;
+        padding: 0 9px;
         border-radius: 999px;
-        font-size: 11px;
+        font-size: 7px;
         line-height: 100%;
     }
 
     .faqBadge {
         width: auto;
         min-width: auto;
-        height: 28px;
-        padding: 0 14px;
+        height: 18px;
+        padding: 0 9px;
         border-radius: 999px;
-        font-size: 11px;
+        font-size: 7px;
         line-height: 100%;
     }
 

@@ -60,14 +60,18 @@
     justify-content: center;
     background-color: #000000;
     color: #ffffff;
-    width: clamp(80px, 5.3vw, 101px);
-    height: clamp(36px, 2.5vw, 48px);
-    padding: clamp(6px, 0.35vw, 7px) clamp(14px, 1.1vw, 21px);
-    border-radius: var(--radius-pill);
-    font-size: clamp(11px, 0.82vw, 16px);
-    /* Adjusted slightly to fit comfortably in 34px height */
-    gap: 10px;
+    width: 8.35vw;
+    height: 2.21vw;
+    padding: 0.32vw 0.64vw;
+    border-radius: 3.5vw;
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 0.81vw;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0;
+    gap: 0.56vw;
     margin-left: 15px;
+    white-space: nowrap;
 }
 
 .clientInfo {
@@ -230,10 +234,13 @@
 
     .yearBadge {
         width: auto;
-        height: auto;
-        padding: 7px 14px;
+        min-width: auto;
+        height: 18px;
+        padding: 0 9px;
         margin-left: 0;
-        font-size: 12px;
+        border-radius: 999px;
+        font-size: 7px;
+        line-height: 100%;
     }
 
     .clientInfo {
@@ -289,11 +296,11 @@
     }
 
     .yearBadge {
-        height: 26px;
+        height: 18px;
         min-width: auto;
-        padding: 0 12px;
+        padding: 0 9px;
         border-radius: 999px;
-        font-size: 10px;
+        font-size: 7px;
         line-height: 100%;
     }
 
